@@ -58,6 +58,32 @@ const heroVariationMap: Record<string, "A" | "B" | "C" | "D"> = {
   "murrieta": "A", "temecula": "B",
 };
 
+function getTestimonial(variation: "A" | "B" | "C" | "D", cityName: string) {
+  switch (variation) {
+    case "A":
+      return { quote: "Fixed our AC the same day we called. Showed up on time, explained everything, and didn't try to upsell us.", attribution: `${cityName} homeowner` };
+    case "B":
+      return { quote: "Honest, fast, and professional. They diagnosed the problem in minutes and had it running before lunch.", attribution: "Local customer" };
+    case "C":
+      return { quote: "Our furnace quit on the coldest night of the year. They came out the next morning and had it fixed in one visit.", attribution: `${cityName} resident` };
+    case "D":
+      return { quote: "Best HVAC experience we've had. Fair pricing, clear communication, and the repair has held up perfectly.", attribution: `${cityName} homeowner` };
+  }
+}
+
+function getCtaText(variation: "A" | "B" | "C" | "D", cityName: string) {
+  switch (variation) {
+    case "A":
+      return { midHeading: `Need HVAC service in ${cityName}?`, midSub: "Get your system fixed today — fast response guaranteed.", buttonPrimary: `Call for Same-Day Service`, buttonSecondary: "Schedule Online" };
+    case "B":
+      return { midHeading: `Ready to fix your system in ${cityName}?`, midSub: "Talk to a real person and get a straight answer.", buttonPrimary: `Call Now — No Wait`, buttonSecondary: "Request Service" };
+    case "C":
+      return { midHeading: `HVAC problems in ${cityName}?`, midSub: "We respond the same day with experienced technicians.", buttonPrimary: `Get Help Today`, buttonSecondary: "Book a Visit" };
+    case "D":
+      return { midHeading: `Schedule HVAC service in ${cityName}`, midSub: "No pressure. Just honest recommendations and fast results.", buttonPrimary: `Call for Fast Service`, buttonSecondary: "Request Estimate" };
+  }
+}
+
 function getHeroText(variation: "A" | "B" | "C" | "D", cityName: string) {
   switch (variation) {
     case "A":
@@ -91,6 +117,8 @@ export default async function CityPage({ params }: CityPageProps) {
   const { city, content } = page;
   const heroVariation = heroVariationMap[slug] ?? "A";
   const hero = getHeroText(heroVariation, city);
+  const testimonial = getTestimonial(heroVariation, city);
+  const cta = getCtaText(heroVariation, city);
 
   // Lead-in sentences: 4 variations per service, keyed by hero variation
   const leadIns: Record<string, Record<"A" | "B" | "C" | "D", string>> = {
@@ -224,6 +252,23 @@ export default async function CityPage({ params }: CityPageProps) {
         </div>
       </section>
 
+      {/* ── TESTIMONIAL SNIPPET ── */}
+      <section className="bg-slate-50 py-6">
+        <div className="mx-auto max-w-7xl px-6">
+          <figure className="flex items-start gap-3">
+            <Star className="mt-0.5 h-4 w-4 shrink-0 fill-amber-400 text-amber-400" />
+            <div>
+              <blockquote className="text-sm italic leading-relaxed text-slate-600">
+                &ldquo;{testimonial.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-1 text-xs font-semibold text-slate-400">
+                — {testimonial.attribution}
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+      </section>
+
       {/* ── INTRO + HERO IMAGE ── */}
       <section className="bg-white py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-6">
@@ -298,15 +343,15 @@ export default async function CityPage({ params }: CityPageProps) {
       <section className="bg-navy py-10 sm:py-12">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-6 sm:flex-row sm:justify-between">
           <div className="text-center sm:text-left">
-            <p className="font-heading text-xl font-extrabold text-white sm:text-2xl">Need HVAC service in {city}?</p>
-            <p className="mt-1 text-sm text-slate-400">Call now or request service online.</p>
+            <p className="font-heading text-xl font-extrabold text-white sm:text-2xl">{cta.midHeading}</p>
+            <p className="mt-1 text-sm text-slate-400">{cta.midSub}</p>
           </div>
           <div className="flex shrink-0 gap-3">
             <a href={companyInfo.phoneHref} className="inline-flex items-center gap-2 rounded-xl bg-brand-red px-6 py-3 text-sm font-bold text-white transition-all hover:bg-brand-red-dark hover:-translate-y-0.5">
-              <Phone className="h-4 w-4" /> {companyInfo.phone}
+              <Phone className="h-4 w-4" /> {cta.buttonPrimary}
             </a>
             <Link href="/contact-us/" className="inline-flex items-center gap-2 rounded-xl border-2 border-white/20 px-6 py-3 text-sm font-bold text-white transition-all hover:border-white hover:bg-white/10">
-              Request Service
+              {cta.buttonSecondary}
             </Link>
           </div>
         </div>
