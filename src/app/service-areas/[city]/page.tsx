@@ -89,22 +89,22 @@ function getHeroText(variation: "A" | "B" | "C" | "D", cityName: string) {
     case "A":
       return {
         tagline: `Fast, Reliable HVAC Services in ${cityName}, CA`,
-        description: `When your AC or heater stops working, you need it fixed fast — not "sometime this week." Same-day HVAC service with experienced technicians who diagnose and fix problems quickly.`,
+        description: `When your AC or heater stops working, you need it fixed fast — not "sometime this week." Don't wait for a full breakdown. Same-day HVAC service with experienced technicians who diagnose and fix problems quickly.`,
       };
     case "B":
       return {
         tagline: `Trusted Heating & Cooling Services in ${cityName}`,
-        description: "Dealing with an HVAC issue? Waiting days for service isn't an option. Fast, professional HVAC repairs and installations to help you stay comfortable without delays.",
+        description: "Dealing with an HVAC issue? Every hour you wait, the problem gets more expensive. Fast, professional HVAC repairs and installations to help you stay comfortable without delays.",
       };
     case "C":
       return {
         tagline: `HVAC Repair & Installation in ${cityName}, CA`,
-        description: "Whether your system stopped working or just isn't keeping up, we're here to help. Dependable HVAC services with quick response times and experienced technicians.",
+        description: "Whether your system stopped working or just isn't keeping up, fix it before it gets worse. Dependable HVAC services with quick response times and experienced technicians.",
       };
     case "D":
       return {
         tagline: `Local HVAC Experts Serving ${cityName}, CA`,
-        description: "When your heating or cooling system isn't working right, you need a solution — not a delay. Prompt HVAC service to get reliable comfort back fast.",
+        description: "When your heating or cooling system isn't working right, you need a solution today — not next week. Prompt HVAC service to get reliable comfort back fast.",
       };
   }
 }
@@ -221,51 +221,60 @@ export default async function CityPage({ params }: CityPageProps) {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-2 divide-x divide-slate-200 sm:grid-cols-4">
             <div className="flex items-center gap-3 py-5 pr-4 sm:justify-center sm:px-4">
-              <Clock className="h-5 w-5 shrink-0 text-brand-blue" />
+              <Star className="h-5 w-5 shrink-0 fill-amber-400 text-amber-400" />
               <div>
-                <p className="text-sm font-bold text-navy">Same-Day Service</p>
-                <p className="text-xs text-slate-500">In {city}</p>
+                <p className="text-sm font-bold text-navy">4.9-Star Rated</p>
+                <p className="text-xs text-slate-500">Local HVAC Company</p>
               </div>
             </div>
             <div className="flex items-center gap-3 py-5 pl-4 sm:justify-center sm:px-4">
               <Shield className="h-5 w-5 shrink-0 text-brand-blue" />
               <div>
                 <p className="text-sm font-bold text-navy">Licensed &amp; Insured</p>
-                <p className="text-xs text-slate-500">Fully Certified</p>
+                <p className="text-xs text-slate-500">CA State Certified</p>
               </div>
             </div>
             <div className="flex items-center gap-3 border-t border-slate-200 py-5 pr-4 sm:justify-center sm:border-t-0 sm:px-4">
-              <Star className="h-5 w-5 shrink-0 fill-amber-400 text-amber-400" />
+              <Clock className="h-5 w-5 shrink-0 text-brand-blue" />
               <div>
-                <p className="text-sm font-bold text-navy">5-Star Rating</p>
-                <p className="text-xs text-slate-500">500+ Reviews</p>
+                <p className="text-sm font-bold text-navy">Same-Day Service</p>
+                <p className="text-xs text-slate-500">Available in {city}</p>
               </div>
             </div>
             <div className="flex items-center gap-3 border-t border-slate-200 py-5 pl-4 sm:justify-center sm:border-t-0 sm:px-4">
               <BadgeCheck className="h-5 w-5 shrink-0 text-brand-blue" />
               <div>
-                <p className="text-sm font-bold text-navy">Satisfaction Guarantee</p>
-                <p className="text-xs text-slate-500">100% Guaranteed</p>
+                <p className="text-sm font-bold text-navy">20+ Years Experience</p>
+                <p className="text-xs text-slate-500">Inland Empire</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── TESTIMONIAL SNIPPET ── */}
+      {/* ── TESTIMONIAL + FRICTION REDUCER ── */}
       <section className="bg-slate-50 py-6">
         <div className="mx-auto max-w-7xl px-6">
-          <figure className="flex items-start gap-3">
-            <Star className="mt-0.5 h-4 w-4 shrink-0 fill-amber-400 text-amber-400" />
-            <div>
-              <blockquote className="text-sm italic leading-relaxed text-slate-600">
-                &ldquo;{testimonial.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-1 text-xs font-semibold text-slate-400">
-                — {testimonial.attribution}
-              </figcaption>
-            </div>
-          </figure>
+          <div className="rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
+            <figure className="flex items-start gap-3">
+              <div className="flex gap-0.5 pt-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <div>
+                <blockquote className="text-[15px] italic leading-relaxed text-slate-700">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-1.5 text-xs font-semibold text-slate-400">
+                  — {testimonial.attribution}
+                </figcaption>
+              </div>
+            </figure>
+          </div>
+          <p className="mt-4 text-center text-xs font-medium tracking-wide text-slate-400">
+            No pressure. No upsells. Just honest HVAC service.
+          </p>
         </div>
       </section>
 
