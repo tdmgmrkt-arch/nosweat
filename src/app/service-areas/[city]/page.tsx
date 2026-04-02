@@ -20,6 +20,7 @@ import { companyInfo } from "@/data/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { getAltText } from "@/utils/getAltText";
 
 interface CityPageProps {
   params: Promise<{ city: string }>;
@@ -80,7 +81,7 @@ export default async function CityPage({ params }: CityPageProps) {
       {/* ── HERO BANNER ── */}
       <section className="relative overflow-hidden bg-navy py-16 sm:py-20">
         <div className="absolute inset-0 opacity-15">
-          <Image src="/images/nosweatvan.webp" alt="" fill className="object-cover object-[center_42%]" sizes="100vw" />
+          <Image src="/images/nosweatvan.webp" alt={getAltText("hero", city)} fill className="object-cover object-[center_42%]" sizes="100vw" />
         </div>
         <div className="relative mx-auto max-w-7xl px-6">
           <p className="text-sm text-white/40">
@@ -91,7 +92,7 @@ export default async function CityPage({ params }: CityPageProps) {
             <span className="text-white/60">{city}</span>
           </p>
           <h1 className="mt-3 font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
-            HVAC Services in {city}, CA
+            {page.heading}
           </h1>
           <div className="mt-3 h-1 w-12 rounded-full bg-brand-red" />
         </div>
@@ -123,7 +124,7 @@ export default async function CityPage({ params }: CityPageProps) {
               </p>
             </div>
             <div className="relative hidden aspect-4/3 rounded-2xl shadow-xl lg:block" style={{ overflow: "hidden" }}>
-              <Image src="/images/ac-repair-inprogress.webp" alt={`HVAC technician servicing a home in ${city}`} fill className="rounded-2xl object-cover" sizes="50vw" />
+              <Image src="/images/ac-repair-inprogress.webp" alt={getAltText("tech", city)} fill className="rounded-2xl object-cover" sizes="50vw" />
             </div>
           </div>
         </div>
@@ -166,7 +167,7 @@ export default async function CityPage({ params }: CityPageProps) {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="relative hidden aspect-4/3 rounded-2xl shadow-xl lg:block" style={{ overflow: "hidden" }}>
-              <Image src="/images/fullservice.webp" alt={`Reliable HVAC service for ${city} homes`} fill className="rounded-2xl object-cover object-[center_55%]" sizes="50vw" />
+              <Image src="/images/fullservice.webp" alt={getAltText("reliable", city)} fill className="rounded-2xl object-cover object-[center_55%]" sizes="50vw" />
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">Why It Matters in {city}</p>
@@ -182,7 +183,7 @@ export default async function CityPage({ params }: CityPageProps) {
       {/* ── EMERGENCY CTA ── */}
       <section className="relative overflow-hidden bg-navy py-16 lg:py-20">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/emergency-service.webp" alt="" fill className="object-cover object-[center_75%]" sizes="100vw" />
+          <Image src="/images/emergency-service.webp" alt={getAltText("emergency", city)} fill className="object-cover object-[center_75%]" sizes="100vw" />
         </div>
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="max-w-2xl">
@@ -282,11 +283,11 @@ export default async function CityPage({ params }: CityPageProps) {
       {/* ── SCHEDULE CTA ── */}
       <section className="relative overflow-hidden bg-brand-blue py-20 sm:py-24">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/ac-repair-inprogress.webp" alt="" fill className="object-cover" sizes="100vw" />
+          <Image src="/images/ac-repair-inprogress.webp" alt={getAltText("schedule", city)} fill className="object-cover" sizes="100vw" />
         </div>
         <div className="absolute inset-0 bg-linear-to-b from-brand-blue/90 via-brand-blue to-brand-blue-dark" />
         <div className="relative mx-auto max-w-7xl px-6 text-center">
-          <Image src="/images/mascot-head.png" alt="" width={64} height={64} className="mx-auto mb-4 h-16 w-auto drop-shadow-lg" />
+          <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={64} height={64} className="mx-auto mb-4 h-16 w-auto drop-shadow-lg" />
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/50">Don&apos;t Wait — We&apos;re Available Now</p>
           <h2 className="mt-3 font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
             Schedule HVAC Service in {city}

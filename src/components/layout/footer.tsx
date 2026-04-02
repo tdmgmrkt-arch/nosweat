@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { companyInfo, footerLinks } from "@/data/navigation";
+import { serviceAreaCities } from "@/data/cities";
 import { CtaBanner } from "./cta-banner";
 
 export function Footer() {
@@ -81,6 +82,25 @@ export function Footer() {
                   Call Now
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Service Areas */}
+        <div className="mx-auto max-w-7xl px-6 pb-12">
+          <div className="border-t border-white/10 pt-10">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white">Service Areas</h3>
+            <div className="flex flex-wrap gap-x-1.5 gap-y-1.5">
+              {serviceAreaCities.map((area, i) => (
+                <span key={area.city} className="inline-flex items-center">
+                  <Link href={area.url} className="text-sm text-slate-400 transition-colors hover:text-white">
+                    {area.city}
+                  </Link>
+                  {i < serviceAreaCities.length - 1 && (
+                    <span className="ml-1.5 text-white/15">&middot;</span>
+                  )}
+                </span>
+              ))}
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Award, Users, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { getServiceBySlug, getAllServiceSlugs } from "@/data/services";
+import { serviceAreaCities } from "@/data/cities";
 import { ServiceSidebar } from "@/components/layout/service-sidebar";
 import { ServiceSchema } from "@/components/schema/service";
 import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
@@ -116,6 +117,26 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-red" />
                       <span className="text-sm text-slate-700">{b}</span>
                     </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Areas We Serve */}
+              <div className="mt-12">
+                <h3 className="font-heading text-xl font-extrabold text-navy">Areas We Serve</h3>
+                <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-brand-red sm:mx-0" />
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                  We provide {svc.shortTitle.toLowerCase()} services across 30 cities in Riverside County and the Inland Empire. Click your city to see local service details.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {serviceAreaCities.map((area) => (
+                    <Link
+                      key={area.city}
+                      href={area.url}
+                      className="rounded-full border border-slate-200 px-3.5 py-1.5 text-sm font-medium text-slate-600 transition-all hover:border-brand-blue/30 hover:bg-brand-blue/5 hover:text-brand-blue"
+                    >
+                      {area.city}
+                    </Link>
                   ))}
                 </div>
               </div>

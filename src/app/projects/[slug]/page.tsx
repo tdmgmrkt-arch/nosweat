@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: project.metaTitle,
     description: project.metaDescription,
+    robots: { index: false, follow: false },
     openGraph: { title: project.metaTitle, description: project.metaDescription, type: "article", images: [{ url: project.featuredImage }] },
   };
 }

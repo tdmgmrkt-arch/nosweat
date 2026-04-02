@@ -68,7 +68,7 @@ export const mainNav: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us/" },
   { label: "Services", href: "/service/" },
-  { label: "Projects", href: "/projects/" },
+  { label: "Service Areas", href: "/service-areas/" },
   { label: "Blog", href: "/blog/" },
   { label: "Contact Us", href: "/contact-us/" },
 ];
@@ -89,7 +89,6 @@ export const footerLinks = {
   services: services.map(({ label, href }) => ({ label, href })),
   company: [
     { label: "About Us", href: "/about-us/" },
-    { label: "Our Projects", href: "/projects/" },
     { label: "Blog", href: "/blog/" },
     { label: "Contact Us", href: "/contact-us/" },
     { label: "Privacy Policy", href: "/privacy-policy/" },

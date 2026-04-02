@@ -385,41 +385,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          10a. PROJECTS — with captions and results
-         ═══════════════════════════════════════════════════ */}
-      <section className="bg-slate-50 py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 flex items-end justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">Our Portfolio</p>
-              <h2 className="mt-3 font-heading text-3xl font-extrabold text-navy sm:text-4xl">Recent Projects</h2>
-            </div>
-            <Link href="/projects/" className="hidden items-center gap-2 text-sm font-bold text-brand-blue transition-colors hover:text-brand-blue-dark sm:inline-flex">
-              View All <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {[
-              { src: "/images/projects/tile-1.webp", label: "AC Installation", loc: "Moreno Valley" },
-              { src: "/images/projects/tile-2.webp", label: "Furnace Replacement", loc: "Riverside" },
-              { src: "/images/projects/tile-3.webp", label: "Ductwork Repair", loc: "Perris" },
-              { src: "/images/projects/tile-4.webp", label: "Heat Pump Install", loc: "Moreno Valley" },
-              { src: "/images/projects/tile-5.webp", label: "Full System Upgrade", loc: "Hemet" },
-            ].map((tile) => (
-              <Link key={tile.src} href="/projects/" className="group relative aspect-square overflow-hidden rounded-xl">
-                <Image src={tile.src} alt={tile.label} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 640px) 50vw, 20vw" />
-                <div className="absolute inset-0 bg-linear-to-t from-navy/70 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3">
-                  <p className="text-xs font-bold text-white">{tile.label}</p>
-                  <p className="text-[10px] text-white/60">{tile.loc}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Projects section removed — kept locally for future reimplementation */}
 
       {/* ═══════════════════════════════════════════════════
           10. CTA — final push before footer

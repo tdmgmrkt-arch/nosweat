@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Our Projects",
   description:
     "Browse completed HVAC and solar projects. Furnace installations, AC systems, commercial heating — see our results.",
+  robots: { index: false, follow: false },
   openGraph: {
     images: [{ url: "/images/technician-working.webp", width: 1200, height: 630 }],
   },

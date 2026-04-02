@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /projects/
 
 # Host
 Host: https://itsnosweat.net

@@ -7,7 +7,6 @@ import {
   ShieldCheck,
   Phone,
 } from "lucide-react";
-import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blogs";
 import { companyInfo } from "@/data/navigation";
 import { ReviewCarousel } from "@/components/review-carousel";
@@ -15,7 +14,7 @@ import { ReviewCarousel } from "@/components/review-carousel";
 export const metadata: Metadata = {
   title: "About Us | 25+ Years HVAC Experience",
   description:
-    "Learn about It's No Sweat Heat & Air — over 25 years of HVAC experience serving Moreno Valley. Meet our team, read customer reviews, and see our completed projects.",
+    "Learn about It's No Sweat Heat & Air — over 25 years of HVAC experience serving Moreno Valley and the Inland Empire. Meet our team and read customer reviews.",
   openGraph: {
     images: [{ url: "/images/team-engaged.webp", width: 1200, height: 630 }],
   },
@@ -232,53 +231,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── How to Decide — New HVAC System ── */}
-      <section className="bg-slate-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-10 text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-brand-blue">Our Projects</p>
-            <h2 className="mt-2 font-heading text-3xl font-extrabold text-navy sm:text-4xl">
-              How to Decide Between a New HVAC System
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-base text-slate-600">
-              We realize that mechanical systems today are far more complex than ever and energy costs continue to rise. Our team can guide you through the decision.
-            </p>
-          </div>
-
-          {/* Project cards */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.slice(0, 3).map((project) => (
-              <Link
-                key={project.slug}
-                href={`/projects/${project.slug}/`}
-                className="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative aspect-square overflow-hidden bg-slate-200">
-                  <Image
-                    src={project.featuredImage}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-navy/70 via-navy/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-brand-blue-light">{project.category}</span>
-                    <h3 className="font-heading text-lg font-extrabold text-white">{project.title}</h3>
-                    <p className="text-xs text-white/70">{project.location}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link href="/projects/" className="inline-flex items-center gap-2 rounded-lg bg-brand-blue px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-blue-dark">
-              View All Projects <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Projects section removed — kept locally for future reimplementation */}
 
       {/* ── Latest News / Blog ── */}
       <section className="bg-white py-16 sm:py-20">

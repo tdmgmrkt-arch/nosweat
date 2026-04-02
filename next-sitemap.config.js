@@ -4,11 +4,13 @@ const config = {
   generateRobotsTxt: true,
   trailingSlash: true,
   outDir: "./public",
+  exclude: ["/projects", "/projects/**"],
   robotsTxtOptions: {
     policies: [
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/projects/"],
       },
     ],
   },

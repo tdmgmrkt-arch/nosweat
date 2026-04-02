@@ -4,17 +4,25 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, MapPin } from "lucide-react";
 import { mainNav, services, companyInfo } from "@/data/navigation";
+
+const topCities = [
+  { city: "Moreno Valley", url: "/service-areas/moreno-valley/" },
+  { city: "Riverside", url: "/service-areas/riverside/" },
+  { city: "Temecula", url: "/service-areas/temecula/" },
+];
 import { cn } from "@/lib/utils";
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [areasOpen, setAreasOpen] = useState(false);
 
   const close = () => {
     setIsOpen(false);
     setServicesOpen(false);
+    setAreasOpen(false);
   };
 
   return (
@@ -108,6 +116,56 @@ export function MobileMenu() {
                                   >
                                     <service.icon className="h-4 w-4 shrink-0 text-brand-blue" />
                                     {service.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          )}
+                        </AnimatePresence>
+                      </li>
+                    ) : item.label === "Service Areas" ? (
+                      <li key={item.label}>
+                        <button
+                          onClick={() => setAreasOpen(!areasOpen)}
+                          className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-navy transition-colors hover:bg-slate-50"
+                        >
+                          Service Areas
+                          <ChevronDown
+                            className={cn(
+                              "h-4 w-4 text-slate-400 transition-transform duration-200",
+                              areasOpen && "rotate-180"
+                            )}
+                          />
+                        </button>
+
+                        <AnimatePresence>
+                          {areasOpen && (
+                            <motion.ul
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden"
+                            >
+                              <li>
+                                <Link
+                                  href="/service-areas/"
+                                  onClick={close}
+                                  className="flex items-center gap-3 rounded-lg py-2 pl-8 pr-3 text-sm font-semibold text-brand-blue transition-colors hover:bg-slate-50"
+                                >
+                                  <MapPin className="h-4 w-4 shrink-0" />
+                                  View All Areas
+                                </Link>
+                              </li>
+                              {topCities.map((area) => (
+                                <li key={area.city}>
+                                  <Link
+                                    href={area.url}
+                                    onClick={close}
+                                    className="flex items-center gap-3 rounded-lg py-2.5 pl-8 pr-3 text-sm text-slate-600 transition-colors hover:bg-slate-50 hover:text-navy"
+                                  >
+                                    <MapPin className="h-4 w-4 shrink-0 text-brand-blue" />
+                                    {area.city}
                                   </Link>
                                 </li>
                               ))}

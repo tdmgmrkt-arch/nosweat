@@ -5,16 +5,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Phone, Clock, Mail, CalendarCheck, Tag, ArrowRight } from "lucide-react";
+import { ChevronDown, Phone, Clock, Mail, CalendarCheck, Tag, ArrowRight, MapPin } from "lucide-react";
 import { MobileMenu } from "./mobile-menu";
 import { mainNav, services, companyInfo } from "@/data/navigation";
+
+const topCities = [
+  { city: "Moreno Valley", url: "/service-areas/moreno-valley/" },
+  { city: "Riverside", url: "/service-areas/riverside/" },
+  { city: "Temecula", url: "/service-areas/temecula/" },
+];
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const pathname = usePathname();
   const [megaOpen, setMegaOpen] = useState(false);
+  const [areasOpen, setAreasOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const areasTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -29,6 +37,15 @@ export function Header() {
 
   const closeMega = () => {
     timeoutRef.current = setTimeout(() => setMegaOpen(false), 150);
+  };
+
+  const openAreas = () => {
+    if (areasTimeoutRef.current) clearTimeout(areasTimeoutRef.current);
+    setAreasOpen(true);
+  };
+
+  const closeAreas = () => {
+    areasTimeoutRef.current = setTimeout(() => setAreasOpen(false), 150);
   };
 
   const isActive = (href: string) => {
@@ -141,9 +158,9 @@ export function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 6, scale: 0.98 }}
                         transition={{ duration: 0.18, ease: "easeOut" }}
-                        className="absolute -left-20 top-full z-50 w-155 pt-2"
+                        className="absolute -left-20 top-full z-50 w-155"
                       >
-                        <div className="overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-2xl shadow-navy/15">
+                        <div className="overflow-hidden rounded-b-xl border border-t-0 border-slate-200/60 bg-white shadow-2xl shadow-navy/15">
                           {/* Cooling */}
                           <div className="px-5 pt-5 pb-4">
                             <div className="mb-3 flex items-center gap-2">
@@ -222,6 +239,72 @@ export function Header() {
                             </Link>
                             <Link href="/service/" onClick={() => setMegaOpen(false)} className="text-sm font-semibold text-white/60 transition-colors hover:text-white">
                               All Services &rarr;
+                            </Link>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : item.label === "Service Areas" ? (
+                <div key={item.label} className="relative" onMouseEnter={openAreas} onMouseLeave={closeAreas}>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "flex items-center gap-1 border-b-3 px-5 py-3.5 text-sm font-semibold uppercase tracking-wide transition-colors",
+                      isActive("/service-areas/")
+                        ? "border-white bg-white/15 text-white"
+                        : "border-transparent text-white/85 hover:bg-white/10 hover:text-white"
+                    )}
+                  >
+                    Service Areas
+                    <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", areasOpen && "rotate-180")} />
+                  </Link>
+
+                  <AnimatePresence>
+                    {areasOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                        className="absolute left-0 top-full z-50 w-64"
+                      >
+                        <div className="overflow-hidden rounded-b-xl border border-t-0 border-slate-200/60 bg-white shadow-2xl shadow-navy/15">
+                          <div className="px-3 pt-4 pb-3">
+                            <div className="mb-3 flex items-center gap-2">
+                              <div className="h-px flex-1 bg-brand-blue/15" />
+                              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-blue">Top Cities</span>
+                              <div className="h-px flex-1 bg-brand-blue/15" />
+                            </div>
+                            {topCities.map((area) => (
+                              <Link
+                                key={area.city}
+                                href={area.url}
+                                onClick={() => setAreasOpen(false)}
+                                className="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-150 hover:translate-x-0.5 hover:bg-brand-blue/5"
+                              >
+                                <MapPin className="h-4 w-4 shrink-0 text-slate-300 transition-colors group-hover:text-brand-blue" />
+                                <div className="flex-1">
+                                  <span className="flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors group-hover:text-brand-blue">
+                                    {area.city}
+                                    <ArrowRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+                                  </span>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                          <div className="border-t border-white/10 bg-navy px-4 py-3">
+                            <Link
+                              href="/service-areas/"
+                              onClick={() => setAreasOpen(false)}
+                              className="flex items-center justify-between text-sm font-semibold text-white/70 transition-colors hover:text-white"
+                            >
+                              <span className="flex items-center gap-2">
+                                <MapPin className="h-3.5 w-3.5" />
+                                View All 30 Cities
+                              </span>
+                              <ArrowRight className="h-3.5 w-3.5" />
                             </Link>
                           </div>
                         </div>
