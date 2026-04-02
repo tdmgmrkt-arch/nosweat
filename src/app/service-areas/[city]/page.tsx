@@ -14,6 +14,8 @@ import {
   Wind,
   Shield,
   Star,
+  Clock,
+  BadgeCheck,
 } from "lucide-react";
 import { getCityBySlug, getAllCitySlugs, serviceAreaCities } from "@/data/cities";
 import { companyInfo } from "@/data/navigation";
@@ -45,12 +47,90 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   };
 }
 
+const heroVariationMap: Record<string, "A" | "B" | "C" | "D"> = {
+  "moreno-valley": "A", "riverside": "B", "perris": "C", "highland": "D",
+  "lake-elsinore": "A", "wildomar": "B", "san-jacinto": "C", "hemet": "D",
+  "mead-valley": "A", "woodcrest": "B", "nuevo": "C", "highgrove": "D",
+  "sunnymead": "A", "homeland": "B", "redlands": "C", "loma-linda": "D",
+  "colton": "A", "grand-terrace": "B", "san-bernardino": "C", "beaumont": "D",
+  "banning": "A", "calimesa": "B", "yucaipa": "C", "mentone": "D",
+  "jurupa-valley": "A", "eastvale": "B", "norco": "C", "menifee": "D",
+  "murrieta": "A", "temecula": "B",
+};
+
+function getHeroText(variation: "A" | "B" | "C" | "D", cityName: string) {
+  switch (variation) {
+    case "A":
+      return {
+        tagline: `Fast, Reliable HVAC Services in ${cityName}, CA`,
+        description: `When your AC or heater stops working, you need it fixed fast — not "sometime this week." Same-day HVAC service with experienced technicians who diagnose and fix problems quickly.`,
+      };
+    case "B":
+      return {
+        tagline: `Trusted Heating & Cooling Services in ${cityName}`,
+        description: "Dealing with an HVAC issue? Waiting days for service isn't an option. Fast, professional HVAC repairs and installations to help you stay comfortable without delays.",
+      };
+    case "C":
+      return {
+        tagline: `HVAC Repair & Installation in ${cityName}, CA`,
+        description: "Whether your system stopped working or just isn't keeping up, we're here to help. Dependable HVAC services with quick response times and experienced technicians.",
+      };
+    case "D":
+      return {
+        tagline: `Local HVAC Experts Serving ${cityName}, CA`,
+        description: "When your heating or cooling system isn't working right, you need a solution — not a delay. Prompt HVAC service to get reliable comfort back fast.",
+      };
+  }
+}
+
 export default async function CityPage({ params }: CityPageProps) {
   const { city: slug } = await params;
   const page = getCityBySlug(slug);
   if (!page) notFound();
 
   const { city, content } = page;
+  const heroVariation = heroVariationMap[slug] ?? "A";
+  const hero = getHeroText(heroVariation, city);
+
+  // Lead-in sentences: 4 variations per service, keyed by hero variation
+  const leadIns: Record<string, Record<"A" | "B" | "C" | "D", string>> = {
+    "AC Installation": {
+      A: `Ready for a cooling system that actually fits your ${city} home? We size it right the first time.`,
+      B: `Tired of an AC that can't keep up? A properly matched system changes everything.`,
+      C: `What if your next AC system ran quieter, cooled better, and cost less to operate? That starts with the installation.`,
+      D: `Your next air conditioner should last 15 years without drama. That outcome depends on how it's installed.`,
+    },
+    "AC Repair": {
+      A: `AC not cooling? We diagnose and fix the problem the same day you call — most repairs in one visit.`,
+      B: `When your air conditioning fails in ${city}, every hour matters. We respond fast and fix it right.`,
+      C: `Strange noise? Warm air from the vents? Don't wait for a complete breakdown — call at the first sign.`,
+      D: `A struggling AC system is telling you something. We find out what — and resolve it before it gets worse.`,
+    },
+    "Furnace Installation": {
+      A: `Cold mornings in ${city} demand a furnace that delivers — not one that struggles to keep up.`,
+      B: `If your heating system needs annual repairs just to survive winter, it's time for a conversation about replacement.`,
+      C: `Want lower gas bills and more consistent warmth? It starts with equipment matched to your home's actual demand.`,
+      D: `A new furnace should heat every room evenly and run efficiently from the first cold night. We make sure it does.`,
+    },
+    "Furnace Repair": {
+      A: `Furnace not igniting? Shutting off mid-cycle? These symptoms escalate fast — get them checked now.`,
+      B: `Heating problems in ${city} don't wait for convenient timing. Neither do we.`,
+      C: `Not sure if your furnace issue is serious? Call us — we'll tell you honestly before charging anything.`,
+      D: `A furnace that's acting differently than last winter is a furnace that needs professional attention.`,
+    },
+    "HVAC Maintenance": {
+      A: `The systems that never break down on the worst day of the year? They're the ones that get maintained.`,
+      B: `Skip the emergency — schedule the tune-up. It's the most cost-effective HVAC decision you'll make.`,
+      C: `How much is a breakdown going to cost this summer? Maintenance is how you make sure you never find out.`,
+      D: `A maintained system performs better, lasts longer, and costs less to run. There's no shortcut that matches it.`,
+    },
+    "Indoor Air Quality": {
+      A: `If dust keeps coming back no matter how often you clean, the problem is upstream — in your HVAC system.`,
+      B: `The air inside your ${city} home passes through your HVAC system dozens of times a day. Is it being cleaned?`,
+      C: `Allergies worse indoors than out? Your filtration may not be catching what matters most.`,
+      D: `Clean air isn't a luxury — it's what your HVAC system should be delivering on every cycle.`,
+    },
+  };
 
   const serviceBlocks = [
     { title: "AC Installation", html: content.acInstallation, icon: Snowflake },
@@ -95,6 +175,52 @@ export default async function CityPage({ params }: CityPageProps) {
             {page.heading}
           </h1>
           <div className="mt-3 h-1 w-12 rounded-full bg-brand-red" />
+          <p className="mt-4 text-lg font-semibold text-white/80">{hero.tagline}</p>
+          <p className="mt-2 max-w-2xl text-base text-slate-300">{hero.description}</p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-red px-7 py-3.5 text-base font-bold text-white transition-all hover:bg-brand-red-dark hover:-translate-y-0.5">
+              <Phone className="h-5 w-5" /> Call {companyInfo.phone}
+            </a>
+            <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/20 px-7 py-3.5 text-base font-bold text-white transition-all hover:border-white hover:bg-white/10">
+              Request Service Online
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TRUST BAR ── */}
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-2 divide-x divide-slate-200 sm:grid-cols-4">
+            <div className="flex items-center gap-3 py-5 pr-4 sm:justify-center sm:px-4">
+              <Clock className="h-5 w-5 shrink-0 text-brand-blue" />
+              <div>
+                <p className="text-sm font-bold text-navy">Same-Day Service</p>
+                <p className="text-xs text-slate-500">In {city}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 py-5 pl-4 sm:justify-center sm:px-4">
+              <Shield className="h-5 w-5 shrink-0 text-brand-blue" />
+              <div>
+                <p className="text-sm font-bold text-navy">Licensed &amp; Insured</p>
+                <p className="text-xs text-slate-500">Fully Certified</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 border-t border-slate-200 py-5 pr-4 sm:justify-center sm:border-t-0 sm:px-4">
+              <Star className="h-5 w-5 shrink-0 fill-amber-400 text-amber-400" />
+              <div>
+                <p className="text-sm font-bold text-navy">5-Star Rating</p>
+                <p className="text-xs text-slate-500">500+ Reviews</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 border-t border-slate-200 py-5 pl-4 sm:justify-center sm:border-t-0 sm:px-4">
+              <BadgeCheck className="h-5 w-5 shrink-0 text-brand-blue" />
+              <div>
+                <p className="text-sm font-bold text-navy">Satisfaction Guarantee</p>
+                <p className="text-xs text-slate-500">100% Guaranteed</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -144,20 +270,44 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
-            {serviceBlocks.map((svc) => (
-              <div key={svc.title} className="rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-blue/20 hover:shadow-xl sm:p-8">
-                <div className="mb-5 flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
-                    <svc.icon className="h-5 w-5" />
+            {serviceBlocks.map((svc) => {
+              const leadIn = leadIns[svc.title]?.[heroVariation] ?? "";
+              return (
+                <div key={svc.title} className="rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-blue/20 hover:shadow-xl sm:p-8">
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
+                      <svc.icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-heading text-xl font-extrabold text-navy">{svc.title}</h3>
                   </div>
-                  <h3 className="font-heading text-xl font-extrabold text-navy">{svc.title}</h3>
+                  {leadIn && (
+                    <p className="mb-3 text-[15px] font-semibold leading-relaxed text-navy">{leadIn}</p>
+                  )}
+                  <div
+                    className="text-[15px] leading-relaxed text-slate-600 [&_a]:font-semibold [&_a]:text-brand-blue [&_a]:underline [&_a]:decoration-brand-blue/30 [&_a]:underline-offset-2 hover:[&_a]:decoration-brand-blue"
+                    dangerouslySetInnerHTML={{ __html: svc.html }}
+                  />
                 </div>
-                <div
-                  className="text-[15px] leading-relaxed text-slate-600 [&_a]:font-semibold [&_a]:text-brand-blue [&_a]:underline [&_a]:decoration-brand-blue/30 [&_a]:underline-offset-2 hover:[&_a]:decoration-brand-blue"
-                  dangerouslySetInnerHTML={{ __html: svc.html }}
-                />
-              </div>
-            ))}
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── MID-PAGE CTA ── */}
+      <section className="bg-navy py-10 sm:py-12">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-6 sm:flex-row sm:justify-between">
+          <div className="text-center sm:text-left">
+            <p className="font-heading text-xl font-extrabold text-white sm:text-2xl">Need HVAC service in {city}?</p>
+            <p className="mt-1 text-sm text-slate-400">Call now or request service online.</p>
+          </div>
+          <div className="flex shrink-0 gap-3">
+            <a href={companyInfo.phoneHref} className="inline-flex items-center gap-2 rounded-xl bg-brand-red px-6 py-3 text-sm font-bold text-white transition-all hover:bg-brand-red-dark hover:-translate-y-0.5">
+              <Phone className="h-4 w-4" /> {companyInfo.phone}
+            </a>
+            <Link href="/contact-us/" className="inline-flex items-center gap-2 rounded-xl border-2 border-white/20 px-6 py-3 text-sm font-bold text-white transition-all hover:border-white hover:bg-white/10">
+              Request Service
+            </Link>
           </div>
         </div>
       </section>
@@ -212,13 +362,26 @@ export default async function CityPage({ params }: CityPageProps) {
               <div className="p-8 sm:p-10 lg:col-span-3">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">The No Sweat Difference</p>
                 <h2 className="mt-3 font-heading text-2xl font-extrabold text-navy sm:text-3xl">
-                  Why {city} Homeowners Choose Us
+                  Why Homeowners in {city} Choose Us
                 </h2>
-                <ul className="mt-8 space-y-4">
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  {[
+                    { icon: Clock, label: "Fast Response Times" },
+                    { icon: Wrench, label: "Experienced Technicians" },
+                    { icon: CheckCircle2, label: "Honest Recommendations" },
+                    { icon: Shield, label: "Repairs That Last" },
+                  ].map((item) => (
+                    <div key={item.label} className="flex items-center gap-2.5 rounded-lg bg-brand-blue/5 px-3 py-2.5">
+                      <item.icon className="h-4 w-4 shrink-0 text-brand-blue" />
+                      <span className="text-sm font-semibold text-navy">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <ul className="mt-6 space-y-3">
                   {content.whyChoose.map((point) => (
                     <li key={point} className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue" />
-                      <span className="text-base text-slate-700">{point}</span>
+                      <span className="text-[15px] text-slate-700">{point}</span>
                     </li>
                   ))}
                 </ul>
