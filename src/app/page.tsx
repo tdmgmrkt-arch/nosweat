@@ -40,57 +40,74 @@ import { ReviewCarousel } from "@/components/review-carousel";
 export default function HomePage() {
   return (
     <>
-      {/* ═══════════════════════════════════════════════════
-          1. HERO — with trust elements baked in
+     {/* ═══════════════════════════════════════════════════
+         1. HERO — Aligned with new City Page architecture
          ═══════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-navy">
+        
+        {/* Crisp background: Full opacity image + clean uniform overlay */}
         <div className="absolute inset-0">
-          <Image src="/images/nosweatvan.webp" alt="It's No Sweat Heat & Air service van" fill priority className="object-cover opacity-40" sizes="100vw" />
-          <div className="absolute inset-0 bg-linear-to-r from-navy/95 via-navy/70 to-navy/30" />
+          <Image 
+            src="/images/nosweatvan.webp" 
+            alt="It's No Sweat Heat & Air service van" 
+            fill 
+            priority 
+            className="object-cover object-[center_42%]" 
+            sizes="100vw" 
+          />
+          <div className="absolute inset-0 bg-navy/85" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:py-32">
-          <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse" />
-              <span className="text-xs font-semibold tracking-wide text-white/70">Same-Day HVAC Service Available</span>
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-28 lg:py-32">
+          {/* Removed the restricted max-w-2xl width to let the layout breathe */}
+          <div className="max-w-3xl">
+            
+            {/* Trust Signals MOVED ABOVE H1 for immediate authority */}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-6 text-sm font-bold tracking-wide text-white drop-shadow-sm">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
+                </span>
+                <span className="text-white/90">Same-Day Service</span>
+              </div>
+              <span className="hidden sm:inline mx-1 text-white/50">•</span>
+              <div className="flex text-yellow-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+              <span className="hidden sm:inline mx-1 text-white/50">•</span>
+              <span>25+ Years Experience</span>
             </div>
 
-            <h1 className="font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
+            <h1 className="font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl drop-shadow-md">
               Heater &amp; AC<br />
               Repair Near{" "}
-              <span className="bg-linear-to-r from-brand-red to-brand-red-light bg-clip-text text-transparent">Moreno Valley</span>
+              {/* Removed the gradient text, it gets lost. Solid red is punchier. */}
+              <span className="text-brand-red">Moreno Valley</span>
             </h1>
 
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/60">
+            <div className="mt-6 h-1 w-16 rounded-full bg-brand-red" />
+
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate-200 drop-shadow-sm">
               Licensed, insured, and NATE-certified. Serving Moreno Valley and the Inland Empire for over 25 years with upfront pricing and a satisfaction guarantee.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-red px-8 py-4 text-base font-bold text-white transition-all hover:bg-brand-red-dark hover:-translate-y-0.5">
-                Get Free Same-Day Estimate <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/20 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10">
-                <Phone className="h-4 w-4" /> {companyInfo.phone}
+              {/* Button Hierarchy Flipped: Phone is now the Primary Red Action */}
+              <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-red px-8 py-4 text-lg font-bold text-white shadow-lg shadow-brand-red/25 transition-all hover:bg-brand-red-dark hover:-translate-y-0.5 hover:scale-[1.02]">
+                <Phone className="h-5 w-5" /> Call {companyInfo.phone}
               </a>
-            </div>
-
-            {/* Trust row — baked into hero */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 backdrop-blur-sm">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                ))}
-                <span className="ml-1 text-xs font-bold text-white">4.9</span>
-              </div>
-              <span className="text-xs font-semibold text-white/50">Licensed &amp; Insured</span>
-              <span className="text-xs font-semibold text-white/50">25+ Years Experience</span>
-              <span className="text-xs font-semibold text-white/50">No Fix, No Fee</span>
+              <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 py-4 text-lg font-bold text-white transition-all hover:border-white hover:bg-white/10 hover:-translate-y-0.5">
+                <CalendarCheck className="h-5 w-5" /> Get Free Estimate
+              </Link>
             </div>
           </div>
         </div>
 
-        <div className="absolute -bottom-px left-0 right-0">
+        {/* Wave Separator - Kept intact, but added z-10 so it sits perfectly above the overlay */}
+        <div className="absolute -bottom-px left-0 right-0 z-10">
           <svg viewBox="0 0 1440 80" fill="none" className="block w-full" preserveAspectRatio="none">
             <path d="M0 80L0 40C360 80 720 0 1080 40C1260 60 1380 70 1440 40L1440 80H0Z" fill="white" />
           </svg>
@@ -119,40 +136,60 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          3. THREE SERVICE CARDS
+         3. THREE SERVICE CARDS (Upgraded Architecture)
          ═══════════════════════════════════════════════════ */}
       <section className="bg-slate-50 py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {[
               { icon: Snowflake, label: "Cooling", title: "AC Repair & Service", items: ["Air Conditioning Repair", "New System Installation", "Service All Makes and Models"], href: "/service/ac-repair/", image: "/images/services/ac-repair-new.webp", accent: "text-sky-400", accentBg: "bg-sky-400" },
               { icon: Flame, label: "Heating", title: "Furnace Repair", items: ["Certified Furnace Technicians", "Heating System Replacement", "Furnace Safety Inspections"], href: "/service/furnace-repair/", image: "/images/services/furnace-repair-v3.webp", accent: "text-brand-red-light", accentBg: "bg-brand-red" },
               { icon: Wind, label: "Air Quality", title: "Air Purification", items: ["Residential Air Purification", "Air Scrubber & UV Light Systems", "Cleans 99.9% of Viruses"], href: "/service/indoor-air-quality/", image: "/images/services/iaq-hero.webp", accent: "text-emerald-400", accentBg: "bg-emerald-400" },
             ].map((card) => (
-              <Link key={card.href} href={card.href} className="group relative flex flex-col overflow-hidden rounded-2xl bg-navy shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl">
+              /* Changed from <Link> to <div> for safe Ghost Link pattern */
+              <div 
+                key={card.href} 
+                className="group relative flex flex-col overflow-hidden rounded-2xl bg-navy shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-brand-blue/20"
+              >
+                
+                {/* Invisible Ghost Link over the entire card */}
+                <Link href={card.href} className="absolute inset-0 z-20">
+                  <span className="sr-only">Learn more about {card.title}</span>
+                </Link>
+
+                {/* Image Header */}
                 <div className="relative h-48 overflow-hidden sm:h-56">
-                  <Image src={card.image} alt={card.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 100vw, 33vw" />
-                  <div className="absolute inset-0 bg-linear-to-t from-navy via-navy/50 to-transparent" />
+                  {/* Smoothed out the image zoom on hover */}
+                  <Image src={card.image} alt={card.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <div className="absolute inset-0 bg-linear-to-t from-navy via-navy/60 to-transparent" />
                   <div className={`absolute bottom-0 left-0 h-1 w-full ${card.accentBg}`} />
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="mb-2 flex items-center gap-2">
+
+                {/* Card Body */}
+                <div className="flex flex-1 flex-col p-6 sm:p-8">
+                  <div className="mb-3 flex items-center gap-2">
                     <card.icon className={`h-5 w-5 ${card.accent}`} />
                     <span className={`text-xs font-bold uppercase tracking-widest ${card.accent}`}>{card.label}</span>
                   </div>
-                  <h3 className="font-heading text-xl font-extrabold text-white">{card.title}</h3>
-                  <ul className="mt-3 flex-1 space-y-1.5">
+                  
+                  <h3 className="font-heading text-2xl font-extrabold text-white">{card.title}</h3>
+                  
+                  <ul className="mt-4 flex-1 space-y-2 relative z-10 pointer-events-none">
                     {card.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-white/60">
-                        <span className={`h-1 w-1 rounded-full ${card.accentBg}`} /> {item}
+                      <li key={item} className="flex items-center gap-3 text-[15px] text-white/70">
+                        {/* Slightly enlarged the bullet points for better visibility */}
+                        <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${card.accentBg}`} /> {item}
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-4 flex items-center gap-1 text-sm font-bold text-white group-hover:gap-2 transition-all">
-                    Learn More <ArrowRight className="h-3.5 w-3.5" />
+                  
+                  {/* Standardized Footer CTA matching the City Pages */}
+                  <div className="mt-8 flex items-center gap-2 border-t border-white/10 pt-5 text-sm font-bold text-white/80 transition-colors duration-300 group-hover:text-white">
+                    View Service Details 
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

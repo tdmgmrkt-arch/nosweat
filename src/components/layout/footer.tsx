@@ -13,8 +13,8 @@ export function Footer() {
       <CtaBanner />
 
       <footer className="bg-navy">
-        <div className="mx-auto max-w-7xl px-6 py-16">
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-16">
             {/* Column 1 — Brand + Contact */}
             <div>
               <div className="mb-6">
@@ -46,8 +46,8 @@ export function Footer() {
 
             {/* Column 2 — Quick Links */}
             <div>
-              <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white">Quick Links</h3>
-              <ul className="space-y-3 text-sm text-slate-400">
+              <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-white">Quick Links</h3>
+              <ul className="space-y-3.5 text-sm text-slate-400">
                 {footerLinks.company.map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="transition-colors hover:text-white">{link.label}</Link>
@@ -58,8 +58,8 @@ export function Footer() {
 
             {/* Column 3 — Services */}
             <div>
-              <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white">Services</h3>
-              <ul className="space-y-3 text-sm text-slate-400">
+              <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-white">Services</h3>
+              <ul className="space-y-3.5 text-sm text-slate-400">
                 {footerLinks.services.map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="transition-colors hover:text-white">{link.label}</Link>

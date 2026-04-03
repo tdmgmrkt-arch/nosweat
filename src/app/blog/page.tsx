@@ -17,18 +17,24 @@ export default function BlogPage() {
   return (
     <>
       {/* Banner */}
-      <section className="relative overflow-hidden bg-navy py-16 sm:py-20">
-        <div className="absolute inset-0 opacity-15">
-          <Image src="/images/blog-hero.webp" alt="" fill className="object-cover" sizes="100vw" />
+      <section className="relative overflow-hidden bg-navy py-24 sm:py-28">
+        <div className="absolute inset-0">
+          <Image src="/images/blog-hero.webp" alt="HVAC tips and guides from It's No Sweat Heat & Air" fill priority className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-navy/85" />
         </div>
         <div className="relative mx-auto max-w-7xl px-6">
-          <p className="text-sm text-white/40">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span className="mx-2">&rsaquo;</span>
-            <span className="text-white/60">Blog</span>
-          </p>
-          <h1 className="mt-3 font-heading text-4xl font-extrabold text-white sm:text-5xl">Our Blog</h1>
-          <div className="mt-3 h-1 w-12 rounded-full bg-brand-red" />
+          <div className="max-w-3xl">
+            <p className="mb-5 text-sm font-semibold uppercase tracking-wide text-brand-red drop-shadow-sm">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="mx-2 text-white/50">&rsaquo;</span>
+              <span className="text-white">Blog</span>
+            </p>
+            <h1 className="font-heading text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-6xl">Our Blog</h1>
+            <div className="mt-6 h-1.5 w-16 rounded-full bg-brand-red" />
+            <p className="mt-6 text-lg leading-relaxed text-slate-300 drop-shadow-sm sm:text-xl">
+              HVAC tips, maintenance guides, and honest advice from our team.
+            </p>
+          </div>
         </div>
       </section>
 

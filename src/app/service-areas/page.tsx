@@ -10,6 +10,7 @@ import {
   Wrench,
   Wind,
   CalendarCheck,
+  Star, // <-- Add this right here
 } from "lucide-react";
 import { serviceAreaCities } from "@/data/cities";
 import { companyInfo } from "@/data/navigation";
@@ -75,22 +76,48 @@ export default function ServiceAreasPage() {
       ]} />
 
       {/* ── HERO BANNER ── */}
-      <section className="relative overflow-hidden bg-navy py-16 sm:py-20">
-        <div className="absolute inset-0 opacity-15">
-          <Image src="/images/nosweatvan.webp" alt="" fill className="object-cover object-[center_42%]" sizes="100vw" />
+      <section className="relative overflow-hidden bg-navy py-24 sm:py-28">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/nosweatvan.webp"
+            alt="It's No Sweat Heating & Air Conditioning Van"
+            fill
+            priority
+            className="object-cover object-[center_42%]"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-navy/85" />
         </div>
+        
         <div className="relative mx-auto max-w-7xl px-6">
-          <p className="text-sm text-white/40">
-            <Link href="/" className="hover:text-white">Home</Link>
+          {/* Breadcrumbs */}
+          <p className="text-sm font-semibold text-white/50 tracking-wide mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span className="mx-2">&rsaquo;</span>
-            <span className="text-white/60">Service Areas</span>
+            <span className="text-white">Service Areas</span>
           </p>
-          <h1 className="mt-3 font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
+
+          {/* Trust Signals (Added) */}
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-4 text-sm font-bold tracking-wide text-white/90">
+            <div className="flex text-yellow-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-current" />
+              ))}
+            </div>
+            <span className="hidden sm:inline mx-1 text-white/40">•</span>
+            <span>25+ Years in the Inland Empire</span>
+            <span className="hidden sm:inline mx-1 text-white/40">•</span>
+            <span>Licensed & Insured</span>
+          </div>
+
+          <h1 className="font-heading text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl max-w-3xl">
             HVAC Service Areas in the Inland Empire
           </h1>
-          <div className="mt-3 h-1 w-12 rounded-full bg-brand-red" />
-          <p className="mt-4 max-w-2xl text-lg text-slate-300">
-            We provide heating, cooling, and air quality services to 30 cities across Riverside County and the Inland Empire — with the same response time, the same quality, and the same honest pricing at every address.
+          
+          <div className="mt-6 h-1.5 w-16 rounded-full bg-brand-red" />
+          
+          <p className="mt-6 max-w-2xl text-lg sm:text-xl text-slate-300 leading-relaxed">
+            We provide heating, cooling, and air quality services to 30 cities across Riverside County and the Inland Empire — with the same same-day response time, the same quality, and the same honest pricing at every address.
           </p>
         </div>
       </section>

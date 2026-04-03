@@ -7,7 +7,8 @@ export type ImageType =
   | "mascot"
   | "ac"
   | "heating"
-  | "iaq";
+  | "iaq"
+  | "team";
 
 /**
  * Returns deterministic, city-specific alt text for HVAC service images.
@@ -33,6 +34,8 @@ export function getAltText(type: ImageType, city: string): string {
       return `Furnace repair and heating service in ${city}`;
     case "iaq":
       return `Indoor air quality service in a ${city} home`;
+    case "team":
+      return `It's No Sweat Heat & Air team ready to serve ${city}, CA`;
     default:
       return `HVAC service in ${city}`;
   }
