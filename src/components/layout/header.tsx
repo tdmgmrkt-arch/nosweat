@@ -115,7 +115,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute left-0 right-0 top-full overflow-hidden border-t border-white/10 bg-[#090E1A]/95 backdrop-blur-3xl shadow-[0_40px_80px_-15px_rgba(0,0,0,0.9)]"
+            className="absolute left-0 right-0 top-full overflow-hidden border-t border-white/10 bg-[#090E1A] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.9)]"
           >
             {/* Ambient Background Glows */}
             <div className="absolute -top-40 left-[20%] h-80 w-80 rounded-full bg-brand-blue/10 blur-[80px] pointer-events-none" />
@@ -221,7 +221,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute left-0 right-0 top-full overflow-hidden border-t border-white/10 bg-[#090E1A]/95 backdrop-blur-3xl shadow-[0_40px_80px_-15px_rgba(0,0,0,0.9)]"
+            className="absolute left-0 right-0 top-full overflow-hidden border-t border-white/10 bg-[#090E1A] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.9)]"
           >
             {/* Ambient Background Glow */}
             <div className="absolute -top-40 right-[30%] h-80 w-80 rounded-full bg-brand-blue/10 blur-[80px] pointer-events-none" />
