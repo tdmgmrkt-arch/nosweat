@@ -5,16 +5,13 @@ import {
   Phone,
   ArrowRight,
   CheckCircle2,
-  Clock,
-  MapPin,
-  Mail,
   CalendarCheck,
-  Thermometer,
+  Sparkles,
 } from "lucide-react";
 import { companyInfo } from "@/data/navigation";
 
 export const metadata: Metadata = {
-  title: "Special Offers | HVAC Deals & Promotions",
+  title: "Special Offers | HVAC Deals & Promotions | It's No Sweat Heat & Air",
   description:
     "Current HVAC specials: FREE Nest thermostat with purchase, $2600 mini split systems, $79 furnace tune-ups, $97/month complete systems, and $179 maintenance plans.",
   openGraph: {
@@ -27,203 +24,264 @@ const specials = [
     badge: "FREE",
     badgeSub: "With Purchase",
     title: "FREE Nest Pro Thermostat",
-    description:
-      "Buy a qualifying HVAC System and get a FREE Nest Pro programmable Thermostat. Smart temperature control that learns your schedule and saves up to 15% on energy bills.",
+    description: "Buy a qualifying HVAC System and get a FREE Nest Pro programmable Thermostat. Smart temperature control that learns your schedule and saves up to 15% on energy bills.",
     image: "/images/services/hvac-maintenance.webp",
-    color: "bg-brand-red",
+    color: "from-brand-red to-red-600",
+    accent: "text-brand-red",
   },
   {
     badge: "$2,600",
     badgeSub: "Installed",
-    title: "Mini Split Heating and Cooling System",
-    description:
-      "Buy a 12,000 BTU Mini Split Heating and Cooling system for $2,600. Stay comfortable year-round with a 12,000 BTU Mini Split Heating and Cooling System for energy-efficient heating and cooling at an affordable price — perfect for your home or office.",
+    title: "Mini Split Heating & Cooling System",
+    description: "12,000 BTU Mini Split for energy-efficient heating and cooling at an affordable price — perfect for additions, garages, or any space without existing ductwork.",
     image: "/images/services/ac-install.webp",
-    color: "bg-brand-blue",
+    color: "from-brand-blue to-blue-600",
+    accent: "text-brand-blue-light",
   },
   {
     badge: "FREE",
     badgeSub: "With Purchase",
-    title: "FREE UV Light Air Purifier with Furnace or Coil Purchase",
-    description:
-      "Upgrade your home heating system and breathe easy — get a free UV light air purifier with every furnace or coil purchased. Eliminates 99.9% of airborne bacteria and viruses.",
+    title: "FREE UV Light Air Purifier",
+    description: "Get a free UV light air purifier with every furnace or coil purchased. Eliminates 99.9% of airborne bacteria and viruses for cleaner, healthier indoor air.",
     image: "/images/services/indoor-air-quality.webp",
-    color: "bg-brand-red",
+    color: "from-emerald-500 to-teal-600",
+    accent: "text-emerald-400",
   },
 ];
 
 const tuneUpChecklist = [
-  "Includes FREE Air Filter Replacement",
+  "FREE Air Filter Replacement",
   "Basic System Cleaning",
   "25-Point Safety Inspection",
-  "Check & Inspect Heat Exchanger",
-  "Adjust & Clean Burner Assembly",
-  "Monitor Refrigerant Pressure",
+  "Heat Exchanger Check",
+  "Burner Assembly Cleaning",
+  "Refrigerant Monitoring",
 ];
 
 export default function SpecialOfferPage() {
   return (
-    <>
-      {/* ── Banner ── */}
-      <section className="relative overflow-hidden bg-navy py-24 sm:py-28">
-        <div className="absolute inset-0">
-          <Image src="/images/emergency-service.webp" alt="Special HVAC offers from It's No Sweat Heat & Air" fill priority className="object-cover" sizes="100vw" />
-          <div className="absolute inset-0 bg-navy/85" />
+    <div className="relative min-h-screen bg-[#090E1A] text-slate-300 selection:bg-brand-red/30 selection:text-white font-sans">
+
+      {/* GLOBAL AMBIENT LIGHTING */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-[20%] -left-[10%] h-250 w-250 rounded-full bg-brand-blue/10 blur-[150px] mix-blend-screen" />
+        <div className="absolute top-[40%] -right-[20%] h-200 w-200 rounded-full bg-brand-red/5 blur-[150px] mix-blend-screen" />
+      </div>
+
+      {/* ── HERO BANNER ── */}
+      <section className="relative z-10 overflow-hidden pt-24 pb-20 sm:pt-32">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+            }}
+          >
+            <Image src="/images/emergency-service.webp" alt="Special HVAC offers" fill priority className="object-cover object-[center_40%] opacity-25 mix-blend-luminosity" sizes="100vw" />
+            <div className="absolute inset-0 bg-[#090E1A]/40 mix-blend-overlay" />
+          </div>
+          <div className="absolute -bottom-1 left-0 right-0 h-48 bg-linear-to-t from-[#090E1A] from-20% to-transparent" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-6">
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 sm:pt-24">
           <div className="max-w-3xl">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-wide text-brand-red drop-shadow-sm">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span className="mx-2 text-white/50">&rsaquo;</span>
-              <Link href="/service/" className="hover:text-white transition-colors">Services</Link>
-              <span className="mx-2 text-white/50">&rsaquo;</span>
-              <span className="text-white">Specials</span>
+            <div className="mb-8 flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/3 px-4 py-2 text-[10px] font-bold tracking-widest text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl uppercase">
+                <Link href="/" className="text-slate-400 hover:text-white transition-colors">Home</Link>
+                <span className="text-white/30">&rsaquo;</span>
+                <Link href="/service/" className="text-slate-400 hover:text-white transition-colors">Services</Link>
+                <span className="text-white/30">&rsaquo;</span>
+                <span className="text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">Specials</span>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-brand-red/15 px-4 py-2 ring-1 ring-brand-red/30">
+                <Sparkles className="h-3.5 w-3.5 text-brand-red" />
+                <span className="text-[10px] font-bold tracking-widest text-brand-red uppercase">Limited Time Offers</span>
+              </div>
+            </div>
+
+            <h1 className="font-heading text-5xl font-extrabold tracking-tight text-white drop-shadow-2xl sm:text-6xl lg:text-7xl">
+              Special Offers
+            </h1>
+            <div className="mt-8 h-1.5 w-16 rounded-full bg-linear-to-r from-brand-red to-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
+            <p className="mt-8 text-xl leading-relaxed text-slate-300 font-light drop-shadow-md">
+              Exclusive deals on HVAC installations, tune-ups, and maintenance plans. Save big on the services your home needs most.
             </p>
-            <h1 className="font-heading text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-6xl">Specials</h1>
-            <div className="mt-6 h-1.5 w-16 rounded-full bg-brand-red" />
           </div>
         </div>
       </section>
 
-      {/* ── All Offers — 2-column grid ── */}
-      <section className="bg-slate-50 py-16">
+      {/* ── FEATURED OFFERS ── */}
+      <section className="relative z-10 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* 1. FREE Nest Thermostat */}
+          <div className="grid gap-8 lg:grid-cols-3">
             {specials.map((special) => (
-              <div key={special.title} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md transition-all hover:shadow-lg">
-                <div className="relative aspect-video">
-                  <Image src={special.image} alt={special.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-                  <div className={`absolute left-4 top-4 rounded-lg ${special.color} px-4 py-2 shadow-lg`}>
-                    <p className="text-lg font-extrabold leading-tight text-white">{special.badge}</p>
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-white/80">{special.badgeSub}</p>
-                  </div>
+              <div
+                key={special.title}
+                className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-[#0F172A]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_30px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:ring-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+              >
+                {/* Image with CSS mask */}
+                <div
+                  className="absolute inset-x-0 top-0 h-[220px] z-0 pointer-events-none"
+                  style={{
+                    maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+                  }}
+                >
+                  <Image src={special.image} alt={special.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 33vw" />
                 </div>
-                <div className="p-5">
-                  <h2 className="font-heading text-lg font-extrabold text-navy">{special.title}</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 line-clamp-3">{special.description}</p>
-                  <Link href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-brand-red-dark">
-                    Claim This Offer <ArrowRight className="h-4 w-4" />
+
+                {/* Badge */}
+                <div className={`absolute top-6 left-6 z-20 rounded-xl bg-linear-to-b ${special.color} px-4 py-2.5 shadow-[0_0_20px_rgba(0,0,0,0.5)] ring-1 ring-white/20`}>
+                  <p className="text-xl font-extrabold leading-none text-white">{special.badge}</p>
+                  <p className="mt-0.5 text-[9px] font-bold uppercase tracking-wider text-white/80">{special.badgeSub}</p>
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-1 flex-col p-8 pt-56">
+                  <h2 className="font-heading text-xl font-extrabold text-white tracking-tight">{special.title}</h2>
+                  <p className="mt-3 text-sm font-light leading-relaxed text-slate-400">{special.description}</p>
+
+                  <Link
+                    href="/contact-us/"
+                    className="mt-auto pt-6 group/btn inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-brand-red"
+                  >
+                    Claim This Offer <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Link>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
 
-            {/* 4. $79 Furnace Tune-Up */}
-            <div className="overflow-hidden rounded-2xl bg-navy shadow-lg">
-              <div className="relative aspect-video">
-                <Image src="/images/services/furnace-install.webp" alt="Furnace tune-up" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-                <div className="absolute left-4 top-4 rounded-lg bg-brand-red px-4 py-2 shadow-lg">
-                  <p className="text-lg font-extrabold leading-tight text-white">$79</p>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-white/80">$149 Value</p>
+      {/* ── $79 TUNE-UP + $97/MONTH + $179 PLAN ── */}
+      <section className="relative z-10 py-16 lg:py-24">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
+
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-8 lg:grid-cols-3">
+
+            {/* $79 Furnace Tune-Up */}
+            <div className="relative overflow-hidden rounded-[2rem] bg-linear-to-br from-brand-red/20 to-brand-red/5 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_20px_40px_rgba(0,0,0,0.5)] ring-1 ring-brand-red/30 backdrop-blur-md">
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-red/15 blur-[60px] pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="font-heading text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-b from-white to-slate-400">$79</span>
+                  <div>
+                    <span className="text-sm font-bold text-slate-500 line-through">$149</span>
+                    <span className="ml-2 text-xs font-extrabold uppercase tracking-wider text-brand-red">Save $70</span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-5">
-                <h2 className="font-heading text-lg font-extrabold text-white">Furnace Tune-Up &amp; Safety Check</h2>
-                <ul className="mt-3 space-y-1.5">
+
+                <h2 className="font-heading text-xl font-extrabold text-white mb-4">Furnace Tune-Up &amp; Safety Check</h2>
+
+                <ul className="space-y-2.5 mb-8">
                   {tuneUpChecklist.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-white/70">
-                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-red" />
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-slate-300">
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-red/20 ring-1 ring-brand-red/30">
+                        <CheckCircle2 className="h-3 w-3 text-brand-red" />
+                      </div>
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-brand-red-dark">
-                  <CalendarCheck className="h-4 w-4" /> Schedule Now
+
+                <Link href="/contact-us/" className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-b from-red-500 to-brand-red px-6 py-4 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_0_15px_rgba(220,38,38,0.3)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_0_20px_rgba(220,38,38,0.5)] hover:-translate-y-0.5">
+                  <CalendarCheck className="h-4 w-4" /> Claim $79 Tune-Up
                 </Link>
               </div>
             </div>
 
-            {/* 5. $97/Month System */}
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md transition-all hover:shadow-lg">
-              <div className="relative aspect-video">
-                <Image src="/images/services/ac-repair-new.webp" alt="Complete HVAC system" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-                <div className="absolute left-4 top-4 rounded-lg bg-brand-blue px-4 py-2 shadow-lg">
-                  <p className="text-lg font-extrabold leading-tight text-white">$97</p>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-white/80">Per Month - OAC*</p>
+            {/* $97/Month System */}
+            <div className="relative overflow-hidden rounded-[2rem] bg-linear-to-br from-brand-blue/20 to-brand-blue/5 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_20px_40px_rgba(0,0,0,0.5)] ring-1 ring-brand-blue/30 backdrop-blur-md">
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-blue/15 blur-[60px] pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="font-heading text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-b from-white to-slate-400">$97</span>
+                  <span className="text-sm font-bold text-slate-400">/month</span>
                 </div>
-              </div>
-              <div className="p-5">
-                <h2 className="font-heading text-lg font-extrabold text-navy">Complete HVAC Systems as Low as $97/Month</h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">Enjoy the benefits of a reliable HVAC system for as little as $97 per month with approved credit.</p>
-                <Link href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-blue px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-brand-blue-dark">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-brand-blue-light mb-4">With Approved Credit</p>
+
+                <h2 className="font-heading text-xl font-extrabold text-white mb-3">Complete HVAC System</h2>
+                <p className="text-sm font-light leading-relaxed text-slate-400 mb-8">
+                  Enjoy the benefits of a brand-new, reliable HVAC system for as little as $97 per month. Full installation, warranty, and professional sizing included.
+                </p>
+
+                <Link href="/contact-us/" className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-b from-blue-500 to-brand-blue px-6 py-4 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_0_15px_rgba(59,130,246,0.3)] ring-1 ring-brand-blue/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_0_20px_rgba(59,130,246,0.5)] hover:-translate-y-0.5">
                   Get a Free Quote <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
 
-            {/* 6. $179 Maintenance Plan */}
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md transition-all hover:shadow-lg">
-              <div className="relative aspect-video">
-                <Image src="/images/services/hvac-tune-up.webp" alt="Maintenance plan" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-                <div className="absolute left-4 top-4 rounded-lg bg-brand-red px-4 py-2 shadow-lg">
-                  <p className="text-lg font-extrabold leading-tight text-white">$179</p>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-white/80">Maintenance Plan</p>
+            {/* $179 Maintenance Plan */}
+            <div className="relative overflow-hidden rounded-[2rem] bg-linear-to-br from-emerald-500/20 to-emerald-500/5 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_20px_40px_rgba(0,0,0,0.5)] ring-1 ring-emerald-500/30 backdrop-blur-md">
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-500/15 blur-[60px] pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="font-heading text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-b from-white to-slate-400">$179</span>
+                  <span className="text-sm font-bold text-slate-400">/year</span>
                 </div>
-              </div>
-              <div className="p-5">
-                <h2 className="font-heading text-lg font-extrabold text-navy">Preventative Maintenance Plan</h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">2 Annual Services with Air Filter Replacement, System Cleaning, and 25-Point Safety Inspection.</p>
-                <ul className="mt-3 space-y-1 text-sm text-slate-600">
-                  <li className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-red" />15% off all parts for members</li>
-                  <li className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-red" />Priority scheduling — No trip charges</li>
-                  <li className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-red" />Extended equipment life</li>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-4">Maintenance Plan</p>
+
+                <h2 className="font-heading text-xl font-extrabold text-white mb-3">Preventative Maintenance</h2>
+
+                <ul className="space-y-2.5 mb-8">
+                  {[
+                    "2 Annual Service Visits",
+                    "Air Filter Replacement Included",
+                    "15% Off All Parts for Members",
+                    "Priority Scheduling — No Trip Charges",
+                    "Extended Equipment Lifespan",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-slate-300">
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 ring-1 ring-emerald-500/30">
+                        <CheckCircle2 className="h-3 w-3 text-emerald-400" />
+                      </div>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
-                <Link href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-brand-red-dark">
+
+                <Link href="/contact-us/" className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-b from-emerald-400 to-emerald-600 px-6 py-4 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_0_15px_rgba(16,185,129,0.3)] ring-1 ring-emerald-500/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_0_20px_rgba(16,185,129,0.5)] hover:-translate-y-0.5">
                   Sign Up Today <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── Bottom CTA — "Reach Out For All Your HVAC Needs" ── */}
-      <section className="bg-navy py-14">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-8 text-center">
-            <p className="text-xs font-bold uppercase tracking-widest text-white/50">Let&apos;s Work Together</p>
-            <h2 className="mt-2 font-heading text-2xl font-extrabold text-white sm:text-3xl">
-              Reach Out For All Your HVAC Needs
-            </h2>
+      {/* ── BOTTOM CTA ── */}
+      <section className="relative z-10 overflow-hidden py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-brand-blue/15 via-transparent to-transparent opacity-80" />
+
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-xl">
+            <Image src="/images/mascot-head.png" alt="" width={48} height={48} className="h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: Clock,
-                title: "Working Hours",
-                lines: ["Mon - Fri: 7:30 am – 6:00 pm", "Sat-Sun: 8:00 am – 2:00 pm", "After Hrs Plus. Emer. Fee"],
-              },
-              {
-                icon: MapPin,
-                title: "Service Areas",
-                lines: ["Moreno Valley, CA", "and all surrounding cities"],
-              },
-              {
-                icon: Phone,
-                title: "Call Center",
-                lines: [companyInfo.phone, "Give us a call 24/7"],
-              },
-              {
-                icon: Mail,
-                title: "Write Us",
-                lines: [companyInfo.email],
-              },
-            ].map((item) => (
-              <div key={item.title} className="rounded-xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-sm">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue/20 text-brand-blue-light">
-                  <item.icon className="h-5 w-5" />
-                </div>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-white">{item.title}</h3>
-                {item.lines.map((line) => (
-                  <p key={line} className="mt-1 text-xs text-white/60">{line}</p>
-                ))}
-              </div>
-            ))}
+          <h2 className="font-heading text-4xl font-extrabold text-white sm:text-5xl tracking-tight drop-shadow-xl">
+            Ready to Save?
+          </h2>
+          <p className="mx-auto mt-6 text-lg font-light text-slate-300 drop-shadow-sm">
+            Call now or schedule online to claim any of our current offers. No pressure — just honest pricing.
+          </p>
+
+          <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
+            <Link href="/contact-us/" className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-base font-extrabold text-[#090E1A] shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5">
+              Schedule Service <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <a href={companyInfo.phoneHref} className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white/3 px-8 py-4 text-base font-extrabold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all duration-300 hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5">
+              <Phone className="h-4 w-4 text-slate-400 group-hover:text-white transition-colors" /> {companyInfo.phone}
+            </a>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

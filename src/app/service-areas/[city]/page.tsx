@@ -121,7 +121,6 @@ export default async function CityPage({ params }: CityPageProps) {
   const testimonial = getTestimonial(heroVariation);
   const cta = getCtaText(heroVariation, city);
 
-  // Split intro: first paragraph → hero, rest → why reliable section
   const firstPClose = content.intro.indexOf("</p>");
   const introFirst = firstPClose !== -1
     ? content.intro.slice(content.intro.indexOf("<p>") + 3, firstPClose)
@@ -130,7 +129,6 @@ export default async function CityPage({ params }: CityPageProps) {
     ? content.intro.slice(firstPClose + 4).trim()
     : "";
 
-  // Lead-in sentences: 4 variations per service, keyed by hero variation
   const leadIns: Record<string, Record<"A" | "B" | "C" | "D", string>> = {
     "AC Installation": {
       A: `Ready for a cooling system that actually fits your ${city} home? We size it right the first time.`,
@@ -180,7 +178,7 @@ export default async function CityPage({ params }: CityPageProps) {
   ];
 
   return (
-    <>
+    <div className="relative min-h-screen bg-[#090E1A] text-slate-300 selection:bg-brand-red/30 selection:text-white font-sans">
       <BreadcrumbSchema items={[
         { name: "Home", href: "/" },
         { name: "Service Areas", href: "/service-areas/" },
@@ -197,93 +195,105 @@ export default async function CityPage({ params }: CityPageProps) {
         })),
       }} />
 
-{/* ── HERO BANNER ── */}
-<section className="relative overflow-hidden bg-navy py-24 sm:py-28">
-  {/* Background Image with a clean, uniform overlay */}
-  <div className="absolute inset-0">
-    <Image 
-      src="/images/nosweatvan.webp" 
-      alt={getAltText("hero", city)} 
-      fill 
-      priority
-      className="object-cover object-[center_42%]" 
-      sizes="100vw" 
-    />
-    {/* A single, clean navy overlay. No messy gradients. */}
-    <div className="absolute inset-0 bg-navy/85" />
-  </div>
-  
-  <div className="relative mx-auto max-w-7xl px-6">
-    {/* Removed the restrictive box to let the layout breathe */}
-    <div className="max-w-3xl"> 
-      
-      <p className="mb-5 text-sm font-semibold tracking-wide text-brand-red uppercase drop-shadow-sm">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
-        <span className="mx-2 text-white/50">&rsaquo;</span>
-        <span className="text-white/70">Service Areas</span>
-        <span className="mx-2 text-white/50">&rsaquo;</span>
-        <span className="text-white">{city}</span>
-      </p>
+      {/* GLOBAL AMBIENT LIGHTING */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-[20%] -left-[10%] h-[1000px] w-[1000px] rounded-full bg-brand-blue/10 blur-[150px] mix-blend-screen" />
+        <div className="absolute top-[40%] -right-[20%] h-[800px] w-[800px] rounded-full bg-brand-red/5 blur-[150px] mix-blend-screen" />
+      </div>
 
-      {/* Trust Signals */}
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-6 text-sm font-bold tracking-wide text-white drop-shadow-sm">
-        <div className="flex text-yellow-400">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-current" />
-          ))}
+      {/* ── HERO BANNER ── */}
+      <section className="relative z-10 overflow-hidden pt-24 pb-20 sm:pt-32">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'
+            }}
+          >
+            <Image 
+              src="/images/cityslugpagehero.webp" 
+              alt={getAltText("hero", city)} 
+              fill 
+              priority
+              className="object-cover object-[center_42%] opacity-30 mix-blend-screen" 
+              sizes="100vw" 
+            />
+            <div className="absolute inset-0 bg-[#090E1A]/40 mix-blend-overlay" />
+          </div>
+          <div className="absolute -bottom-1 left-0 right-0 h-48 bg-gradient-to-t from-[#090E1A] from-20% to-transparent" />
         </div>
-        <span className="hidden sm:inline mx-1 text-white/50">•</span>
-        <span>25+ Years Experience</span>
-        <span className="hidden sm:inline mx-1 text-white/50">•</span>
-        <span>Licensed & Insured</span>
-      </div>
+        
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 sm:pt-24">
+          <div className="max-w-4xl"> 
+            
+            {/* Luminous Breadcrumbs */}
+            <div className="mb-8 inline-flex flex-wrap items-center gap-2 rounded-full border border-white/5 bg-white/[0.03] px-4 py-2 text-[10px] font-bold tracking-[0.1em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl uppercase">
+              <Link href="/" className="text-slate-400 hover:text-white transition-colors">Home</Link>
+              <span className="text-white/30">&rsaquo;</span>
+              <Link href="/service-areas/" className="text-slate-400 hover:text-white transition-colors">Service Areas</Link>
+              <span className="text-white/30">&rsaquo;</span>
+              <span className="text-brand-blue-light drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">{city}</span>
+            </div>
 
-      <h1 className="font-heading text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-md">
-        {page.heading}
-      </h1>
-      
-      <div className="mt-6 h-1 w-16 rounded-full bg-brand-red" />
-      
-      <p className="mt-6 text-xl font-bold text-white drop-shadow-sm">
-        {hero.tagline}
-      </p>
-      
-      {introFirst && (
-        <p className="mt-3 text-lg leading-relaxed text-slate-300 drop-shadow-sm">
-          {introFirst}
-        </p>
-      )}
-      
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-        <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-red px-8 py-4 text-lg font-bold text-white shadow-lg shadow-brand-red/25 transition-all hover:bg-brand-red-dark hover:-translate-y-0.5 hover:scale-[1.02]">
-          <Phone className="h-5 w-5" /> Call {companyInfo.phone}
-        </a>
-        {/* Secondary button: Clean border, transparent background */}
-        <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 py-4 text-lg font-bold text-white transition-all hover:border-white hover:bg-white/10 hover:-translate-y-0.5">
-          <CalendarCheck className="h-5 w-5" /> Book Online
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Trust Signals */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 text-xs font-bold tracking-wider text-slate-300 uppercase drop-shadow-sm">
+              <div className="flex items-center gap-1.5 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                ))}
+              </div>
+              <span className="hidden sm:inline text-white/20">•</span>
+              <span>25+ Years Experience</span>
+              <span className="hidden sm:inline text-white/20">•</span>
+              <span>Licensed & Insured</span>
+            </div>
 
-      {/* ── TRUST BAR ── */}
-      <section className="bg-white py-5">
+            <h1 className="font-heading text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-2xl">
+              {page.heading}
+            </h1>
+            
+            <div className="mt-8 h-1.5 w-16 rounded-full bg-gradient-to-r from-brand-red to-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
+            
+            <p className="mt-8 text-xl font-extrabold text-white drop-shadow-md">
+              {hero.tagline}
+            </p>
+            
+            {introFirst && (
+              <p className="mt-4 text-lg leading-relaxed text-slate-300 font-light drop-shadow-sm">
+                {introFirst}
+              </p>
+            )}
+            
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-8 py-4 text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+                <Phone className="h-5 w-5 drop-shadow-md" /> Call {companyInfo.phone}
+              </a>
+              <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/[0.03] px-8 py-4 text-base font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
+                <CalendarCheck className="h-5 w-5 text-brand-blue-light" /> Book Online
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TRUST BAR (Glass Strip) ── */}
+      <section className="relative z-10 py-6">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-4">
             {[
-              { icon: Star, label: "4.9-Star Rated", sub: "Local HVAC Company", iconClass: "fill-amber-400 text-amber-400" },
-              { icon: Shield, label: "Licensed & Insured", sub: "CA State Certified", iconClass: "text-brand-blue" },
-              { icon: Clock, label: "Same-Day Service", sub: `Available in ${city}`, iconClass: "text-brand-blue" },
-              { icon: BadgeCheck, label: "20+ Years Experience", sub: "Inland Empire", iconClass: "text-brand-blue" },
+              { icon: Star, label: "4.9-Star Rated", sub: "Local HVAC Company", iconClass: "text-amber-400" },
+              { icon: Shield, label: "Licensed & Insured", sub: "CA State Certified", iconClass: "text-brand-blue-light" },
+              { icon: Clock, label: "Same-Day Service", sub: `Available in ${city}`, iconClass: "text-brand-blue-light" },
+              { icon: BadgeCheck, label: "20+ Years Experience", sub: "Inland Empire", iconClass: "text-brand-blue-light" },
             ].map((item) => (
-              <div key={item.label} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3.5 shadow-sm">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white shadow-sm">
-                  <item.icon className={`h-4.5 w-4.5 shrink-0 ${item.iconClass}`} />
+              <div key={item.label} className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-sm">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10">
+                  <item.icon className={`h-5 w-5 shrink-0 ${item.iconClass} drop-shadow-[0_0_8px_currentColor]`} />
                 </div>
                 <div>
-                  <p className="text-sm font-bold leading-tight text-navy">{item.label}</p>
-                  <p className="text-[11px] text-slate-500">{item.sub}</p>
+                  <p className="text-sm font-extrabold leading-tight text-white">{item.label}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">{item.sub}</p>
                 </div>
               </div>
             ))}
@@ -291,45 +301,45 @@ export default async function CityPage({ params }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── TESTIMONIAL + FRICTION REDUCER ── */}
-      <section className="bg-slate-50/50 py-6">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="relative rounded-2xl border border-slate-200 bg-slate-50/50 px-6 py-5 shadow-sm">
-            <span className="absolute -top-3 left-5 font-heading text-5xl leading-none text-brand-blue/15">&ldquo;</span>
-            <figure className="flex items-start gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-sm font-bold text-brand-blue">
+      {/* ── TESTIMONIAL ── */}
+      <section className="relative z-10 py-8">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="relative rounded-[2rem] border border-white/5 bg-[#0F172A]/50 px-8 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md">
+            <span className="absolute -top-4 left-6 font-heading text-7xl leading-none text-brand-blue/20 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">&ldquo;</span>
+            <figure className="relative z-10 flex flex-col items-center text-center sm:flex-row sm:text-left sm:items-start gap-6">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-xl font-extrabold text-brand-blue ring-1 ring-brand-blue/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                 {testimonial.attribution.charAt(0)}
               </div>
-              <div className="pt-0.5">
-                <div className="mb-2 flex gap-0.5">
+              <div className="pt-1">
+                <div className="mb-3 flex justify-center sm:justify-start gap-1 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <blockquote className="text-[15px] leading-relaxed text-slate-700">
+                <blockquote className="text-base sm:text-lg leading-relaxed text-slate-300 font-light italic">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-2 text-xs font-bold text-navy">
+                <figcaption className="mt-4 text-xs font-bold uppercase tracking-widest text-slate-500">
                   — {testimonial.attribution}
                 </figcaption>
               </div>
             </figure>
           </div>
-          <p className="mt-4 text-center text-xs font-medium tracking-wide text-slate-400">
+          <p className="mt-6 text-center text-[11px] font-bold uppercase tracking-widest text-slate-500">
             No pressure. No upsells. Just honest HVAC service.
           </p>
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
-      <section className="bg-slate-50 py-16 lg:py-24">
+      {/* ── SERVICES GRID ── */}
+      <section className="relative z-10 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">What We Do</p>
-            <h2 className="mt-3 font-heading text-3xl font-extrabold text-navy sm:text-4xl">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">What We Do</p>
+            <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
               Heating &amp; Air Conditioning Services in {city}
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-slate-600">
+            <p className="mt-4 max-w-2xl text-lg text-slate-400 font-light">
               From emergency repairs to complete system replacements, here&apos;s how we help {city} homeowners stay comfortable year-round.
             </p>
           </div>
@@ -337,44 +347,37 @@ export default async function CityPage({ params }: CityPageProps) {
           <div className="grid gap-6 lg:grid-cols-2">
             {serviceBlocks.map((svc) => {
               const leadIn = leadIns[svc.title]?.[heroVariation] ?? "";
-              
               return (
-                /* Changed from <Link> to <div> to prevent nested link hydration errors */
                 <div 
                   key={svc.title} 
-                  className="group relative flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/40 hover:shadow-xl"
+                  className="group relative flex h-full flex-col rounded-[2rem] border border-white/5 bg-[#0F172A]/80 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_10px_30px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-[#151E32] hover:ring-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                 >
-                  {/* Invisible overlay link makes the whole card clickable safely */}
                   <Link href={svc.href} className="absolute inset-0 z-10">
                     <span className="sr-only">Learn more about {svc.title}</span>
                   </Link>
 
-                  {/* Icon & Title Header */}
-                  <div className="mb-5 flex items-center gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-blue/5 text-brand-blue transition-colors duration-300 group-hover:bg-brand-blue group-hover:text-white shadow-sm">
+                  <div className="mb-6 flex items-center gap-5">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]">
                       <svc.icon className="h-6 w-6" />
                     </div>
-                    <h3 className="font-heading text-xl font-extrabold text-navy transition-colors group-hover:text-brand-blue">
+                    <h3 className="font-heading text-2xl font-extrabold text-white transition-colors group-hover:text-brand-blue-light">
                       {svc.title}
                     </h3>
                   </div>
 
-                  {/* Body Content (Flex-1 forces footer to the bottom) */}
                   <div className="flex-1 relative z-20 pointer-events-none"> 
                     {leadIn && (
-                      <p className="mb-3 text-sm font-bold leading-relaxed text-slate-800">
+                      <p className="mb-4 text-[15px] font-bold leading-relaxed text-slate-300">
                         {leadIn}
                       </p>
                     )}
-                    {/* Added line-clamp-3 so cards stay uniform height even if text is super long */}
                     <div
-                      className="text-[15px] leading-relaxed text-slate-500 line-clamp-3 lg:line-clamp-4"
+                      className="prose prose-invert prose-sm max-w-none line-clamp-3 lg:line-clamp-4 prose-p:leading-relaxed prose-p:text-slate-400 prose-p:font-light"
                       dangerouslySetInnerHTML={{ __html: svc.html }}
                     />
                   </div>
 
-                  {/* Always-Visible Footer CTA */}
-                  <div className="mt-6 flex items-center gap-2 border-t border-slate-100 pt-5 text-sm font-bold text-brand-blue">
+                  <div className="mt-8 flex items-center gap-2 border-t border-white/10 pt-6 text-sm font-bold text-slate-400 transition-colors group-hover:text-white">
                     View Service Details 
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
@@ -385,119 +388,137 @@ export default async function CityPage({ params }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── MID-PAGE CTA (Properly Grounded) ── */}
-      <section className="bg-slate-100 border-y border-slate-200 py-12 sm:py-14">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 sm:flex-row sm:justify-between">
-          <div className="text-center sm:text-left">
-            <p className="font-heading text-xl font-extrabold text-navy sm:text-2xl">{cta.midHeading}</p>
-            <p className="mt-1 text-sm font-medium text-slate-600">{cta.midSub}</p>
-          </div>
-          <div className="flex shrink-0 gap-3">
-            <a href={companyInfo.phoneHref} className="inline-flex items-center gap-2 rounded-xl bg-brand-red px-6 py-3 text-sm font-bold text-white shadow-md shadow-brand-red/20 transition-all hover:bg-brand-red-dark hover:-translate-y-0.5">
-              <Phone className="h-4 w-4" /> {cta.buttonPrimary}
-            </a>
-            {/* Darkened the border slightly here to contrast with the slate-100 background */}
-            <Link href="/contact-us/" className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 text-sm font-bold text-navy transition-all hover:border-brand-blue hover:text-brand-blue hover:border-brand-blue/30">
-              {cta.buttonSecondary}
-            </Link>
+      {/* ── MID-PAGE CTA ── */}
+      <section className="relative z-10 py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-blue/20 to-[#0F172A] p-8 sm:p-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(0,0,0,0.5)] ring-1 ring-brand-blue/30 backdrop-blur-md">
+            <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
+              <div className="text-center sm:text-left">
+                <p className="font-heading text-2xl font-extrabold text-white sm:text-3xl">{cta.midHeading}</p>
+                <p className="mt-2 text-sm font-medium text-brand-blue-light drop-shadow-[0_0_8px_rgba(96,165,250,0.4)]">{cta.midSub}</p>
+              </div>
+              <div className="flex shrink-0 flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href={companyInfo.phoneHref} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-red-500 to-brand-red px-8 py-4 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+                  <Phone className="h-4 w-4" /> {cta.buttonPrimary}
+                </a>
+                <Link href="/contact-us/" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-white/[0.03] px-8 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
+                  <CalendarCheck className="h-4 w-4 text-brand-blue-light" /> {cta.buttonSecondary}
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── WHY RELIABLE HVAC MATTERS ── */}
-      <section className="bg-slate-50/50 py-16 lg:py-20">
+      <section className="relative z-10 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="relative hidden aspect-4/3 rounded-2xl shadow-xl lg:block" style={{ overflow: "hidden" }}>
-              <Image src="/images/fullservice.webp" alt={getAltText("reliable", city)} fill className="rounded-2xl object-cover object-[center_55%]" sizes="50vw" />
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            
+            <div className="relative hidden aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-white/[0.02] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_30px_60px_-15px_rgba(0,0,0,0.8)] ring-1 ring-white/10 lg:block">
+              <div className="relative h-full w-full overflow-hidden rounded-3xl">
+                <Image src="/images/fullservice.webp" alt={getAltText("reliable", city)} fill className="object-cover transition-transform duration-700 hover:scale-105" sizes="50vw" />
+              </div>
             </div>
+
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">Why It Matters in {city}</p>
-              <h2 className="mt-3 font-heading text-2xl font-extrabold text-navy sm:text-3xl">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">Why It Matters in {city}</p>
+              <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
                 Why Reliable HVAC Matters in {city}
               </h2>
+              
               {introRest && (
-                <div className="mt-4 prose prose-slate max-w-none prose-a:font-semibold prose-a:text-brand-blue prose-a:no-underline hover:prose-a:text-brand-red" dangerouslySetInnerHTML={{ __html: introRest }} />
+                <div 
+                  className="mt-6 prose prose-invert max-w-none prose-p:font-light prose-p:text-slate-400 prose-p:leading-relaxed prose-a:font-semibold prose-a:text-brand-blue-light prose-a:no-underline hover:prose-a:text-brand-blue" 
+                  dangerouslySetInnerHTML={{ __html: introRest }} 
+                />
               )}
-              <div className="mt-4 prose prose-slate max-w-none prose-a:font-semibold prose-a:text-brand-blue prose-a:no-underline hover:prose-a:text-brand-red" dangerouslySetInnerHTML={{ __html: content.whyReliable }} />
+              <div 
+                className="mt-6 prose prose-invert max-w-none prose-p:font-light prose-p:text-slate-400 prose-p:leading-relaxed prose-a:font-semibold prose-a:text-brand-blue-light prose-a:no-underline hover:prose-a:text-brand-blue" 
+                dangerouslySetInnerHTML={{ __html: content.whyReliable }} 
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* ── EMERGENCY CTA ── */}
-      <section className="relative overflow-hidden bg-navy py-16 lg:py-20">
-        <div className="absolute inset-0 opacity-10">
-          <Image src="/images/emergency-service.webp" alt={getAltText("emergency", city)} fill className="object-cover object-[center_75%]" sizes="100vw" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">Don&apos;t Wait — We&apos;re Available Now</p>
-            <h2 className="mt-3 font-heading text-2xl font-extrabold text-white sm:text-3xl">
-              Fast &amp; Emergency HVAC Repair in {city}
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-300">{content.emergency}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-red px-8 py-4 text-base font-bold text-white transition-all hover:bg-brand-red-dark hover:-translate-y-0.5 hover:scale-[1.02]">
-                <Phone className="h-5 w-5" /> Call {companyInfo.phone}
-              </a>
-              <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/20 px-8 py-4 text-base font-bold text-white transition-all hover:border-white hover:bg-white/10">
-                <CalendarCheck className="h-5 w-5" /> Request Service Online
-              </Link>
+      <section className="relative z-10 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-brand-red/30 bg-gradient-to-br from-red-950/60 to-[#0F172A] p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(220,38,38,0.2)] ring-1 ring-brand-red/20 backdrop-blur-md sm:p-16">
+            <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-brand-red/20 blur-[80px] pointer-events-none" />
+            
+            <div className="relative z-10 max-w-2xl">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-red-light drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">Don&apos;t Wait — We&apos;re Available Now</p>
+              <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+                Fast &amp; Emergency HVAC Repair in {city}
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-slate-300 font-light drop-shadow-md">{content.emergency}</p>
+              
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-red px-8 py-4 text-base font-bold text-white shadow-[0_0_20px_rgba(220,38,38,0.4)] transition-all hover:bg-brand-red-dark hover:-translate-y-0.5 hover:scale-[1.02]">
+                  <Phone className="h-5 w-5" /> Call {companyInfo.phone}
+                </a>
+                <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/[0.05] px-8 py-4 text-base font-bold text-white ring-1 ring-white/20 transition-all hover:bg-white/[0.1] hover:ring-white/30 backdrop-blur-md">
+                  <CalendarCheck className="h-5 w-5 text-brand-red-light" /> Request Service Online
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── WHY CHOOSE US ── */}
-      <section className="bg-slate-50 py-16 lg:py-20">
+      <section className="relative z-10 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
-          {/* Section header */}
-          <div className="mb-10 text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">The No Sweat Difference</p>
-            <h2 className="mt-3 font-heading text-2xl font-extrabold text-navy sm:text-3xl">
+          <div className="mb-14 text-center">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">The No Sweat Difference</p>
+            <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
               Why Homeowners in {city} Choose Us
             </h2>
           </div>
 
-          {/* Stats bar */}
-          <div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {/* Stats Bar */}
+          <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
-              { icon: Clock, value: "Same Day", label: "Response Time", color: "bg-brand-blue/10 text-brand-blue" },
-              { icon: BadgeCheck, value: "25+", label: "Years Experience", color: "bg-brand-blue/10 text-brand-blue" },
-              { icon: Star, value: "4.9★", label: "Customer Rating", color: "bg-amber-50 text-amber-500" },
-              { icon: Shield, value: "100%", label: "Licensed & Insured", color: "bg-brand-blue/10 text-brand-blue" },
+              { icon: Clock, value: "Same Day", label: "Response Time", color: "text-brand-blue" },
+              { icon: BadgeCheck, value: "25+", label: "Years Experience", color: "text-brand-blue" },
+              { icon: Star, value: "4.9★", label: "Customer Rating", color: "text-amber-400" },
+              { icon: Shield, value: "100%", label: "Licensed & Insured", color: "text-emerald-400" },
             ].map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-                <div className={`mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${stat.color}`}>
-                  <stat.icon className="h-5 w-5" />
+              <div key={stat.label} className="rounded-2xl border border-white/5 bg-white/[0.02] p-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04]">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/[0.03] ring-1 ring-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                  <stat.icon className={`h-6 w-6 ${stat.color} drop-shadow-[0_0_8px_currentColor]`} />
                 </div>
-                <p className="font-heading text-xl font-extrabold text-navy">{stat.value}</p>
-                <p className="mt-0.5 text-xs font-semibold text-slate-500">{stat.label}</p>
+                <p className="font-heading text-2xl font-extrabold text-white">{stat.value}</p>
+                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">{stat.label}</p>
               </div>
             ))}
           </div>
 
-          {/* Content grid */}
-          <div className="grid gap-6 lg:grid-cols-2">
-            {/* Bullet points + brand ticker */}
-            <div className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="p-8">
-                <ul className="space-y-4">
+          {/* Content Grid */}
+          <div className="grid gap-8 lg:grid-cols-2">
+            
+            {/* Bullet points + brand ticker (Glass Panel) */}
+            <div className="rounded-[2.5rem] border border-white/5 bg-[#0F172A]/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md overflow-hidden flex flex-col">
+              <div className="p-8 sm:p-10 flex-1">
+                <ul className="space-y-5">
                   {content.whyChoose.map((point) => (
-                    <li key={point} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue" />
-                      <span className="text-[15px] leading-relaxed text-slate-700">{point}</span>
+                    <li key={point} className="flex items-start gap-4">
+                      <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue/20 ring-1 ring-brand-blue/30">
+                        <CheckCircle2 className="h-4 w-4 text-brand-blue-light" />
+                      </div>
+                      <span className="text-[15px] font-light leading-relaxed text-slate-300">{point}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="border-t border-slate-100 px-8 py-6">
-                <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-widest text-slate-400">Brands We Service</p>
+              <div className="border-t border-white/10 bg-white/[0.02] px-8 py-8">
+                <p className="mb-6 text-center text-[10px] font-bold uppercase tracking-widest text-slate-500">Brands We Service</p>
                 <div className="overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-                  <div className="brand-ticker flex w-max gap-10">
+                  <div className="brand-ticker flex w-max gap-12">
                     {[...Array(2)].map((_, setIndex) => (
-                      <div key={setIndex} className="flex shrink-0 items-center gap-10" aria-hidden={setIndex > 0}>
+                      <div key={setIndex} className="flex shrink-0 items-center gap-12" aria-hidden={setIndex > 0}>
                         {[
                           { src: "/images/brands/goodman.webp", alt: "Goodman" },
                           { src: "/images/brands/york.webp", alt: "York" },
@@ -508,7 +529,7 @@ export default async function CityPage({ params }: CityPageProps) {
                           { src: "/images/brands/trane.webp", alt: "Trane" },
                           { src: "/images/brands/bryant.webp", alt: "Bryant" },
                         ].map((brand) => (
-                          <Image key={`${setIndex}-${brand.alt}`} src={brand.src} alt={brand.alt} width={80} height={32} className="h-6 w-auto object-contain opacity-70" />
+                          <Image key={`${setIndex}-${brand.alt}`} src={brand.src} alt={brand.alt} width={80} height={32} className="h-8 w-auto object-contain opacity-80" />
                         ))}
                       </div>
                     ))}
@@ -517,27 +538,30 @@ export default async function CityPage({ params }: CityPageProps) {
               </div>
             </div>
 
-            {/* CTA card */}
-            <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-navy p-8 shadow-sm">
+            {/* Side CTA Card */}
+            <div className="flex flex-col justify-between rounded-[2.5rem] border border-white/5 bg-[#0F172A]/80 p-8 sm:p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/10 backdrop-blur-md">
               <div>
-                <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={48} height={48} className="mb-4 h-12 w-auto drop-shadow-lg" />
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">Ready to get started?</p>
-                <p className="mt-3 font-heading text-2xl font-extrabold text-white">
+                <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={56} height={56} className="mb-6 h-14 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue-light">Ready to get started?</p>
+                <p className="mt-3 font-heading text-3xl font-extrabold text-white tracking-tight">
                   Get reliable HVAC service in {city} today.
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                <p className="mt-4 text-[15px] font-light leading-relaxed text-slate-400">
                   Same-day appointments available. No surprise pricing. Just honest work from experienced technicians.
                 </p>
-                <div className="relative mt-5 aspect-21/9 overflow-hidden rounded-xl">
-                  <Image src="/images/team-engaged.webp" alt={getAltText("team", city)} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 30vw" />
+                
+                <div className="relative mt-8 aspect-[21/9] w-full overflow-hidden rounded-[1.5rem] bg-white/[0.02] ring-1 ring-white/10 p-1.5 shadow-inner">
+                  <div className="relative h-full w-full overflow-hidden rounded-xl">
+                    <Image src="/images/team-engaged.webp" alt={getAltText("team", city)} fill className="object-cover transition-transform duration-700 hover:scale-105" sizes="(max-width: 1024px) 100vw, 30vw" />
+                  </div>
                 </div>
               </div>
-              <div className="mt-5 flex flex-col gap-3">
-                <a href={companyInfo.phoneHref} className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-red px-6 py-4 text-base font-bold text-white shadow-lg shadow-brand-red/25 transition-all hover:bg-brand-red-dark hover:-translate-y-0.5 hover:scale-[1.02]">
-                  <Phone className="h-5 w-5" /> Call {companyInfo.phone}
+              <div className="mt-8 flex flex-col gap-4">
+                <a href={companyInfo.phoneHref} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-red-500 to-brand-red px-6 py-4 text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+                  <Phone className="h-5 w-5 drop-shadow-md" /> Call {companyInfo.phone}
                 </a>
-                <Link href="/contact-us/" className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-white/15 bg-white/5 px-6 py-3.5 text-sm font-bold text-white transition-all hover:border-white/30 hover:bg-white/10">
-                  <CalendarCheck className="h-4 w-4" /> Schedule Service Online
+                <Link href="/contact-us/" className="flex w-full items-center justify-center gap-2 rounded-xl bg-white/[0.03] px-6 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
+                  <CalendarCheck className="h-4 w-4 text-brand-blue-light" /> Schedule Service Online
                 </Link>
               </div>
             </div>
@@ -545,28 +569,28 @@ export default async function CityPage({ params }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── COMMON PROBLEMS ── */}
-      <section className="bg-white py-14 lg:py-18">
+      {/* ── COMMON PROBLEMS (Dark Red Alert Cards) ── */}
+      <section className="relative z-10 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">Spot the Warning Signs</p>
-            <h2 className="mt-3 font-heading text-2xl font-extrabold text-navy sm:text-3xl">
+          <div className="mb-12">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">Spot the Warning Signs</p>
+            <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
               Common HVAC Problems in {city} Homes
             </h2>
-            <p className="mt-3 max-w-2xl text-base text-slate-600">
+            <p className="mt-4 max-w-2xl text-lg text-slate-400 font-light">
               Recognizing these issues early can save you hundreds in emergency repair costs.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2">
             {content.commonProblems.map((problem) => (
-              <div key={problem.title} className="flex items-start gap-3.5 rounded-xl border border-slate-200 border-l-2 border-l-brand-red/30 bg-white px-5 py-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-l-brand-red/50 hover:shadow-md">
-                <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50">
-                  <AlertTriangle className="h-4 w-4 text-brand-red/70" />
+              <div key={problem.title} className="group flex items-start gap-4 rounded-2xl border-l-2 border-l-brand-red/50 bg-[#0F172A]/80 px-6 py-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-l-brand-red hover:bg-[#151E32]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-red/10 ring-1 ring-brand-red/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-transform duration-300 group-hover:scale-110">
+                  <AlertTriangle className="h-5 w-5 text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]" />
                 </div>
                 <div>
-                  <p className="font-heading text-sm font-bold text-navy">{problem.title}</p>
-                  <p className="mt-1 text-[13px] leading-normal text-slate-500">{problem.text}</p>
+                  <p className="font-heading text-lg font-extrabold text-white">{problem.title}</p>
+                  <p className="mt-2 text-[15px] font-light leading-relaxed text-slate-400">{problem.text}</p>
                 </div>
               </div>
             ))}
@@ -574,64 +598,75 @@ export default async function CityPage({ params }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── SCHEDULE CTA ── */}
-      <section className="relative overflow-hidden bg-brand-blue py-20 sm:py-24">
-        <div className="absolute inset-0 opacity-15">
-          <Image src="/images/ac-repair-inprogress.webp" alt={getAltText("schedule", city)} fill className="object-cover" sizes="100vw" />
-        </div>
-        <div className="absolute inset-0 bg-linear-to-b from-brand-blue/85 via-brand-blue/95 to-brand-blue-dark" />
-        <div className="relative mx-auto max-w-7xl px-6 text-center">
-          <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={64} height={64} className="mx-auto mb-4 h-16 w-auto drop-shadow-lg" />
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/50">Don&apos;t Wait — We&apos;re Available Now</p>
-          <h2 className="mt-3 font-heading text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
+      {/* ── SCHEDULE CTA (Cinematic Radial Gradient) ── */}
+      <section className="relative z-10 overflow-hidden py-32">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-brand-blue/20 via-transparent to-transparent opacity-80 pointer-events-none" />
+        
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),_0_10px_30px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-xl">
+            <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={48} height={48} className="h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+          </div>
+          
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Don&apos;t Wait — We&apos;re Available Now</p>
+          <h2 className="mt-4 font-heading text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl tracking-tight drop-shadow-xl">
             Schedule HVAC Service in {city}
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-lg font-semibold text-white/80">
+          <p className="mx-auto mt-6 max-w-2xl text-lg font-light text-slate-300 drop-shadow-sm">
             {content.scheduleCta}
           </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contact-us/" className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-brand-blue shadow-xl transition-all hover:bg-slate-50 hover:-translate-y-0.5 hover:scale-[1.02]">
-              Get Free Same-Day Estimate <ArrowRight className="h-5 w-5" />
+          
+          <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
+            <Link href="/contact-us/" className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-base font-extrabold text-[#090E1A] shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5">
+              <CalendarCheck className="h-5 w-5" /> Get Free Same-Day Estimate
             </Link>
-            <a href={companyInfo.phoneHref} className="inline-flex items-center gap-3 rounded-xl bg-brand-red px-8 py-4 text-lg font-extrabold text-white transition-all hover:bg-brand-red-dark hover:-translate-y-0.5 hover:scale-[1.02]">
-              <Phone className="h-5 w-5" /> {companyInfo.phone}
+            <a href={companyInfo.phoneHref} className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-8 py-4 text-base font-extrabold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+              <Phone className="h-5 w-5 drop-shadow-md" /> <span className="drop-shadow-md">{companyInfo.phone}</span>
             </a>
           </div>
-          <p className="mt-5 text-sm text-white/40">No pressure. Just honest recommendations from experienced technicians.</p>
+          <p className="mt-6 text-xs font-bold uppercase tracking-wider text-slate-500">No pressure. Just honest recommendations from experienced technicians.</p>
         </div>
       </section>
 
       {/* ── FAQ ACCORDION ── */}
-      <section className="bg-slate-50/50 py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">Got Questions?</p>
-            <h2 className="mt-3 font-heading text-2xl font-extrabold text-navy sm:text-3xl">
+      <section className="relative z-10 py-16 lg:py-24">
+        {/* Subtle separator */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="mb-12 text-center">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Got Questions?</p>
+            <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
               Frequently Asked Questions About HVAC in {city}
             </h2>
           </div>
-          <FaqAccordion faqs={content.faqs} />
+          
+          <div className="rounded-[2rem] border border-white/5 bg-[#0F172A]/50 p-6 sm:p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-md">
+            {/* Note: Ensure the <FaqAccordion /> component styling itself handles dark mode or text colors correctly if it doesn't already inherit them. */}
+            <FaqAccordion faqs={content.faqs} />
+          </div>
         </div>
       </section>
 
-      {/* ── SERVICE AREAS ── */}
-      <section className="bg-navy py-14 lg:py-16">
+      {/* ── SERVICE AREAS FOOTER ── */}
+      <section className="relative z-10 py-14 lg:py-16">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+        
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-6 text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">Proudly Serving</p>
-            <h2 className="mt-2 font-heading text-xl font-extrabold text-white sm:text-2xl">
+          <div className="mb-8 text-center">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Proudly Serving</p>
+            <h2 className="mt-3 font-heading text-xl font-extrabold text-white sm:text-2xl tracking-tight">
               HVAC Service Areas Across the Inland Empire
             </h2>
           </div>
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-3">
             {serviceAreaCities.map((area) => {
               const isCurrent = area.url === `/service-areas/${slug}/`;
               return isCurrent ? (
-                <span key={area.city} className="rounded-full bg-brand-red px-4 py-1.5 text-sm font-bold text-white shadow-md">
+                <span key={area.city} className="rounded-full bg-brand-red px-5 py-2 text-sm font-bold text-white shadow-[0_0_15px_rgba(220,38,38,0.5)] ring-1 ring-brand-red">
                   {area.city}
                 </span>
               ) : (
-                <Link key={area.city} href={area.url} className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white/70 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10 hover:text-white">
+                <Link key={area.city} href={area.url} className="rounded-full border border-white/10 bg-white/[0.02] px-5 py-2 text-sm font-semibold text-slate-400 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand-blue/50 hover:bg-brand-blue/10 hover:text-white hover:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
                   {area.city}
                 </Link>
               );
@@ -639,6 +674,7 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </div>
       </section>
-    </>
+      
+    </div>
   );
 }

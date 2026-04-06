@@ -185,7 +185,8 @@ export function ContactForm() {
           {...register("consent", { setValueAs: (v: boolean) => v === true ? true : undefined })}
         />
         <label htmlFor="consent" className="text-xs leading-relaxed text-slate-600">
-          I agree to receive communications including appointment reminders, marketing promotions and special offers from It&apos;s No Sweat Heat &amp; Air via email, mail and / or SMS.
+          I agree to receive communications including appointment reminders, marketing promotions and special offers from It&apos;s No Sweat Heat &amp; Air via email, mail and / or SMS. View our{" "}
+          <a href="/privacy-policy/" className="font-semibold text-brand-blue underline underline-offset-2 decoration-brand-blue/30 hover:decoration-brand-blue transition-colors">Privacy Policy</a>.
         </label>
       </div>
       {errors.consent && <p className={errorBase}>{errors.consent.message}</p>}

@@ -1,19 +1,14 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Phone, Clock, Mail, CalendarCheck, Tag, ArrowRight, MapPin } from "lucide-react";
+import { ChevronDown, Phone, Clock, MapPin, Star, CheckCircle2, ShieldCheck, Tag, ArrowRight } from "lucide-react";
 import { MobileMenu } from "./mobile-menu";
 import { mainNav, services, companyInfo } from "@/data/navigation";
-
-const topCities = [
-  { city: "Moreno Valley", url: "/service-areas/moreno-valley/" },
-  { city: "Riverside", url: "/service-areas/riverside/" },
-  { city: "Temecula", url: "/service-areas/temecula/" },
-];
+import { serviceAreaCities } from "@/data/cities";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -21,325 +16,274 @@ export function Header() {
   const [megaOpen, setMegaOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const areasTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const openMega = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setMegaOpen(true);
-  };
-
-  const closeMega = () => {
-    timeoutRef.current = setTimeout(() => setMegaOpen(false), 150);
-  };
-
-  const openAreas = () => {
-    if (areasTimeoutRef.current) clearTimeout(areasTimeoutRef.current);
-    setAreasOpen(true);
-  };
-
-  const closeAreas = () => {
-    areasTimeoutRef.current = setTimeout(() => setAreasOpen(false), 150);
-  };
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };
 
+  const closeAll = () => {
+    setMegaOpen(false);
+    setAreasOpen(false);
+  };
+
   return (
-    <header className={cn("sticky top-0 z-30 transition-shadow duration-300", scrolled && "shadow-xl")}>
-      {/* ── TOP UTILITY BAR ── */}
-      <div className="hidden bg-navy text-white/70 text-xs lg:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5">
-          <div className="flex items-center gap-5">
-            <a href={companyInfo.phoneHref} className="flex items-center gap-1.5 transition-colors hover:text-white">
-              <Phone className="h-3 w-3" />
-              {companyInfo.phone}
-            </a>
-            <span className="text-white/20">|</span>
-            <a href={companyInfo.emailHref} className="flex items-center gap-1.5 transition-colors hover:text-white">
-              <Mail className="h-3 w-3" />
-              {companyInfo.email}
-            </a>
-          </div>
-          <div className="flex items-center gap-5">
-            <span className="flex items-center gap-1.5">
-              <Clock className="h-3 w-3" />
-              {companyInfo.hours}
-            </span>
-            <span className="text-white/20">|</span>
-            <span className="font-semibold text-brand-green">
-              {companyInfo.emergencyHours}
-            </span>
-          </div>
-        </div>
-      </div>
+    <header 
+      onMouseLeave={closeAll}
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 w-full transition-all duration-500",
+        scrolled 
+          ? "bg-[#090E1A]/85 backdrop-blur-md border-b border-white/[0.04]" 
+          : "bg-transparent border-b border-transparent"
+      )}
+    >
+      {/* ── MAIN HEADER BAR ── */}
+      <div className="mx-auto flex h-24 w-full max-w-7xl items-center justify-between px-6">
+        
+        {/* LOGO */}
+        <Link href="/" className="shrink-0 transition-transform hover:scale-[1.02]">
+          <Image
+            src="/images/logo-main.webp"
+            alt="It's No Sweat Heat & Air"
+            width={180}
+            height={59}
+            className="h-14 w-auto sm:h-16 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+            priority
+          />
+        </Link>
 
-      {/* ── MIDDLE BAR: Logo | Schedule CTA | Emergency Phone ── */}
-      <div className="bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
-          {/* Logo */}
-          <Link href="/" className="shrink-0">
-            <Image
-              src="/images/logo-main.webp"
-              alt="It's No Sweat Heat & Air"
-              width={200}
-              height={66}
-              className="h-20 w-auto sm:h-24 -my-3"
-              priority
-            />
-          </Link>
-
-          {/* Center — Schedule CTA */}
-          <div className="hidden md:flex lg:hidden xl:flex">
-            <Link href="/contact-us/" className="group inline-flex items-center gap-3 rounded-xl border border-slate-200 px-5 py-3 transition-all hover:border-brand-blue/30 hover:shadow-sm">
-              <CalendarCheck className="h-5 w-5 text-brand-blue" />
-              <div className="leading-tight">
-                <span className="block text-[11px] font-medium text-slate-400">Book Now</span>
-                <span className="block font-heading text-sm font-bold text-navy group-hover:text-brand-blue">Schedule Appointment</span>
-              </div>
-            </Link>
-          </div>
-
-          {/* Right — Emergency Phone */}
-          <a
-            href={companyInfo.phoneHref}
-            className="group hidden items-center gap-3 rounded-xl border border-slate-200 px-5 py-3 transition-all hover:border-brand-red/30 hover:shadow-sm sm:flex"
-          >
-            <Phone className="h-5 w-5 text-brand-red" />
-            <div className="leading-tight">
-              <span className="block text-[11px] font-medium text-slate-400">Emergency 24/7</span>
-              <span className="block font-heading text-sm font-bold text-navy group-hover:text-brand-red">
-                {companyInfo.phone}
-              </span>
-            </div>
-          </a>
-
-          {/* Mobile hamburger */}
-          <div className="sm:hidden">
-            <MobileMenu />
-          </div>
-        </div>
-      </div>
-
-      {/* ── MAIN NAV BAR ── */}
-      <nav className="bg-brand-blue">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
-          {/* Desktop nav links */}
-          <div className="hidden items-center lg:flex">
-            {mainNav.map((item) =>
-              item.label === "Services" ? (
-                <div key={item.label} className="relative" onMouseEnter={openMega} onMouseLeave={closeMega}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "flex items-center gap-1 border-b-3 px-5 py-3.5 text-sm font-semibold uppercase tracking-wide transition-colors",
-                      isActive("/service/")
-                        ? "border-white bg-white/15 text-white"
-                        : "border-transparent text-white/85 hover:bg-white/10 hover:text-white"
-                    )}
-                  >
-                    Services
-                    <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", megaOpen && "rotate-180")} />
+        {/* DESKTOP NAV LINKS */}
+        <nav className="hidden h-full items-center gap-2 lg:flex">
+          {mainNav.map((item) => {
+            
+            if (item.label === "Services") {
+              return (
+                <div key={item.label} className="flex h-full items-center px-3" onMouseEnter={() => { setMegaOpen(true); setAreasOpen(false); }}>
+                  <Link href={item.href} className={cn("flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300", megaOpen || isActive("/service/") ? "bg-white/[0.05] text-white ring-1 ring-white/10" : "text-slate-300 hover:text-white")}>
+                    Services <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300", megaOpen && "rotate-180 text-brand-blue")} />
                   </Link>
-
-                  {/* Mega Menu */}
-                  <AnimatePresence>
-                    {megaOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                        transition={{ duration: 0.18, ease: "easeOut" }}
-                        className="absolute -left-20 top-full z-50 w-155"
-                      >
-                        <div className="overflow-hidden rounded-b-xl border border-t-0 border-slate-200/60 bg-white shadow-2xl shadow-navy/15">
-                          {/* Cooling */}
-                          <div className="px-5 pt-5 pb-4">
-                            <div className="mb-3 flex items-center gap-2">
-                              <div className="h-px flex-1 bg-brand-blue/15" />
-                              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-blue">Cooling</span>
-                              <div className="h-px flex-1 bg-brand-blue/15" />
-                            </div>
-                            <div className="grid grid-cols-2 gap-1">
-                              {services.filter(s => s.label === "AC Repair" || s.label === "AC Installation").map((service) => (
-                                <Link key={service.href} href={service.href} onClick={() => setMegaOpen(false)} className="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-150 hover:translate-x-0.5 hover:bg-brand-blue/5">
-                                  <service.icon className="h-4 w-4 shrink-0 text-slate-300 transition-colors group-hover:text-brand-blue" />
-                                  <div className="flex-1">
-                                    <span className="flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors group-hover:text-brand-blue">
-                                      {service.label}
-                                      <ArrowRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
-                                    </span>
-                                    <span className="block text-[11px] leading-snug text-slate-400">{service.description}</span>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Heating */}
-                          <div className="bg-slate-50/60 px-5 py-4">
-                            <div className="mb-3 flex items-center gap-2">
-                              <div className="h-px flex-1 bg-brand-red/15" />
-                              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-red">Heating</span>
-                              <div className="h-px flex-1 bg-brand-red/15" />
-                            </div>
-                            <div className="grid grid-cols-2 gap-1">
-                              {services.filter(s => s.label.includes("Furnace")).map((service) => (
-                                <Link key={service.href} href={service.href} onClick={() => setMegaOpen(false)} className="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-150 hover:translate-x-0.5 hover:bg-brand-red/5">
-                                  <service.icon className="h-4 w-4 shrink-0 text-slate-300 transition-colors group-hover:text-brand-red" />
-                                  <div className="flex-1">
-                                    <span className="flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors group-hover:text-brand-red">
-                                      {service.label}
-                                      <ArrowRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
-                                    </span>
-                                    <span className="block text-[11px] leading-snug text-slate-400">{service.description}</span>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* System Care */}
-                          <div className="px-5 py-4">
-                            <div className="mb-3 flex items-center gap-2">
-                              <div className="h-px flex-1 bg-brand-blue/15" />
-                              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-blue">System Care</span>
-                              <div className="h-px flex-1 bg-brand-blue/15" />
-                            </div>
-                            <div className="grid grid-cols-2 gap-1">
-                              {services.filter(s => s.label === "HVAC Maintenance" || s.label === "Indoor Air Quality").map((service) => (
-                                <Link key={service.href} href={service.href} onClick={() => setMegaOpen(false)} className="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-150 hover:translate-x-0.5 hover:bg-brand-blue/5">
-                                  <service.icon className="h-4 w-4 shrink-0 text-slate-300 transition-colors group-hover:text-brand-blue" />
-                                  <div className="flex-1">
-                                    <span className="flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors group-hover:text-brand-blue">
-                                      {service.label}
-                                      <ArrowRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
-                                    </span>
-                                    <span className="block text-[11px] leading-snug text-slate-400">{service.description}</span>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Footer */}
-                          <div className="flex items-center justify-between border-t border-white/10 bg-navy px-5 py-3.5">
-                            <Link href="/service/special-offer/" onClick={() => setMegaOpen(false)} className="group inline-flex items-center gap-2 rounded-md bg-brand-red-light/20 px-3 py-1.5 text-sm font-bold text-brand-red-light transition-all hover:bg-brand-red hover:text-white">
-                              <Tag className="h-3.5 w-3.5" />
-                              Special Offers
-                              <span className="rounded bg-brand-red/30 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-brand-red-light group-hover:bg-white/20 group-hover:text-white">Limited</span>
-                            </Link>
-                            <Link href="/service/" onClick={() => setMegaOpen(false)} className="text-sm font-semibold text-white/60 transition-colors hover:text-white">
-                              All Services &rarr;
-                            </Link>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
-              ) : item.label === "Service Areas" ? (
-                <div key={item.label} className="relative" onMouseEnter={openAreas} onMouseLeave={closeAreas}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "flex items-center gap-1 border-b-3 px-5 py-3.5 text-sm font-semibold uppercase tracking-wide transition-colors",
-                      isActive("/service-areas/")
-                        ? "border-white bg-white/15 text-white"
-                        : "border-transparent text-white/85 hover:bg-white/10 hover:text-white"
-                    )}
-                  >
-                    Service Areas
-                    <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", areasOpen && "rotate-180")} />
+              );
+            }
+
+            if (item.label === "Service Areas") {
+              return (
+                <div key={item.label} className="flex h-full items-center px-3" onMouseEnter={() => { setAreasOpen(true); setMegaOpen(false); }}>
+                  <Link href={item.href} className={cn("flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300", areasOpen || isActive("/service-areas/") ? "bg-white/[0.05] text-white ring-1 ring-white/10" : "text-slate-300 hover:text-white")}>
+                    Service Areas <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300", areasOpen && "rotate-180 text-brand-blue")} />
                   </Link>
-
-                  <AnimatePresence>
-                    {areasOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                        transition={{ duration: 0.18, ease: "easeOut" }}
-                        className="absolute left-0 top-full z-50 w-64"
-                      >
-                        <div className="overflow-hidden rounded-b-xl border border-t-0 border-slate-200/60 bg-white shadow-2xl shadow-navy/15">
-                          <div className="px-3 pt-4 pb-3">
-                            <div className="mb-3 flex items-center gap-2">
-                              <div className="h-px flex-1 bg-brand-blue/15" />
-                              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-blue">Top Cities</span>
-                              <div className="h-px flex-1 bg-brand-blue/15" />
-                            </div>
-                            {topCities.map((area) => (
-                              <Link
-                                key={area.city}
-                                href={area.url}
-                                onClick={() => setAreasOpen(false)}
-                                className="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-150 hover:translate-x-0.5 hover:bg-brand-blue/5"
-                              >
-                                <MapPin className="h-4 w-4 shrink-0 text-slate-300 transition-colors group-hover:text-brand-blue" />
-                                <div className="flex-1">
-                                  <span className="flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors group-hover:text-brand-blue">
-                                    {area.city}
-                                    <ArrowRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
-                                  </span>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                          <div className="border-t border-white/10 bg-navy px-4 py-3">
-                            <Link
-                              href="/service-areas/"
-                              onClick={() => setAreasOpen(false)}
-                              className="flex items-center justify-between text-sm font-semibold text-white/70 transition-colors hover:text-white"
-                            >
-                              <span className="flex items-center gap-2">
-                                <MapPin className="h-3.5 w-3.5" />
-                                View All 30 Cities
-                              </span>
-                              <ArrowRight className="h-3.5 w-3.5" />
-                            </Link>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
-              ) : (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={cn(
-                    "border-b-3 px-5 py-3.5 text-sm font-semibold uppercase tracking-wide transition-colors",
-                    isActive(item.href)
-                      ? "border-white bg-white/15 text-white"
-                      : "border-transparent text-white/85 hover:bg-white/10 hover:text-white"
-                  )}
-                >
+              );
+            }
+
+            return (
+              <div key={item.label} className="flex h-full items-center px-3" onMouseEnter={closeAll}>
+                <Link href={item.href} className={cn("rounded-lg px-4 py-2.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300", isActive(item.href) ? "bg-white/[0.05] text-white ring-1 ring-white/10" : "text-slate-300 hover:text-white")}>
                   {item.label}
                 </Link>
-              )
-            )}
-          </div>
+              </div>
+            );
+          })}
+        </nav>
 
-          {/* CTA on nav bar — red accent */}
-          <Link href="/contact-us/" className="hidden items-center gap-2 rounded-md bg-brand-red px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-sm transition-all hover:bg-brand-red-dark hover:shadow-md lg:inline-flex">
-            Service Request
-          </Link>
-
-          {/* Tablet hamburger */}
-          <div className="hidden py-3 sm:block lg:hidden">
-            <MobileMenu />
-          </div>
+        {/* RIGHT CTA */}
+        <div className="hidden items-center gap-3 lg:flex">
+          <a href={companyInfo.phoneHref} className="group flex items-center gap-2 rounded-xl bg-white/[0.03] px-5 py-2.5 text-sm font-extrabold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            <Phone className="h-4 w-4 text-brand-red transition-colors group-hover:text-brand-red-light" /> {companyInfo.phone}
+          </a>
         </div>
-      </nav>
+
+        {/* MOBILE MENU */}
+        <div className="lg:hidden">
+          <MobileMenu />
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════
+          MEGA MENU 1: SERVICES (Premium Glassmorphic)
+          ═══════════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {megaOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="absolute left-0 right-0 top-full overflow-hidden border-t border-white/10 bg-[#090E1A]/95 backdrop-blur-3xl shadow-[0_40px_80px_-15px_rgba(0,0,0,0.9)]"
+          >
+            {/* Ambient Background Glows */}
+            <div className="absolute -top-40 left-[20%] h-80 w-80 rounded-full bg-brand-blue/10 blur-[80px] pointer-events-none" />
+            <div className="absolute -top-40 right-[10%] h-80 w-80 rounded-full bg-brand-red/5 blur-[80px] pointer-events-none" />
+
+            <div className="relative mx-auto max-w-7xl">
+              <div className="grid grid-cols-[280px_1fr_300px]">
+                
+                {/* Column 1: Business Info (Structured Framed Panel) */}
+                <div className="flex flex-col bg-white/[0.02] border-r border-white/5 p-10 shadow-[inset_-1px_0_0_rgba(255,255,255,0.02)]">
+                  <p className="text-sm font-extrabold text-white">{companyInfo.name}</p>
+                  <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-slate-500">{companyInfo.license}</p>
+
+                  <div className="mt-6 border-t border-white/5 pt-6">
+                    <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Business Hours</p>
+                    <div className="space-y-2.5 text-xs text-slate-400">
+                      <div className="flex justify-between items-center"><span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-slate-500" /> Mon – Fri</span><span className="font-bold text-slate-200">8AM – 6PM</span></div>
+                      <div className="flex justify-between items-center"><span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-slate-500" /> Sat – Sun</span><span className="font-bold text-slate-200">8AM – 2PM</span></div>
+                      <div className="flex justify-between items-center">
+                        <span className="flex items-center gap-2">
+                          <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span></span>
+                          <span className="text-brand-red-light font-semibold">Emergency</span>
+                        </span>
+                        <span className="font-bold text-brand-red-light">24/7</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 border-t border-white/5 pt-6">
+                    <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Why Choose Us</p>
+                    <div className="space-y-2.5">
+                      {[
+                        { icon: CheckCircle2, text: "Same-Day Service", color: "text-brand-blue-light" },
+                        { icon: Star, text: "4.9★ Customer Rating", color: "text-amber-400" },
+                        { icon: ShieldCheck, text: "Licensed & Insured", color: "text-emerald-400" },
+                      ].map((item) => (
+                        <div key={item.text} className="flex items-center gap-2.5 text-xs text-slate-400">
+                          <item.icon className={`h-3.5 w-3.5 ${item.color}`} />
+                          <span>{item.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Link href="/service/special-offer/" onClick={closeAll} className="mt-8 group flex w-full items-center justify-center gap-2 rounded-xl bg-white/[0.03] px-4 py-3.5 text-xs font-bold text-white ring-1 ring-white/10 transition-all duration-300 hover:bg-brand-red hover:ring-brand-red hover:shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:-translate-y-0.5">
+                    <Tag className="h-4 w-4 text-brand-red transition-colors group-hover:text-white" /> View Special Offers
+                  </Link>
+                </div>
+
+                {/* Column 2: The Services (Tactile Hover Cards) */}
+                <div className="p-10">
+                  <p className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Precision Solutions</p>
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                    {services.filter(s => s.label !== "Special Offers").map((service) => (
+                      <Link key={service.href} href={service.href} onClick={closeAll} className="group flex items-start gap-5 rounded-2xl p-4 transition-all duration-300 hover:bg-white/[0.03] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-transparent hover:ring-white/10">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0F172A] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10 transition-all duration-300 group-hover:bg-brand-blue group-hover:text-white group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] group-hover:ring-brand-blue">
+                          <service.icon className="h-5 w-5 text-slate-400 transition-colors group-hover:text-white" />
+                        </div>
+                        <div className="flex flex-col justify-center pt-0.5">
+                          <span className="block text-sm font-extrabold tracking-wide text-slate-200 transition-colors group-hover:text-white">{service.label}</span>
+                          <span className="block mt-1 text-xs leading-relaxed text-slate-500 transition-colors group-hover:text-slate-400">{service.description}</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 3: Emergency (High-Impact 3D Card) */}
+                <div className="bg-white/[0.01] border-l border-white/5 p-10">
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="h-2 w-2 rounded-full bg-brand-red animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-red">Emergency Fast Track</p>
+                  </div>
+                  
+                  <div className="group relative aspect-[9/10] overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-xl transition-all duration-500 hover:ring-brand-red/50">
+                    <Image src="/images/customer-service-rep.webp" alt="HVAC emergency service" fill className="object-cover opacity-70 mix-blend-luminosity transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 group-hover:mix-blend-normal" sizes="220px" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#090E1A] via-[#090E1A]/40 to-transparent transition-opacity duration-500 group-hover:opacity-80" />
+                    <div className="absolute bottom-5 left-0 right-0 text-center transform transition-transform duration-500 group-hover:-translate-y-1">
+                      <p className="text-sm font-extrabold text-white drop-shadow-md">Need Help Right Now?</p>
+                    </div>
+                  </div>
+
+                  {/* 3D Primary Button */}
+                  <a href={companyInfo.phoneHref} onClick={closeAll} className="mt-8 relative flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-red-500 to-brand-red px-4 py-4 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+                    <Phone className="h-4 w-4 drop-shadow-md" /> 
+                    <span className="drop-shadow-md">Call {companyInfo.phone}</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ═══════════════════════════════════════════════════
+          MEGA MENU 2: SERVICE AREAS (Premium Glassmorphic)
+          ═══════════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {areasOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="absolute left-0 right-0 top-full overflow-hidden border-t border-white/10 bg-[#090E1A]/95 backdrop-blur-3xl shadow-[0_40px_80px_-15px_rgba(0,0,0,0.9)]"
+          >
+            {/* Ambient Background Glow */}
+            <div className="absolute -top-40 right-[30%] h-80 w-80 rounded-full bg-brand-blue/10 blur-[80px] pointer-events-none" />
+
+            <div className="relative mx-auto max-w-7xl">
+              <div className="grid grid-cols-[300px_1fr]">
+                
+                {/* Left Column: Summary Frame */}
+                <div className="bg-white/[0.02] border-r border-white/5 p-10 shadow-[inset_-1px_0_0_rgba(255,255,255,0.02)]">
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0F172A] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10">
+                      <MapPin className="h-6 w-6 text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-heading font-extrabold text-white tracking-wide">Service Areas</p>
+                      <p className="text-xs text-slate-400 mt-0.5">Inland Empire Coverage</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-5 mb-10 border-t border-white/5 pt-8">
+                    {[
+                      { icon: CheckCircle2, text: "30+ Local Cities Served", color: "text-brand-blue" },
+                      { icon: Star, text: "4.9★ Average Rating", color: "text-amber-400" },
+                      { icon: Tag, text: "No Travel Fees", color: "text-emerald-400" }
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-center gap-3 text-sm font-medium text-slate-300">
+                        <item.icon className={`h-5 w-5 ${item.color} drop-shadow-md`} />
+                        <span>{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link href="/service-areas/" onClick={closeAll} className="group relative flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-blue-500 to-brand-blue px-4 py-4 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(59,130,246,0.6)] ring-1 ring-brand-blue/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(59,130,246,0.8)] hover:-translate-y-0.5">
+                    <MapPin className="h-4 w-4 drop-shadow-md" /> 
+                    <span className="drop-shadow-md">View Interactive Map</span>
+                  </Link>
+                </div>
+
+                {/* Right Column: Interactive City Grid */}
+                <div className="p-10">
+                  <p className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 drop-shadow-sm">Select Your City</p>
+                  
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2">
+                    {serviceAreaCities.map((area) => (
+                      <Link
+                        key={area.city}
+                        href={area.url}
+                        onClick={closeAll}
+                        className="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-300 hover:bg-white/[0.04] ring-1 ring-transparent hover:ring-white/10 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
+                      >
+                        <MapPin className="h-3.5 w-3.5 shrink-0 text-slate-600 transition-colors duration-300 group-hover:text-brand-blue" />
+                        <span className="text-sm font-medium text-slate-400 transition-colors duration-300 group-hover:text-slate-100">{area.city}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

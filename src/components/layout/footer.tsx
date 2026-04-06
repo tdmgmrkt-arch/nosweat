@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, Star, MapPin, Clock, ArrowRight } from "lucide-react";
 import { companyInfo, footerLinks } from "@/data/navigation";
 import { serviceAreaCities } from "@/data/cities";
 import { CtaBanner } from "./cta-banner";
@@ -12,45 +12,62 @@ export function Footer() {
     <>
       <CtaBanner />
 
-      <footer className="bg-navy">
-        <div className="mx-auto max-w-7xl px-6 py-20">
+      <footer className="relative z-10 overflow-hidden bg-[#090E1A] border-t border-white/5 font-sans text-slate-300">
+        
+        {/* Ambient Footer Lighting */}
+        <div className="absolute top-0 left-1/4 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-blue/5 blur-[120px] pointer-events-none z-0" />
+        <div className="absolute bottom-0 right-1/4 h-[500px] w-[500px] translate-x-1/2 translate-y-1/2 rounded-full bg-brand-red/5 blur-[120px] pointer-events-none z-0" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:py-24">
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-16">
+            
             {/* Column 1 — Brand + Contact */}
             <div>
-              <div className="mb-6">
-                <Image src="/images/logo-main.webp" alt="It's No Sweat Heat & Air" width={160} height={53} className="h-12 w-auto" />
+              <div className="mb-8">
+                <Image src="/images/logo-main.webp" alt="It's No Sweat Heat & Air" width={160} height={53} className="h-12 w-auto brightness-110" />
               </div>
-              <ul className="space-y-3.5 text-sm text-slate-400">
-                <li className="flex items-start gap-2.5">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-blue-light" />
-                  {companyInfo.address}
+              <ul className="space-y-4 text-sm text-slate-400">
+                <li className="flex items-start gap-3">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/[0.03] ring-1 ring-white/10">
+                    <MapPin className="h-3.5 w-3.5 text-brand-blue-light" />
+                  </div>
+                  <span className="mt-0.5 leading-relaxed">{companyInfo.address}</span>
                 </li>
                 <li>
-                  <a href={companyInfo.phoneHref} className="flex items-center gap-2.5 transition-colors hover:text-white">
-                    <Phone className="h-4 w-4 shrink-0 text-brand-blue-light" />
-                    {companyInfo.phone}
+                  <a href={companyInfo.phoneHref} className="group flex items-center gap-3 transition-colors hover:text-white">
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/[0.03] ring-1 ring-white/10 transition-colors group-hover:bg-brand-red/10 group-hover:ring-brand-red/30">
+                      <Phone className="h-3.5 w-3.5 text-brand-red transition-colors group-hover:text-brand-red-light" />
+                    </div>
+                    <span className="font-semibold text-slate-300 transition-colors group-hover:text-white">{companyInfo.phone}</span>
                   </a>
                 </li>
                 <li>
-                  <a href={companyInfo.emailHref} className="flex items-center gap-2.5 transition-colors hover:text-white">
-                    <Mail className="h-4 w-4 shrink-0 text-brand-blue-light" />
-                    {companyInfo.email}
+                  <a href={companyInfo.emailHref} className="group flex items-center gap-3 transition-colors hover:text-white">
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/[0.03] ring-1 ring-white/10 transition-colors group-hover:bg-brand-blue/10 group-hover:ring-brand-blue/30">
+                      <Mail className="h-3.5 w-3.5 text-brand-blue-light transition-colors group-hover:text-white" />
+                    </div>
+                    <span>{companyInfo.email}</span>
                   </a>
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Clock className="h-4 w-4 shrink-0 text-brand-blue-light" />
-                  {companyInfo.hours}
+                <li className="flex items-center gap-3">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/[0.03] ring-1 ring-white/10">
+                    <Clock className="h-3.5 w-3.5 text-slate-400" />
+                  </div>
+                  <span>{companyInfo.hours}</span>
                 </li>
               </ul>
             </div>
 
             {/* Column 2 — Quick Links */}
             <div>
-              <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-white">Quick Links</h3>
-              <ul className="space-y-3.5 text-sm text-slate-400">
+              <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">Quick Links</h3>
+              <ul className="space-y-3 text-sm text-slate-400">
                 {footerLinks.company.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="transition-colors hover:text-white">{link.label}</Link>
+                    <Link href={link.href} className="group flex items-center gap-2 transition-colors hover:text-white">
+                      <ArrowRight className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 text-brand-blue" />
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">{link.label}</span>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -58,11 +75,14 @@ export function Footer() {
 
             {/* Column 3 — Services */}
             <div>
-              <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-white">Services</h3>
-              <ul className="space-y-3.5 text-sm text-slate-400">
+              <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">Services</h3>
+              <ul className="space-y-3 text-sm text-slate-400">
                 {footerLinks.services.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="transition-colors hover:text-white">{link.label}</Link>
+                    <Link href={link.href} className="group flex items-center gap-2 transition-colors hover:text-white">
+                      <ArrowRight className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 text-brand-blue" />
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">{link.label}</span>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -70,15 +90,21 @@ export function Footer() {
 
             {/* Column 4 — 24-Hour Emergency */}
             <div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm">
-                <Image src="/images/mascot-head.png" alt="No Sweat mascot" width={56} height={56} className="mx-auto mb-3 h-14 w-auto drop-shadow-lg" />
-                <p className="font-heading text-base font-extrabold text-white">24-Hour Emergency</p>
-                <p className="text-sm text-brand-blue-light">Service Available</p>
+              {/* Premium Glassmorphic Emergency Card */}
+              <div className="relative overflow-hidden rounded-3xl bg-[#0F172A]/50 p-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_10px_30px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-sm transition-all hover:bg-[#151E32]/80 hover:ring-white/10">
+                {/* Subtle inner glow */}
+                <div className="absolute -top-10 left-1/2 h-20 w-20 -translate-x-1/2 rounded-full bg-brand-red/20 blur-[30px]" />
+                
+                <Image src="/images/mascot-head.png" alt="No Sweat mascot" width={64} height={64} className="mx-auto mb-4 h-16 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
+                <p className="font-heading text-lg font-extrabold text-white">24-Hour Emergency</p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-slate-400">Service Available</p>
+                
+                {/* 3D Tactile Button */}
                 <a
                   href={companyInfo.phoneHref}
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-red px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-brand-red-dark hover:-translate-y-0.5"
+                  className="mt-6 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-5 py-3 text-sm font-extrabold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_0_15px_rgba(220,38,38,0.2)] ring-1 ring-brand-red/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_0_20px_rgba(220,38,38,0.4)] hover:-translate-y-0.5"
                 >
-                  <Phone className="h-4 w-4" />
+                  <Phone className="h-4 w-4 drop-shadow-sm" />
                   Call Now
                 </a>
               </div>
@@ -87,17 +113,17 @@ export function Footer() {
         </div>
 
         {/* Service Areas */}
-        <div className="mx-auto max-w-7xl px-6 pb-12">
-          <div className="border-t border-white/10 pt-10">
-            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white">Service Areas</h3>
-            <div className="flex flex-wrap gap-x-1.5 gap-y-1.5">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pb-12">
+          <div className="border-t border-white/5 pt-10">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Service Areas</h3>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
               {serviceAreaCities.map((area, i) => (
                 <span key={area.city} className="inline-flex items-center">
-                  <Link href={area.url} className="text-sm text-slate-400 transition-colors hover:text-white">
+                  <Link href={area.url} className="text-sm font-medium text-slate-400 transition-colors hover:text-brand-blue-light">
                     {area.city}
                   </Link>
                   {i < serviceAreaCities.length - 1 && (
-                    <span className="ml-1.5 text-white/15">&middot;</span>
+                    <span className="ml-2 text-white/10">&bull;</span>
                   )}
                 </span>
               ))}
@@ -106,10 +132,17 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-slate-500 sm:flex-row">
-            <p>&copy; {year} {companyInfo.name}. All rights reserved.</p>
-            <p>Serving Moreno Valley, Riverside &amp; the Inland Empire</p>
+        <div className="relative z-10 border-t border-white/5 bg-[#090E1A]/80 backdrop-blur-md">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-slate-500 sm:flex-row">
+            <p className="font-medium">&copy; {year} {companyInfo.name}. All rights reserved.</p>
+            <div className="flex items-center gap-4">
+              <Link href="/privacy-policy/" className="font-medium transition-colors hover:text-white">Privacy Policy</Link>
+              <span className="text-white/10">|</span>
+              <p className="font-medium flex items-center gap-1.5">
+                Serving Moreno Valley, Riverside &amp; the Inland Empire
+                <Star className="h-3 w-3 text-amber-500/50 fill-amber-500/50" />
+              </p>
+            </div>
           </div>
         </div>
       </footer>

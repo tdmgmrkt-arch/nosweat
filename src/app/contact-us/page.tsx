@@ -16,30 +16,53 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
-      {/* ── HERO BANNER (Aligned with new site standards) ── */}
-      <section className="relative overflow-hidden bg-navy py-24 sm:py-28">
-        <div className="absolute inset-0">
-          <Image src="/images/contact-hero.webp" alt="Contact It's No Sweat Heat & Air" fill priority className="object-cover object-[center_40%]" sizes="100vw" />
-          {/* Clean, single overlay */}
-          <div className="absolute inset-0 bg-navy/85" />
+    <div className="relative min-h-screen bg-[#090E1A] text-slate-300 selection:bg-brand-red/30 selection:text-white font-sans">
+      
+      {/* GLOBAL AMBIENT LIGHTING */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-[20%] -left-[10%] h-[1000px] w-[1000px] rounded-full bg-brand-blue/10 blur-[150px] mix-blend-screen" />
+        <div className="absolute top-[40%] -right-[20%] h-[800px] w-[800px] rounded-full bg-brand-red/5 blur-[150px] mix-blend-screen" />
+      </div>
+
+      {/* ── HERO BANNER ── */}
+      <section className="relative z-10 overflow-hidden pt-24 pb-20 sm:pt-32">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'
+            }}
+          >
+            <Image 
+              src="/images/contact-hero.webp" 
+              alt="Contact It's No Sweat Heat & Air" 
+              fill 
+              priority 
+              className="object-cover object-[center_50%] opacity-25 mix-blend-luminosity" 
+              sizes="100vw" 
+            />
+            <div className="absolute inset-0 bg-[#090E1A]/40 mix-blend-overlay" />
+          </div>
+          <div className="absolute -bottom-1 left-0 right-0 h-48 bg-gradient-to-t from-[#090E1A] from-20% to-transparent" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-6">
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 sm:pt-24">
           <div className="max-w-3xl">
-            {/* Standardized Breadcrumbs */}
-            <p className="mb-5 text-sm font-semibold uppercase tracking-wide text-brand-red drop-shadow-sm">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span className="mx-2 text-white/50">&rsaquo;</span>
-              <span className="text-white">Contact Us</span>
-            </p>
+            {/* Luminous Breadcrumbs */}
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/[0.03] px-4 py-2 text-[10px] font-bold tracking-[0.1em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl uppercase">
+              <Link href="/" className="text-slate-400 hover:text-white transition-colors">Home</Link>
+              <span className="text-white/30">&rsaquo;</span>
+              <span className="text-brand-blue-light drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Contact Us</span>
+            </div>
             
-            <h1 className="font-heading text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-6xl">
+            <h1 className="font-heading text-5xl font-extrabold tracking-tight text-white drop-shadow-2xl sm:text-6xl lg:text-7xl">
               Contact Us
             </h1>
             
-            <div className="mt-6 h-1.5 w-16 rounded-full bg-brand-red" />
+            <div className="mt-8 h-1.5 w-16 rounded-full bg-gradient-to-r from-brand-red to-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
             
-            <p className="mt-6 text-lg leading-relaxed text-slate-200 drop-shadow-sm sm:text-xl">
+            <p className="mt-8 text-xl leading-relaxed text-slate-300 font-light drop-shadow-md">
               Ready to schedule service or have a question? Reach out — we respond fast and give straight answers.
             </p>
           </div>
@@ -47,110 +70,120 @@ export default function ContactPage() {
       </section>
 
       {/* ── MAIN CONTENT ── */}
-      <section className="bg-slate-50 py-16 lg:py-24">
+      <section className="relative z-10 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-10 lg:grid-cols-[1fr_380px] lg:gap-12">
+          <div className="grid gap-10 lg:grid-cols-[1fr_380px] lg:gap-16">
             
-            {/* LEFT — Form Container */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/40 sm:p-10">
-              <h2 className="font-heading text-2xl font-extrabold text-navy sm:text-3xl">
-                Request HVAC Service
-              </h2>
-              <p className="mt-3 text-base text-slate-500">
-                Fill out the form below and a representative will reach out to you shortly to confirm your appointment or answer your questions.
-              </p>
-              <div className="mt-8 border-t border-slate-100 pt-8">
-                <ContactForm />
+            {/* LEFT — Form Container (Premium Glassmorphic) */}
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-[#0F172A]/50 p-8 sm:p-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md">
+              {/* Ambient inner glow */}
+              <div className="absolute -left-40 -top-40 h-[400px] w-[400px] rounded-full bg-brand-blue/10 blur-[80px] pointer-events-none" />
+              
+              <div className="relative z-10">
+                <h2 className="font-heading text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
+                  Request HVAC Service
+                </h2>
+                <p className="mt-4 text-base text-slate-400 font-light leading-relaxed">
+                  Fill out the form below and a representative will reach out to you shortly to confirm your appointment or answer your questions.
+                </p>
+                <div className="mt-10 border-t border-white/10 pt-10">
+                  <ContactForm />
+                </div>
               </div>
             </div>
 
             {/* RIGHT — Sidebar */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-8">
               
-              {/* 1. High-Contrast Emergency Card */}
-              <div className="rounded-2xl bg-brand-red p-8 text-center shadow-lg shadow-brand-red/20">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
-                  <Phone className="h-6 w-6" />
+              {/* 1. High-Contrast Emergency Card (3D Atmospheric) */}
+              <div className="relative overflow-hidden rounded-[2rem] border border-brand-red/30 bg-gradient-to-br from-red-950/50 to-[#090E1A] p-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(220,38,38,0.2)] ring-1 ring-brand-red/20 backdrop-blur-md">
+                <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-brand-red/20 blur-[50px] pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-red/20 text-brand-red ring-1 ring-brand-red/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">
+                    <Phone className="h-7 w-7 drop-shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
+                  </div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-brand-red-light drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">
+                    Emergency Service
+                  </p>
+                  <p className="mt-2 font-heading text-3xl font-extrabold text-white drop-shadow-md">
+                    Available 24/7
+                  </p>
+                  <a
+                    href={companyInfo.phoneHref}
+                    className="mt-8 relative flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-red-500 to-brand-red px-6 py-4 text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5"
+                  >
+                    Call {companyInfo.phone}
+                  </a>
                 </div>
-                <p className="text-xs font-bold uppercase tracking-widest text-white/80">
-                  Emergency Service
-                </p>
-                <p className="mt-1 font-heading text-2xl font-extrabold text-white">
-                  Available 24/7
-                </p>
-                <a
-                  href={companyInfo.phoneHref}
-                  className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-extrabold text-brand-red transition-all hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-md"
-                >
-                  Call {companyInfo.phone}
-                </a>
               </div>
 
               {/* 2. Clean Contact Info List */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-                <h3 className="font-heading text-xl font-extrabold text-navy">Direct Contact</h3>
-                <div className="mt-4 h-1 w-10 rounded-full bg-brand-blue/20" />
+              <div className="rounded-[2rem] border border-white/5 bg-white/[0.02] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/10 backdrop-blur-md">
+                <h3 className="font-heading text-xl font-extrabold text-white">Direct Contact</h3>
+                <div className="mt-4 h-1 w-10 rounded-full bg-gradient-to-r from-brand-blue to-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
                 
                 <ul className="mt-8 flex flex-col gap-6">
                   <li>
                     <a href={companyInfo.phoneHref} className="group flex items-start gap-4 transition-colors">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-blue/5 text-brand-blue transition-colors group-hover:bg-brand-blue group-hover:text-white">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/30 transition-all duration-300 group-hover:bg-brand-blue group-hover:text-white group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]">
                         <Phone className="h-5 w-5" />
                       </div>
-                      <div>
-                        <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Phone</span>
-                        <span className="mt-0.5 block text-sm font-bold text-navy group-hover:text-brand-blue transition-colors">{companyInfo.phone}</span>
+                      <div className="pt-1">
+                        <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-500">Phone</span>
+                        <span className="mt-0.5 block text-sm font-extrabold text-white group-hover:text-brand-blue-light transition-colors">{companyInfo.phone}</span>
                       </div>
                     </a>
                   </li>
                   <li>
                     <a href={companyInfo.emailHref} className="group flex items-start gap-4 transition-colors">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-blue/5 text-brand-blue transition-colors group-hover:bg-brand-blue group-hover:text-white">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/30 transition-all duration-300 group-hover:bg-brand-blue group-hover:text-white group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]">
                         <Mail className="h-5 w-5" />
                       </div>
-                      <div>
-                        <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Email</span>
-                        <span className="mt-0.5 block text-sm font-bold text-navy group-hover:text-brand-blue transition-colors">{companyInfo.email}</span>
+                      <div className="pt-1">
+                        <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-500">Email</span>
+                        <span className="mt-0.5 block text-sm font-extrabold text-white group-hover:text-brand-blue-light transition-colors">{companyInfo.email}</span>
                       </div>
                     </a>
                   </li>
                   <li className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-blue/5 text-brand-blue">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/30">
                       <MapPin className="h-5 w-5" />
                     </div>
-                    <div>
-                      <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">Location</span>
-                      <span className="mt-0.5 block text-sm font-semibold text-slate-600 leading-snug">{companyInfo.address}</span>
+                    <div className="pt-1">
+                      <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-500">Location</span>
+                      <span className="mt-0.5 block text-sm font-medium text-slate-300 leading-relaxed pr-4">{companyInfo.address}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-blue/5 text-brand-blue">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/30">
                       <Shield className="h-5 w-5" />
                     </div>
-                    <div>
-                      <span className="block text-xs font-bold uppercase tracking-wider text-slate-400">License</span>
-                      <span className="mt-0.5 block text-sm font-semibold text-slate-600">{companyInfo.license}</span>
+                    <div className="pt-1">
+                      <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-500">License</span>
+                      <span className="mt-0.5 block text-sm font-medium text-slate-300">{companyInfo.license}</span>
                     </div>
                   </li>
                 </ul>
               </div>
 
-              {/* 3. Friendly Customer Service */}
-              <div className="overflow-hidden rounded-2xl shadow-sm border border-slate-200">
+              {/* 3. Friendly Customer Service (Integrated Glass Image Card) */}
+              <div className="overflow-hidden rounded-[2rem] border border-white/5 bg-[#0F172A]/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src="/images/customer-service-rep2.webp"
                     alt="Friendly HVAC customer service representative"
                     fill
-                    className="object-cover"
+                    className="object-cover opacity-80 mix-blend-luminosity"
                     sizes="380px"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent" />
                 </div>
-                <div className="bg-navy p-7 text-center">
-                  <h3 className="font-heading text-lg font-extrabold text-white">
+                <div className="relative z-10 -mt-10 p-8 text-center">
+                  <h3 className="font-heading text-xl font-extrabold text-white drop-shadow-md">
                     Here to Help
                   </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-white/70">
+                  <p className="mt-3 text-sm font-light leading-relaxed text-slate-400">
                     Our friendly team is here to give you tailored support, ensuring your home&apos;s comfort and safety.
                   </p>
                 </div>
@@ -160,6 +193,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
