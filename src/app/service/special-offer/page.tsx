@@ -78,7 +78,7 @@ export default function SpecialOfferPage() {
               WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
             }}
           >
-            <Image src="/images/emergency-service.webp" alt="Special HVAC offers" fill priority className="object-cover object-[center_40%] opacity-25 mix-blend-luminosity" sizes="100vw" />
+            <Image src="/images/special-offer-hero.webp" alt="Special HVAC offers" fill priority className="object-cover object-[center_40%] opacity-25 mix-blend-luminosity" sizes="100vw" />
             <div className="absolute inset-0 bg-[#090E1A]/40 mix-blend-overlay" />
           </div>
           <div className="absolute -bottom-1 left-0 right-0 h-48 bg-linear-to-t from-[#090E1A] from-20% to-transparent" />
