@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, Star, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Phone, Mail, Star, MapPin, Clock } from "lucide-react";
 import { companyInfo, footerLinks } from "@/data/navigation";
 import { serviceAreaCities } from "@/data/cities";
 import { CtaBanner } from "./cta-banner";
+import { FooterAccordion, FooterLinkList } from "./footer-accordion";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -58,34 +59,18 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Column 2 — Quick Links */}
+            {/* Column 2 — Quick Links (Accordion on mobile) */}
             <div>
-              <h3 className="mb-4 sm:mb-6 text-xs font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">Quick Links</h3>
-              <ul className="space-y-2.5 sm:space-y-3 text-sm text-slate-400">
-                {footerLinks.company.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="group flex items-center gap-2 transition-colors hover:text-white">
-                      <ArrowRight className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 text-brand-blue" />
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">{link.label}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <FooterAccordion title="Quick Links">
+                <FooterLinkList links={footerLinks.company} />
+              </FooterAccordion>
             </div>
 
-            {/* Column 3 — Services */}
+            {/* Column 3 — Services (Accordion on mobile) */}
             <div>
-              <h3 className="mb-4 sm:mb-6 text-xs font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">Services</h3>
-              <ul className="space-y-2.5 sm:space-y-3 text-sm text-slate-400">
-                {footerLinks.services.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="group flex items-center gap-2 transition-colors hover:text-white">
-                      <ArrowRight className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 text-brand-blue" />
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">{link.label}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <FooterAccordion title="Services">
+                <FooterLinkList links={footerLinks.services} />
+              </FooterAccordion>
             </div>
 
             {/* Column 4 — 24-Hour Emergency */}
@@ -112,22 +97,23 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Service Areas */}
+        {/* Service Areas (Accordion on mobile) */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 pb-8 sm:pb-12">
           <div className="border-t border-white/5 pt-8 sm:pt-10">
-            <h3 className="mb-4 sm:mb-5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Service Areas</h3>
-            <div className="flex flex-wrap items-center gap-x-1.5 sm:gap-x-2 gap-y-1.5 sm:gap-y-2">
-              {serviceAreaCities.map((area, i) => (
-                <span key={area.city} className="inline-flex items-center">
-                  <Link href={area.url} className="text-xs sm:text-sm font-medium text-slate-400 transition-colors hover:text-brand-blue-light">
-                    {area.city}
-                  </Link>
-                  {i < serviceAreaCities.length - 1 && (
-                    <span className="ml-1.5 sm:ml-2 text-white/10">&bull;</span>
-                  )}
-                </span>
-              ))}
-            </div>
+            <FooterAccordion title="Service Areas">
+              <div className="flex flex-wrap items-center gap-x-1.5 sm:gap-x-2 gap-y-1.5 sm:gap-y-2">
+                {serviceAreaCities.map((area, i) => (
+                  <span key={area.city} className="inline-flex items-center">
+                    <Link href={area.url} className="text-xs sm:text-sm font-medium text-slate-400 transition-colors hover:text-brand-blue-light">
+                      {area.city}
+                    </Link>
+                    {i < serviceAreaCities.length - 1 && (
+                      <span className="ml-1.5 sm:ml-2 text-white/10">&bull;</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </FooterAccordion>
           </div>
         </div>
 
