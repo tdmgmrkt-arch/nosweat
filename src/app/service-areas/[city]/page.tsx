@@ -202,33 +202,33 @@ export default async function CityPage({ params }: CityPageProps) {
       </div>
 
       {/* ── HERO BANNER ── */}
-      <section className="relative z-10 overflow-hidden pt-24 pb-20 sm:pt-32">
+      <section className="relative z-10 overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-20 lg:pt-32">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div 
+          <div
             className="absolute inset-0 z-0"
             style={{
               maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
               WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'
             }}
           >
-            <Image 
-              src="/images/cityslugpagehero.webp" 
-              alt={getAltText("hero", city)} 
-              fill 
+            <Image
+              src="/images/cityslugpagehero.webp"
+              alt={getAltText("hero", city)}
+              fill
               priority
-              className="object-cover object-[center_42%] opacity-30 mix-blend-screen" 
-              sizes="100vw" 
+              className="object-cover object-[center_42%] opacity-30 mix-blend-screen"
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-[#090E1A]/40 mix-blend-overlay" />
           </div>
           <div className="absolute -bottom-1 left-0 right-0 h-48 bg-gradient-to-t from-[#090E1A] from-20% to-transparent" />
         </div>
-        
-        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 sm:pt-24">
-          <div className="max-w-4xl"> 
-            
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 pt-12 sm:pt-16 lg:pt-24">
+          <div className="max-w-4xl">
+
             {/* Luminous Breadcrumbs */}
-            <div className="mb-8 inline-flex flex-wrap items-center gap-2 rounded-full border border-white/5 bg-white/[0.03] px-4 py-2 text-[10px] font-bold tracking-[0.1em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl uppercase">
+            <div className="mb-6 sm:mb-8 inline-flex flex-wrap items-center gap-1.5 sm:gap-2 rounded-full border border-white/5 bg-white/[0.03] px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold tracking-[0.1em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl uppercase">
               <Link href="/" className="text-slate-400 hover:text-white transition-colors">Home</Link>
               <span className="text-white/30">&rsaquo;</span>
               <Link href="/service-areas/" className="text-slate-400 hover:text-white transition-colors">Service Areas</Link>
@@ -237,10 +237,10 @@ export default async function CityPage({ params }: CityPageProps) {
             </div>
 
             {/* Trust Signals */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 text-xs font-bold tracking-wider text-slate-300 uppercase drop-shadow-sm">
-              <div className="flex items-center gap-1.5 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4 sm:mb-6 text-[10px] sm:text-xs font-bold tracking-wider text-slate-300 uppercase drop-shadow-sm">
+              <div className="flex items-center gap-1 sm:gap-1.5 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                  <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />
                 ))}
               </div>
               <span className="hidden sm:inline text-white/20">•</span>
@@ -249,28 +249,28 @@ export default async function CityPage({ params }: CityPageProps) {
               <span>Licensed & Insured</span>
             </div>
 
-            <h1 className="font-heading text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-2xl">
+            <h1 className="font-heading text-2xl sm:text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl drop-shadow-2xl">
               {page.heading}
             </h1>
-            
-            <div className="mt-8 h-1.5 w-16 rounded-full bg-gradient-to-r from-brand-red to-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
-            
-            <p className="mt-8 text-xl font-extrabold text-white drop-shadow-md">
+
+            <div className="mt-5 sm:mt-8 h-1.5 w-12 sm:w-16 rounded-full bg-gradient-to-r from-brand-red to-red-500 shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
+
+            <p className="mt-5 sm:mt-8 text-base sm:text-xl font-extrabold text-white drop-shadow-md">
               {hero.tagline}
             </p>
-            
+
             {introFirst && (
-              <p className="mt-4 text-lg leading-relaxed text-slate-300 font-light drop-shadow-sm">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-lg leading-relaxed text-slate-300 font-light drop-shadow-sm">
                 {introFirst}
               </p>
             )}
-            
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-8 py-4 text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
-                <Phone className="h-5 w-5 drop-shadow-md" /> Call {companyInfo.phone}
+
+            <div className="mt-8 sm:mt-10 flex flex-col gap-3 sm:gap-4 sm:flex-row">
+              <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+                <Phone className="h-4 w-4 sm:h-5 sm:w-5 drop-shadow-md" /> Call {companyInfo.phone}
               </a>
-              <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/[0.03] px-8 py-4 text-base font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
-                <CalendarCheck className="h-5 w-5 text-brand-blue-light" /> Book Online
+              <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/[0.03] px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
+                <CalendarCheck className="h-4 w-4 sm:h-5 sm:w-5 text-brand-blue-light" /> Book Online
               </Link>
             </div>
           </div>
@@ -278,22 +278,22 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {/* ── TRUST BAR (Glass Strip) ── */}
-      <section className="relative z-10 py-6">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-4">
+      <section className="relative z-10 py-4 sm:py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 md:grid-cols-4">
             {[
               { icon: Star, label: "4.9-Star Rated", sub: "Local HVAC Company", iconClass: "text-amber-400" },
               { icon: Shield, label: "Licensed & Insured", sub: "CA State Certified", iconClass: "text-brand-blue-light" },
               { icon: Clock, label: "Same-Day Service", sub: `Available in ${city}`, iconClass: "text-brand-blue-light" },
               { icon: BadgeCheck, label: "20+ Years Experience", sub: "Inland Empire", iconClass: "text-brand-blue-light" },
             ].map((item) => (
-              <div key={item.label} className="flex items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.02] px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-sm">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10">
-                  <item.icon className={`h-5 w-5 shrink-0 ${item.iconClass} drop-shadow-[0_0_8px_currentColor]`} />
+              <div key={item.label} className="flex items-center gap-2.5 sm:gap-4 rounded-xl sm:rounded-2xl border border-white/5 bg-white/[0.02] px-3 sm:px-5 py-3 sm:py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-sm">
+                <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10">
+                  <item.icon className={`h-4 w-4 sm:h-5 sm:w-5 shrink-0 ${item.iconClass} drop-shadow-[0_0_8px_currentColor]`} />
                 </div>
                 <div>
-                  <p className="text-sm font-extrabold leading-tight text-white">{item.label}</p>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">{item.sub}</p>
+                  <p className="text-xs sm:text-sm font-extrabold leading-tight text-white">{item.label}</p>
+                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">{item.sub}</p>
                 </div>
               </div>
             ))}
@@ -302,72 +302,72 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {/* ── TESTIMONIAL ── */}
-      <section className="relative z-10 py-8">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="relative rounded-[2rem] border border-white/5 bg-[#0F172A]/50 px-8 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md">
-            <span className="absolute -top-4 left-6 font-heading text-7xl leading-none text-brand-blue/20 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">&ldquo;</span>
-            <figure className="relative z-10 flex flex-col items-center text-center sm:flex-row sm:text-left sm:items-start gap-6">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-xl font-extrabold text-brand-blue ring-1 ring-brand-blue/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+      <section className="relative z-10 py-6 sm:py-8">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="relative rounded-2xl sm:rounded-[2rem] border border-white/5 bg-[#0F172A]/50 px-5 py-6 sm:px-8 sm:py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md">
+            <span className="absolute -top-3 sm:-top-4 left-4 sm:left-6 font-heading text-5xl sm:text-7xl leading-none text-brand-blue/20 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">&ldquo;</span>
+            <figure className="relative z-10 flex flex-col items-center text-center sm:flex-row sm:text-left sm:items-start gap-4 sm:gap-6">
+              <div className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-lg sm:text-xl font-extrabold text-brand-blue ring-1 ring-brand-blue/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                 {testimonial.attribution.charAt(0)}
               </div>
               <div className="pt-1">
-                <div className="mb-3 flex justify-center sm:justify-start gap-1 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
+                <div className="mb-2 sm:mb-3 flex justify-center sm:justify-start gap-1 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <blockquote className="text-base sm:text-lg leading-relaxed text-slate-300 font-light italic">
+                <blockquote className="text-sm sm:text-lg leading-relaxed text-slate-300 font-light italic">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <figcaption className="mt-3 sm:mt-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-500">
                   — {testimonial.attribution}
                 </figcaption>
               </div>
             </figure>
           </div>
-          <p className="mt-6 text-center text-[11px] font-bold uppercase tracking-widest text-slate-500">
+          <p className="mt-4 sm:mt-6 text-center text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-500">
             No pressure. No upsells. Just honest HVAC service.
           </p>
         </div>
       </section>
 
       {/* ── SERVICES GRID ── */}
-      <section className="relative z-10 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-14">
+      <section className="relative z-10 py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-8 sm:mb-14">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">What We Do</p>
-            <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+            <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">
               Heating &amp; Air Conditioning Services in {city}
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-slate-400 font-light">
+            <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-lg text-slate-400 font-light">
               From emergency repairs to complete system replacements, here&apos;s how we help {city} homeowners stay comfortable year-round.
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-5 sm:gap-6 lg:grid-cols-2">
             {serviceBlocks.map((svc) => {
               const leadIn = leadIns[svc.title]?.[heroVariation] ?? "";
               return (
-                <div 
-                  key={svc.title} 
-                  className="group relative flex h-full flex-col rounded-[2rem] border border-white/5 bg-[#0F172A]/80 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_10px_30px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-[#151E32] hover:ring-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                <div
+                  key={svc.title}
+                  className="group relative flex h-full flex-col rounded-2xl sm:rounded-[2rem] border border-white/5 bg-[#0F172A]/80 p-5 sm:p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_10px_30px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-[#151E32] hover:ring-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                 >
                   <Link href={svc.href} className="absolute inset-0 z-10">
                     <span className="sr-only">Learn more about {svc.title}</span>
                   </Link>
 
-                  <div className="mb-6 flex items-center gap-5">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                      <svc.icon className="h-6 w-6" />
+                  <div className="mb-4 sm:mb-6 flex items-center gap-3 sm:gap-5">
+                    <div className="flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl bg-brand-blue/10 text-brand-blue ring-1 ring-brand-blue/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                      <svc.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <h3 className="font-heading text-2xl font-extrabold text-white transition-colors group-hover:text-brand-blue-light">
+                    <h3 className="font-heading text-lg sm:text-2xl font-extrabold text-white transition-colors group-hover:text-brand-blue-light">
                       {svc.title}
                     </h3>
                   </div>
 
-                  <div className="flex-1 relative z-20 pointer-events-none"> 
+                  <div className="flex-1 relative z-20 pointer-events-none">
                     {leadIn && (
-                      <p className="mb-4 text-[15px] font-bold leading-relaxed text-slate-300">
+                      <p className="mb-3 sm:mb-4 text-xs sm:text-[15px] font-bold leading-relaxed text-slate-300">
                         {leadIn}
                       </p>
                     )}
@@ -377,8 +377,8 @@ export default async function CityPage({ params }: CityPageProps) {
                     />
                   </div>
 
-                  <div className="mt-8 flex items-center gap-2 border-t border-white/10 pt-6 text-sm font-bold text-slate-400 transition-colors group-hover:text-white">
-                    View Service Details 
+                  <div className="mt-6 sm:mt-8 flex items-center gap-2 border-t border-white/10 pt-4 sm:pt-6 text-sm font-bold text-slate-400 transition-colors group-hover:text-white">
+                    View Service Details
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </div>
@@ -389,19 +389,19 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {/* ── MID-PAGE CTA ── */}
-      <section className="relative z-10 py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-blue/20 to-[#0F172A] p-8 sm:p-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(0,0,0,0.5)] ring-1 ring-brand-blue/30 backdrop-blur-md">
-            <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
+      <section className="relative z-10 py-10 sm:py-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="overflow-hidden rounded-2xl sm:rounded-[2rem] bg-gradient-to-br from-brand-blue/20 to-[#0F172A] p-5 sm:p-8 md:p-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(0,0,0,0.5)] ring-1 ring-brand-blue/30 backdrop-blur-md">
+            <div className="flex flex-col items-center gap-6 sm:gap-8 sm:flex-row sm:justify-between">
               <div className="text-center sm:text-left">
-                <p className="font-heading text-2xl font-extrabold text-white sm:text-3xl">{cta.midHeading}</p>
-                <p className="mt-2 text-sm font-medium text-brand-blue-light drop-shadow-[0_0_8px_rgba(96,165,250,0.4)]">{cta.midSub}</p>
+                <p className="font-heading text-xl sm:text-2xl font-extrabold text-white md:text-3xl">{cta.midHeading}</p>
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm font-medium text-brand-blue-light drop-shadow-[0_0_8px_rgba(96,165,250,0.4)]">{cta.midSub}</p>
               </div>
-              <div className="flex shrink-0 flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <a href={companyInfo.phoneHref} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-red-500 to-brand-red px-8 py-4 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+              <div className="flex shrink-0 flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+                <a href={companyInfo.phoneHref} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-red-500 to-brand-red px-6 sm:px-8 py-3.5 sm:py-4 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
                   <Phone className="h-4 w-4" /> {cta.buttonPrimary}
                 </a>
-                <Link href="/contact-us/" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-white/[0.03] px-8 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
+                <Link href="/contact-us/" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-white/[0.03] px-6 sm:px-8 py-3.5 sm:py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
                   <CalendarCheck className="h-4 w-4 text-brand-blue-light" /> {cta.buttonSecondary}
                 </Link>
               </div>
@@ -411,10 +411,10 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {/* ── WHY RELIABLE HVAC MATTERS ── */}
-      <section className="relative z-10 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            
+      <section className="relative z-10 py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid items-center gap-10 sm:gap-12 lg:gap-16 lg:grid-cols-2">
+
             <div className="relative hidden aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-white/[0.02] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_30px_60px_-15px_rgba(0,0,0,0.8)] ring-1 ring-white/10 lg:block">
               <div className="relative h-full w-full overflow-hidden rounded-3xl">
                 <Image src="/images/fullservice.webp" alt={getAltText("reliable", city)} fill className="object-cover transition-transform duration-700 hover:scale-105" sizes="50vw" />
@@ -423,19 +423,19 @@ export default async function CityPage({ params }: CityPageProps) {
 
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">Why It Matters in {city}</p>
-              <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+              <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">
                 Why Reliable HVAC Matters in {city}
               </h2>
-              
+
               {introRest && (
-                <div 
-                  className="mt-6 prose prose-invert max-w-none prose-p:font-light prose-p:text-slate-400 prose-p:leading-relaxed prose-a:font-semibold prose-a:text-brand-blue-light prose-a:no-underline hover:prose-a:text-brand-blue" 
-                  dangerouslySetInnerHTML={{ __html: introRest }} 
+                <div
+                  className="mt-4 sm:mt-6 prose prose-sm sm:prose-base prose-invert max-w-none prose-p:font-light prose-p:text-slate-400 prose-p:leading-relaxed prose-a:font-semibold prose-a:text-brand-blue-light prose-a:no-underline hover:prose-a:text-brand-blue"
+                  dangerouslySetInnerHTML={{ __html: introRest }}
                 />
               )}
-              <div 
-                className="mt-6 prose prose-invert max-w-none prose-p:font-light prose-p:text-slate-400 prose-p:leading-relaxed prose-a:font-semibold prose-a:text-brand-blue-light prose-a:no-underline hover:prose-a:text-brand-blue" 
-                dangerouslySetInnerHTML={{ __html: content.whyReliable }} 
+              <div
+                className="mt-4 sm:mt-6 prose prose-sm sm:prose-base prose-invert max-w-none prose-p:font-light prose-p:text-slate-400 prose-p:leading-relaxed prose-a:font-semibold prose-a:text-brand-blue-light prose-a:no-underline hover:prose-a:text-brand-blue"
+                dangerouslySetInnerHTML={{ __html: content.whyReliable }}
               />
             </div>
           </div>
@@ -443,24 +443,24 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {/* ── EMERGENCY CTA ── */}
-      <section className="relative z-10 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-brand-red/30 bg-gradient-to-br from-red-950/60 to-[#0F172A] p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(220,38,38,0.2)] ring-1 ring-brand-red/20 backdrop-blur-md sm:p-16">
+      <section className="relative z-10 py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[2.5rem] border border-brand-red/30 bg-gradient-to-br from-red-950/60 to-[#0F172A] p-6 sm:p-10 md:p-16 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(220,38,38,0.2)] ring-1 ring-brand-red/20 backdrop-blur-md">
             <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-brand-red/20 blur-[80px] pointer-events-none" />
-            
+
             <div className="relative z-10 max-w-2xl">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-red-light drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">Don&apos;t Wait — We&apos;re Available Now</p>
-              <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+              <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">
                 Fast &amp; Emergency HVAC Repair in {city}
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-slate-300 font-light drop-shadow-md">{content.emergency}</p>
-              
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-red px-8 py-4 text-base font-bold text-white shadow-[0_0_20px_rgba(220,38,38,0.4)] transition-all hover:bg-brand-red-dark hover:-translate-y-0.5 hover:scale-[1.02]">
-                  <Phone className="h-5 w-5" /> Call {companyInfo.phone}
+              <p className="mt-4 sm:mt-5 text-sm sm:text-lg leading-relaxed text-slate-300 font-light drop-shadow-md">{content.emergency}</p>
+
+              <div className="mt-6 sm:mt-10 flex flex-col gap-3 sm:gap-4 sm:flex-row">
+                <a href={companyInfo.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-red px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-[0_0_20px_rgba(220,38,38,0.4)] transition-all hover:bg-brand-red-dark hover:-translate-y-0.5 hover:scale-[1.02]">
+                  <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {companyInfo.phone}
                 </a>
-                <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/[0.05] px-8 py-4 text-base font-bold text-white ring-1 ring-white/20 transition-all hover:bg-white/[0.1] hover:ring-white/30 backdrop-blur-md">
-                  <CalendarCheck className="h-5 w-5 text-brand-red-light" /> Request Service Online
+                <Link href="/contact-us/" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/[0.05] px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white ring-1 ring-white/20 transition-all hover:bg-white/[0.1] hover:ring-white/30 backdrop-blur-md">
+                  <CalendarCheck className="h-4 w-4 sm:h-5 sm:w-5 text-brand-red-light" /> Request Service Online
                 </Link>
               </div>
             </div>
@@ -469,56 +469,56 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {/* ── WHY CHOOSE US ── */}
-      <section className="relative z-10 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-14 text-center">
+      <section className="relative z-10 py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-8 sm:mb-14 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">The No Sweat Difference</p>
-            <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+            <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">
               Why Homeowners in {city} Choose Us
             </h2>
           </div>
 
           {/* Stats Bar */}
-          <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="mb-8 sm:mb-12 grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-4">
             {[
               { icon: Clock, value: "Same Day", label: "Response Time", color: "text-brand-blue" },
               { icon: BadgeCheck, value: "25+", label: "Years Experience", color: "text-brand-blue" },
               { icon: Star, value: "4.9★", label: "Customer Rating", color: "text-amber-400" },
               { icon: Shield, value: "100%", label: "Licensed & Insured", color: "text-emerald-400" },
             ].map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/5 bg-white/[0.02] p-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04]">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/[0.03] ring-1 ring-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
-                  <stat.icon className={`h-6 w-6 ${stat.color} drop-shadow-[0_0_8px_currentColor]`} />
+              <div key={stat.label} className="rounded-xl sm:rounded-2xl border border-white/5 bg-white/[0.02] p-4 sm:p-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04]">
+                <div className="mx-auto mb-3 sm:mb-4 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg sm:rounded-xl bg-white/[0.03] ring-1 ring-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                  <stat.icon className={`h-5 w-5 sm:h-6 sm:w-6 ${stat.color} drop-shadow-[0_0_8px_currentColor]`} />
                 </div>
-                <p className="font-heading text-2xl font-extrabold text-white">{stat.value}</p>
-                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">{stat.label}</p>
+                <p className="font-heading text-lg sm:text-2xl font-extrabold text-white">{stat.value}</p>
+                <p className="mt-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-500">{stat.label}</p>
               </div>
             ))}
           </div>
 
           {/* Content Grid */}
-          <div className="grid gap-8 lg:grid-cols-2">
-            
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
+
             {/* Bullet points + brand ticker (Glass Panel) */}
-            <div className="rounded-[2.5rem] border border-white/5 bg-[#0F172A]/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md overflow-hidden flex flex-col">
-              <div className="p-8 sm:p-10 flex-1">
-                <ul className="space-y-5">
+            <div className="rounded-2xl sm:rounded-[2.5rem] border border-white/5 bg-[#0F172A]/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md overflow-hidden flex flex-col">
+              <div className="p-5 sm:p-8 md:p-10 flex-1">
+                <ul className="space-y-4 sm:space-y-5">
                   {content.whyChoose.map((point) => (
-                    <li key={point} className="flex items-start gap-4">
-                      <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue/20 ring-1 ring-brand-blue/30">
-                        <CheckCircle2 className="h-4 w-4 text-brand-blue-light" />
+                    <li key={point} className="flex items-start gap-3 sm:gap-4">
+                      <div className="mt-0.5 flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue/20 ring-1 ring-brand-blue/30">
+                        <CheckCircle2 className="h-3 w-3 sm:h-4 sm:w-4 text-brand-blue-light" />
                       </div>
-                      <span className="text-[15px] font-light leading-relaxed text-slate-300">{point}</span>
+                      <span className="text-xs sm:text-[15px] font-light leading-relaxed text-slate-300">{point}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="border-t border-white/10 bg-white/[0.02] px-8 py-8">
-                <p className="mb-6 text-center text-[10px] font-bold uppercase tracking-widest text-slate-500">Brands We Service</p>
+              <div className="border-t border-white/10 bg-white/[0.02] px-5 py-6 sm:px-8 sm:py-8">
+                <p className="mb-4 sm:mb-6 text-center text-[10px] font-bold uppercase tracking-widest text-slate-500">Brands We Service</p>
                 <div className="overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-                  <div className="brand-ticker flex w-max gap-12">
+                  <div className="brand-ticker flex w-max gap-8 sm:gap-12">
                     {[...Array(2)].map((_, setIndex) => (
-                      <div key={setIndex} className="flex shrink-0 items-center gap-12" aria-hidden={setIndex > 0}>
+                      <div key={setIndex} className="flex shrink-0 items-center gap-8 sm:gap-12" aria-hidden={setIndex > 0}>
                         {[
                           { src: "/images/brands/goodman.webp", alt: "Goodman" },
                           { src: "/images/brands/york.webp", alt: "York" },
@@ -529,7 +529,7 @@ export default async function CityPage({ params }: CityPageProps) {
                           { src: "/images/brands/trane.webp", alt: "Trane" },
                           { src: "/images/brands/bryant.webp", alt: "Bryant" },
                         ].map((brand) => (
-                          <Image key={`${setIndex}-${brand.alt}`} src={brand.src} alt={brand.alt} width={80} height={32} className="h-8 w-auto object-contain opacity-80" />
+                          <Image key={`${setIndex}-${brand.alt}`} src={brand.src} alt={brand.alt} width={80} height={32} className="h-6 sm:h-8 w-auto object-contain opacity-80" />
                         ))}
                       </div>
                     ))}
@@ -539,28 +539,28 @@ export default async function CityPage({ params }: CityPageProps) {
             </div>
 
             {/* Side CTA Card */}
-            <div className="flex flex-col justify-between rounded-[2.5rem] border border-white/5 bg-[#0F172A]/80 p-8 sm:p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/10 backdrop-blur-md">
+            <div className="flex flex-col justify-between rounded-2xl sm:rounded-[2.5rem] border border-white/5 bg-[#0F172A]/80 p-5 sm:p-8 md:p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/10 backdrop-blur-md">
               <div>
-                <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={56} height={56} className="mb-6 h-14 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+                <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={56} height={56} className="mb-4 sm:mb-6 h-10 sm:h-14 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue-light">Ready to get started?</p>
-                <p className="mt-3 font-heading text-3xl font-extrabold text-white tracking-tight">
+                <p className="mt-2 sm:mt-3 font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                   Get reliable HVAC service in {city} today.
                 </p>
-                <p className="mt-4 text-[15px] font-light leading-relaxed text-slate-400">
+                <p className="mt-3 sm:mt-4 text-xs sm:text-[15px] font-light leading-relaxed text-slate-400">
                   Same-day appointments available. No surprise pricing. Just honest work from experienced technicians.
                 </p>
-                
-                <div className="relative mt-8 aspect-[21/9] w-full overflow-hidden rounded-[1.5rem] bg-white/[0.02] ring-1 ring-white/10 p-1.5 shadow-inner">
-                  <div className="relative h-full w-full overflow-hidden rounded-xl">
+
+                <div className="relative mt-6 sm:mt-8 aspect-[21/9] w-full overflow-hidden rounded-xl sm:rounded-[1.5rem] bg-white/[0.02] ring-1 ring-white/10 p-1 sm:p-1.5 shadow-inner">
+                  <div className="relative h-full w-full overflow-hidden rounded-lg sm:rounded-xl">
                     <Image src="/images/team-engaged.webp" alt={getAltText("team", city)} fill className="object-cover transition-transform duration-700 hover:scale-105" sizes="(max-width: 1024px) 100vw, 30vw" />
                   </div>
                 </div>
               </div>
-              <div className="mt-8 flex flex-col gap-4">
-                <a href={companyInfo.phoneHref} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-red-500 to-brand-red px-6 py-4 text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
-                  <Phone className="h-5 w-5 drop-shadow-md" /> Call {companyInfo.phone}
+              <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4">
+                <a href={companyInfo.phoneHref} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-red-500 to-brand-red px-6 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+                  <Phone className="h-4 w-4 sm:h-5 sm:w-5 drop-shadow-md" /> Call {companyInfo.phone}
                 </a>
-                <Link href="/contact-us/" className="flex w-full items-center justify-center gap-2 rounded-xl bg-white/[0.03] px-6 py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
+                <Link href="/contact-us/" className="flex w-full items-center justify-center gap-2 rounded-xl bg-white/[0.03] px-6 py-3.5 sm:py-4 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5 backdrop-blur-md">
                   <CalendarCheck className="h-4 w-4 text-brand-blue-light" /> Schedule Service Online
                 </Link>
               </div>
@@ -570,27 +570,27 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {/* ── COMMON PROBLEMS (Dark Red Alert Cards) ── */}
-      <section className="relative z-10 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12">
+      <section className="relative z-10 py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-8 sm:mb-12">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]">Spot the Warning Signs</p>
-            <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+            <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">
               Common HVAC Problems in {city} Homes
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-slate-400 font-light">
+            <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-lg text-slate-400 font-light">
               Recognizing these issues early can save you hundreds in emergency repair costs.
             </p>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-4 sm:gap-5 sm:grid-cols-2">
             {content.commonProblems.map((problem) => (
-              <div key={problem.title} className="group flex items-start gap-4 rounded-2xl border-l-2 border-l-brand-red/50 bg-[#0F172A]/80 px-6 py-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-l-brand-red hover:bg-[#151E32]">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-red/10 ring-1 ring-brand-red/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-transform duration-300 group-hover:scale-110">
-                  <AlertTriangle className="h-5 w-5 text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]" />
+              <div key={problem.title} className="group flex items-start gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border-l-2 border-l-brand-red/50 bg-[#0F172A]/80 px-4 py-4 sm:px-6 sm:py-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-l-brand-red hover:bg-[#151E32]">
+                <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-brand-red/10 ring-1 ring-brand-red/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-transform duration-300 group-hover:scale-110">
+                  <AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5 text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]" />
                 </div>
                 <div>
-                  <p className="font-heading text-lg font-extrabold text-white">{problem.title}</p>
-                  <p className="mt-2 text-[15px] font-light leading-relaxed text-slate-400">{problem.text}</p>
+                  <p className="font-heading text-base sm:text-lg font-extrabold text-white">{problem.title}</p>
+                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-[15px] font-light leading-relaxed text-slate-400">{problem.text}</p>
                 </div>
               </div>
             ))}
@@ -599,74 +599,73 @@ export default async function CityPage({ params }: CityPageProps) {
       </section>
 
       {/* ── SCHEDULE CTA (Cinematic Radial Gradient) ── */}
-      <section className="relative z-10 overflow-hidden py-32">
+      <section className="relative z-10 overflow-hidden py-16 sm:py-24 lg:py-32">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-brand-blue/20 via-transparent to-transparent opacity-80 pointer-events-none" />
-        
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),_0_10px_30px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-xl">
-            <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={48} height={48} className="h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+
+        <div className="relative mx-auto max-w-4xl px-4 sm:px-6 text-center">
+          <div className="mx-auto mb-6 sm:mb-8 flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),_0_10px_30px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-xl">
+            <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={48} height={48} className="h-9 sm:h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
           </div>
-          
+
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Don&apos;t Wait — We&apos;re Available Now</p>
-          <h2 className="mt-4 font-heading text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl tracking-tight drop-shadow-xl">
+          <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-4xl font-extrabold text-white lg:text-5xl xl:text-6xl tracking-tight drop-shadow-xl">
             Schedule HVAC Service in {city}
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg font-light text-slate-300 drop-shadow-sm">
+          <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg font-light text-slate-300 drop-shadow-sm">
             {content.scheduleCta}
           </p>
-          
-          <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
-            <Link href="/contact-us/" className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-base font-extrabold text-[#090E1A] shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5">
-              <CalendarCheck className="h-5 w-5" /> Get Free Same-Day Estimate
+
+          <div className="mt-8 sm:mt-12 flex flex-col items-center gap-4 sm:gap-5 sm:flex-row sm:justify-center">
+            <Link href="/contact-us/" className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-white px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-extrabold text-[#090E1A] shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5">
+              <CalendarCheck className="h-4 w-4 sm:h-5 sm:w-5" /> Get Free Same-Day Estimate
             </Link>
-            <a href={companyInfo.phoneHref} className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-8 py-4 text-base font-extrabold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
-              <Phone className="h-5 w-5 drop-shadow-md" /> <span className="drop-shadow-md">{companyInfo.phone}</span>
+            <a href={companyInfo.phoneHref} className="group flex w-full sm:w-auto items-center justify-center gap-2 sm:gap-3 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-extrabold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+              <Phone className="h-4 w-4 sm:h-5 sm:w-5 drop-shadow-md" /> <span className="drop-shadow-md">{companyInfo.phone}</span>
             </a>
           </div>
-          <p className="mt-6 text-xs font-bold uppercase tracking-wider text-slate-500">No pressure. Just honest recommendations from experienced technicians.</p>
+          <p className="mt-5 sm:mt-6 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-500">No pressure. Just honest recommendations from experienced technicians.</p>
         </div>
       </section>
 
       {/* ── FAQ ACCORDION ── */}
-      <section className="relative z-10 py-16 lg:py-24">
+      <section className="relative z-10 py-12 sm:py-16 lg:py-24">
         {/* Subtle separator */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="mb-12 text-center">
+
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="mb-8 sm:mb-12 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Got Questions?</p>
-            <h2 className="mt-4 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+            <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">
               Frequently Asked Questions About HVAC in {city}
             </h2>
           </div>
-          
-          <div className="rounded-[2rem] border border-white/5 bg-[#0F172A]/50 p-6 sm:p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-md">
-            {/* Note: Ensure the <FaqAccordion /> component styling itself handles dark mode or text colors correctly if it doesn't already inherit them. */}
+
+          <div className="rounded-2xl sm:rounded-[2rem] border border-white/5 bg-[#0F172A]/50 p-4 sm:p-6 md:p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-md">
             <FaqAccordion faqs={content.faqs} />
           </div>
         </div>
       </section>
 
       {/* ── SERVICE AREAS FOOTER ── */}
-      <section className="relative z-10 py-14 lg:py-16">
+      <section className="relative z-10 py-10 sm:py-14 lg:py-16">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-        
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-8 text-center">
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-6 sm:mb-8 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Proudly Serving</p>
-            <h2 className="mt-3 font-heading text-xl font-extrabold text-white sm:text-2xl tracking-tight">
+            <h2 className="mt-2 sm:mt-3 font-heading text-lg sm:text-xl font-extrabold text-white md:text-2xl tracking-tight">
               HVAC Service Areas Across the Inland Empire
             </h2>
           </div>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {serviceAreaCities.map((area) => {
               const isCurrent = area.url === `/service-areas/${slug}/`;
               return isCurrent ? (
-                <span key={area.city} className="rounded-full bg-brand-red px-5 py-2 text-sm font-bold text-white shadow-[0_0_15px_rgba(220,38,38,0.5)] ring-1 ring-brand-red">
+                <span key={area.city} className="rounded-full bg-brand-red px-3.5 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-white shadow-[0_0_15px_rgba(220,38,38,0.5)] ring-1 ring-brand-red">
                   {area.city}
                 </span>
               ) : (
-                <Link key={area.city} href={area.url} className="rounded-full border border-white/10 bg-white/[0.02] px-5 py-2 text-sm font-semibold text-slate-400 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand-blue/50 hover:bg-brand-blue/10 hover:text-white hover:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                <Link key={area.city} href={area.url} className="rounded-full border border-white/10 bg-white/[0.02] px-3.5 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-slate-400 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand-blue/50 hover:bg-brand-blue/10 hover:text-white hover:shadow-[0_0_10px_rgba(59,130,246,0.3)]">
                   {area.city}
                 </Link>
               );

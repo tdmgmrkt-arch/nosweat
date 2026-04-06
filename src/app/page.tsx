@@ -55,7 +55,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
          1. HERO — Layered Depth & Luminous Typography
          ═══════════════════════════════════════════════════ */}
-      <section className="relative z-10 overflow-hidden pb-20">
+      <section className="relative z-10 overflow-hidden pb-12 sm:pb-20">
         
       {/* Fixed Image Visibility with Radial CSS Masking for Flawless Blending */}
       <div className="absolute inset-0 z-0">
@@ -83,11 +83,11 @@ export default function HomePage() {
       </div>
 
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-28 sm:py-36 lg:py-40">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 py-20 sm:py-36 lg:py-40">
           <div className="max-w-3xl">
             
             {/* Luminous Pill Badge */}
-            <div className="mb-10 inline-flex flex-wrap items-center gap-x-3 gap-y-2 rounded-full border border-white/5 bg-white/[0.03] px-5 py-2.5 text-xs font-bold tracking-[0.15em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+            <div className="mb-6 sm:mb-10 inline-flex flex-wrap items-center gap-x-3 gap-y-2 rounded-full border border-white/5 bg-white/[0.03] px-3 sm:px-5 py-2 sm:py-2.5 text-[10px] sm:text-xs font-bold tracking-[0.15em] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-xl">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -106,7 +106,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <h1 className="font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl drop-shadow-2xl">
+            <h1 className="font-heading text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl drop-shadow-2xl">
               Heater &amp; AC<br />
               Repair Near{" "}
               {/* Soft, expensive metallic gradient text */}
@@ -115,37 +115,31 @@ export default function HomePage() {
               </span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-slate-400 font-light drop-shadow-md">
+            <p className="mt-5 sm:mt-8 max-w-xl text-base sm:text-lg leading-relaxed text-slate-400 font-light drop-shadow-md">
               Licensed, insured, and NATE-certified. Serving Moreno Valley for over 25 years with precision diagnostics, upfront pricing, and a <strong className="text-white font-medium">100% satisfaction guarantee.</strong>
             </p>
 
-            <div className="mt-12 flex flex-col gap-5 sm:flex-row items-center">
+            <div className="mt-8 sm:mt-12 flex flex-col gap-4 sm:gap-5 sm:flex-row items-center">
               {/* Tactile 3D Primary Button */}
-              <a href={companyInfo.phoneHref} className="group relative flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-8 py-4 text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
+              <a href={companyInfo.phoneHref} className="group relative flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-gradient-to-b from-red-500 to-brand-red px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(220,38,38,0.6)] ring-1 ring-brand-red/50 transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(220,38,38,0.8)] hover:-translate-y-0.5">
                 <Phone className="h-5 w-5 drop-shadow-md" /> 
                 <span className="drop-shadow-md">Call {companyInfo.phone}</span>
               </a>
               {/* Premium Ghost Button */}
-              <Link href="/contact-us/" className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-white/[0.03] px-8 py-4 text-base font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10 transition-all duration-300 hover:bg-white/[0.08] hover:ring-white/20 hover:-translate-y-0.5 backdrop-blur-md">
+              <Link href="/contact-us/" className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-white/[0.03] px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10 transition-all duration-300 hover:bg-white/[0.08] hover:ring-white/20 hover:-translate-y-0.5 backdrop-blur-md">
                 Get Free Estimate <ArrowRight className="h-4 w-4 opacity-50 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
               </Link>
             </div>
-            {/* ... your existing CTA buttons ... */}
-            <div className="mt-12 flex flex-col gap-5 sm:flex-row items-center">
-              {/* ... (Call Button) ... */}
-              {/* ... (Estimate Button) ... */}
-            </div>
-
-            {/* ── NEW: Premium Trust Strip ── */}
-            <div className="mt-16 sm:mt-20">
+            {/* ── Premium Trust Strip ── */}
+            <div className="mt-10 sm:mt-16 lg:mt-20">
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Certified & Trusted Excellence</p>
               
               {/* Removed the opacity fade and mix-blend to make it pop immediately */}
-              <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
+              <div className="flex flex-wrap items-center gap-x-6 sm:gap-x-10 gap-y-4 sm:gap-y-6">
                 
                 {/* NATE Certified Badge */}
                 <div className="flex items-center gap-3 group">
-                  <Shield className="h-8 w-8 text-brand-blue transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+                  <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-brand-blue transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
                   <div className="leading-none">
                     <span className="block font-heading text-xl font-extrabold text-white">NATE</span>
                     <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Certified Techs</span>
@@ -154,7 +148,7 @@ export default function HomePage() {
 
                 {/* BBB Badge */}
                 <div className="flex items-center gap-3 group">
-                  <BadgeCheck className="h-8 w-8 text-amber-500 transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" />
+                  <BadgeCheck className="h-6 w-6 sm:h-8 sm:w-8 text-amber-500 transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" />
                   <div className="leading-none">
                     <span className="block font-heading text-xl font-extrabold text-white">A+</span>
                     <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">BBB Rated</span>
@@ -163,7 +157,7 @@ export default function HomePage() {
 
                 {/* Licensed Badge */}
                 <div className="flex items-center gap-3 group">
-                  <ShieldCheck className="h-8 w-8 text-emerald-500 transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                  <ShieldCheck className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-500 transition-transform group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                   <div className="leading-none">
                     <span className="block font-heading text-xl font-extrabold text-white">Licensed</span>
                     <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">& Fully Insured</span>
@@ -179,7 +173,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
          2. REVIEWS — Floating Integration
          ═══════════════════════════════════════════════════ */}
-      <section className="relative z-20 mt-50 pb-20 sm:mt-16 sm:pb-28">
+      <section className="relative z-20 pb-12 sm:pb-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-10 flex flex-col items-center text-center">
             <h2 className="font-heading text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
@@ -196,16 +190,16 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
          3. SERVICE CARDS — CSS Mask Fix (Zero Banding)
          ═══════════════════════════════════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 text-center">
+      <section className="relative z-10 py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-10 sm:mb-16 text-center">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">What We Do</p>
-            <h2 className="mt-3 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+            <h2 className="mt-3 font-heading text-2xl font-extrabold text-white sm:text-3xl md:text-4xl tracking-tight">
               Precision HVAC Solutions
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {[
               { icon: Snowflake, label: "Cooling", title: "AC Repair", items: ["Fast Diagnostics", "New Installations", "All Makes & Models"], href: "/service/ac-repair/", image: "/images/services/ac-repair-new.webp", color: "from-sky-400 to-blue-600", accent: "text-sky-400" },
               { icon: Flame, label: "Heating", title: "Furnace Repair", items: ["Certified Techs", "System Replacement", "Safety Inspections"], href: "/service/furnace-repair/", image: "/images/services/furnace-repair-v3.webp", color: "from-brand-red to-orange-500", accent: "text-brand-red-light" },
@@ -236,7 +230,7 @@ export default function HomePage() {
                   <card.icon className={`h-6 w-6 ${card.accent}`} />
                 </div>
 
-                <div className="relative z-10 flex flex-1 flex-col p-8 pt-56 pointer-events-none">
+                <div className="relative z-10 flex flex-1 flex-col p-6 pt-44 sm:p-8 sm:pt-56 pointer-events-none">
                   <span className={`mb-2 text-[10px] font-bold uppercase tracking-[0.2em] ${card.accent}`}>{card.label}</span>
                   <h3 className="font-heading text-2xl font-extrabold text-white tracking-wide">{card.title}</h3>
                   
@@ -264,30 +258,30 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
          4. $79 OFFER — The Heroic Glass Block
          ═══════════════════════════════════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32">
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="group relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-white/[0.04] to-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_25px_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 backdrop-blur-2xl">
+      <section className="relative z-10 py-16 sm:py-24 lg:py-32">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="group relative overflow-hidden rounded-2xl sm:rounded-[2.5rem] bg-gradient-to-br from-white/[0.04] to-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_25px_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 backdrop-blur-2xl">
             
             {/* Ambient inner glow for the card */}
             <div className="absolute -left-40 -top-40 h-[400px] w-[400px] rounded-full bg-brand-red/10 blur-[100px] pointer-events-none transition-opacity duration-700 group-hover:opacity-70" />
             
             <div className="grid items-center lg:grid-cols-2 relative z-10">
               
-              <div className="p-10 sm:p-16 lg:p-20">
+              <div className="p-6 sm:p-10 md:p-16 lg:p-20">
                 <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-brand-red/30 bg-brand-red/10 px-4 py-1.5 shadow-[0_0_15px_rgba(220,38,38,0.2)]">
                   <Sparkles className="h-3.5 w-3.5 text-brand-red" />
                   <span className="text-xs font-bold tracking-[0.15em] text-brand-red uppercase">First-Time Customers</span>
                 </div>
                 
                 <div className="flex items-baseline gap-6">
-                  <span className="font-heading text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tracking-tighter sm:text-8xl drop-shadow-xl">$79</span>
+                  <span className="font-heading text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tracking-tighter sm:text-7xl md:text-8xl drop-shadow-xl">$79</span>
                   <div className="flex flex-col">
                     <span className="text-lg font-bold text-slate-500 line-through decoration-slate-600 decoration-2">$149</span>
                     <span className="text-sm font-extrabold uppercase tracking-widest text-brand-red drop-shadow-[0_0_8px_rgba(220,38,38,0.4)]">Save $70</span>
                   </div>
                 </div>
                 
-                <h2 className="mt-6 font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+                <h2 className="mt-4 sm:mt-6 font-heading text-2xl font-extrabold text-white sm:text-3xl md:text-4xl tracking-tight">
                   Precision Furnace Tune-Up
                 </h2>
                 <p className="mt-4 max-w-lg text-base leading-relaxed text-slate-300 font-light">
@@ -305,7 +299,7 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <Link href="/contact-us/" className="mt-12 group inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-base font-extrabold text-[#090E1A] shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1">
+                <Link href="/contact-us/" className="mt-8 sm:mt-12 group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white px-6 sm:px-8 py-3.5 sm:py-4 text-base font-extrabold text-[#090E1A] shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-1">
                   Claim $79 Tune-Up <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
@@ -323,23 +317,23 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
          5. WHY CHOOSE US — Tech Dashboard Aesthetic
          ═══════════════════════════════════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 md:text-center max-w-3xl md:mx-auto">
-            <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
+      <section className="relative z-10 py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-10 sm:mb-16 md:text-center max-w-3xl md:mx-auto">
+            <h2 className="font-heading text-2xl font-extrabold text-white sm:text-3xl md:text-4xl tracking-tight">
               The No Sweat Guarantee
             </h2>
             <p className="mt-4 text-lg text-slate-400 font-light">We don't just fix HVAC systems; we deliver peace of mind with guarantees the competition won't touch.</p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Ban, title: "No Fix, No Fee", text: "If we can't repair it, you don't pay a dime. No hidden trip charges." },
               { icon: ThumbsUp, title: "2-Year Warranty", text: "We stand behind our workmanship with a 100% satisfaction guarantee." },
               { icon: Clock, title: "Same-Day Priority", text: "AC goes out in a heatwave? We dispatch technicians immediately." },
               { icon: BadgeCheck, title: "NATE-Certified", text: "Highly trained, background-checked experts in your home." },
             ].map((item) => (
-              <div key={item.title} className="group flex flex-col rounded-3xl bg-[#0F172A]/50 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_10px_30px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#151E32]/80 hover:ring-white/10 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(0,0,0,0.4)]">
+              <div key={item.title} className="group flex flex-col rounded-2xl sm:rounded-3xl bg-[#0F172A]/50 p-6 sm:p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_10px_30px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#151E32]/80 hover:ring-white/10 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_20px_40px_rgba(0,0,0,0.4)]">
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.03] text-slate-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10 transition-all duration-300 group-hover:bg-brand-blue/20 group-hover:text-brand-blue group-hover:ring-brand-blue/30 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                   <item.icon className="h-6 w-6" />
                 </div>
@@ -354,11 +348,11 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
          6. COMPREHENSIVE EXPERTISE
          ═══════════════════════════════════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+      <section className="relative z-10 py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-2">
             <div className="relative">
-              <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none overflow-hidden rounded-[2rem] bg-white/[0.02] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_30px_60px_-15px_rgba(0,0,0,0.8)] ring-1 ring-white/10">
+              <div className="relative aspect-[4/3] sm:aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none overflow-hidden rounded-[2rem] bg-white/[0.02] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_30px_60px_-15px_rgba(0,0,0,0.8)] ring-1 ring-white/10">
                 <div className="relative h-full w-full overflow-hidden rounded-3xl">
                   <Image src="/images/fullservice.webp" alt="Full-service HVAC technician" fill className="object-cover opacity-80 mix-blend-luminosity transition-all duration-700 hover:opacity-100 hover:mix-blend-normal hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
@@ -376,14 +370,14 @@ export default function HomePage() {
             </div>
 
             <div className="lg:pl-8">
-              <h2 className="font-heading text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+              <h2 className="font-heading text-2xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
                 Comprehensive HVAC Expertise
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-slate-400 font-light">
                 From emergency repairs to complete system engineering, our certified team handles every aspect of your home's climate control with military precision.
               </p>
               
-              <div className="mt-12 space-y-4">
+              <div className="mt-8 sm:mt-12 space-y-3 sm:space-y-4">
                 {[
                   { icon: Snowflake, title: "Air Conditioning", text: "Expert AC repair and high-efficiency installations.", href: "/service/ac-repair/" },
                   { icon: Flame, title: "Furnace & Heating", text: "Furnace repair, replacement, and safety diagnostics.", href: "/service/furnace-repair/" },
@@ -408,34 +402,34 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
          7. BRANDS & STATS
          ═══════════════════════════════════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+      <section className="relative z-10 py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-2">
             <div className="order-last lg:order-first">
-              <h2 className="font-heading text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+              <h2 className="font-heading text-2xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
                 We Service All Major Brands
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-slate-400 font-light">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-slate-400 font-light">
                 Our technicians undergo continuous factory training to repair and install any make or model. We don't guess—we diagnose accurately and fix it right the first time.
               </p>
-              
-              <div className="mt-10 flex flex-wrap gap-x-12 gap-y-8">
+
+              <div className="mt-6 sm:mt-10 flex flex-wrap gap-x-8 sm:gap-x-12 gap-y-4 sm:gap-y-8">
                 {[
                   { stat: "5K+", label: "Systems Fixed" },
                   { stat: "25+", label: "Years Active" },
                 ].map((item, i) => (
                   <div key={item.stat} className="relative">
                     {i > 0 && <div className="absolute -left-6 top-1 bottom-1 w-px bg-white/10 hidden sm:block"></div>}
-                    <p className="font-heading text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-sm">{item.stat}</p>
+                    <p className="font-heading text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-sm">{item.stat}</p>
                     <p className="mt-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">{item.label}</p>
                   </div>
                 ))}
               </div>
               
-              <div className="mt-12 overflow-hidden border-t border-white/5 pt-8" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-                <div className="brand-ticker flex w-max gap-16 opacity-80">
+              <div className="mt-8 sm:mt-12 overflow-hidden border-t border-white/5 pt-6 sm:pt-8" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
+                <div className="brand-ticker flex w-max gap-8 sm:gap-16 opacity-80">
                   {[...Array(2)].map((_, setIndex) => (
-                    <div key={setIndex} className="flex shrink-0 items-center gap-16" aria-hidden={setIndex > 0}>
+                    <div key={setIndex} className="flex shrink-0 items-center gap-8 sm:gap-16" aria-hidden={setIndex > 0}>
                       {[
                         { src: "/images/brands/goodman.webp", alt: "Goodman" },
                         { src: "/images/brands/york.webp", alt: "York" },
@@ -444,7 +438,7 @@ export default function HomePage() {
                         { src: "/images/brands/lennox.webp", alt: "Lennox" },
                         { src: "/images/brands/trane.webp", alt: "Trane" },
                       ].map((brand) => (
-                        <Image key={`${setIndex}-${brand.alt}`} src={brand.src} alt={brand.alt} width={100} height={40} className="h-8 w-auto object-contain brightness-200 contrast-125" />
+                        <Image key={`${setIndex}-${brand.alt}`} src={brand.src} alt={brand.alt} width={100} height={40} className="h-6 sm:h-8 w-auto object-contain brightness-200 contrast-125" />
                       ))}
                     </div>
                   ))}
@@ -453,7 +447,7 @@ export default function HomePage() {
             </div>
 
             <div className="relative order-first lg:order-last">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-white/[0.02] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_30px_60px_-15px_rgba(0,0,0,0.8)] ring-1 ring-white/10">
+              <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white/[0.02] p-1.5 sm:p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_30px_60px_-15px_rgba(0,0,0,0.8)] ring-1 ring-white/10">
                 <div className="relative h-full w-full overflow-hidden rounded-3xl">
                   <Image src="/images/ac-repair-inprogress.webp" alt="HVAC technician" fill className="object-cover opacity-80 mix-blend-luminosity" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
@@ -466,7 +460,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
          8. FINAL CTA — Ambient Glow Up
          ═══════════════════════════════════════════════════ */}
-      <section className="relative z-10 overflow-hidden py-32">
+      <section className="relative z-10 overflow-hidden py-20 sm:py-32">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-brand-blue/20 via-transparent to-transparent opacity-80" />
         
         <div className="relative mx-auto max-w-3xl px-6 text-center">
@@ -474,18 +468,18 @@ export default function HomePage() {
             <Image src="/images/mascot-head.png" alt="" width={48} height={48} className="h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
           </div>
           
-          <h2 className="font-heading text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl tracking-tight drop-shadow-xl">
+          <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl md:text-5xl lg:text-6xl tracking-tight drop-shadow-xl">
             Need HVAC Help Today?
           </h2>
           <p className="mx-auto mt-6 text-lg font-light text-slate-300 drop-shadow-sm">
             Get your same-day estimate now — no pressure, no obligation. Just honest pricing.
           </p>
           
-          <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
-            <Link href="/contact-us/" className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-base font-extrabold text-[#090E1A] shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5">
+          <div className="mt-8 sm:mt-12 flex flex-col items-center gap-4 sm:gap-5 sm:flex-row sm:justify-center">
+            <Link href="/contact-us/" className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white px-6 sm:px-8 py-3.5 sm:py-4 text-base font-extrabold text-[#090E1A] shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5">
               Get Free Estimate <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <a href={companyInfo.phoneHref} className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white/[0.03] px-8 py-4 text-base font-extrabold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all duration-300 hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5">
+            <a href={companyInfo.phoneHref} className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-2xl bg-white/[0.03] px-6 sm:px-8 py-3.5 sm:py-4 text-base font-extrabold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/20 transition-all duration-300 hover:bg-white/[0.08] hover:ring-white/30 hover:-translate-y-0.5">
               <Phone className="h-4 w-4 text-slate-400 group-hover:text-white transition-colors" /> {companyInfo.phone}
             </a>
           </div>
