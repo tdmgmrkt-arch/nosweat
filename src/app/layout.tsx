@@ -55,12 +55,14 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jakarta.variable} ${dancingScript.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white text-foreground">
-        <LocalBusinessSchema />
-        <OrganizationSchema />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="bg-white text-foreground">
+        <div className="flex min-h-full flex-col overflow-x-clip w-full">
+          <LocalBusinessSchema />
+          <OrganizationSchema />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
