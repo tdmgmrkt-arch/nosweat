@@ -53,9 +53,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jakarta.variable} ${dancingScript.variable} h-full antialiased`}
+      className={`${inter.variable} ${jakarta.variable} ${dancingScript.variable} h-full antialiased overflow-x-hidden`}
     >
-      <body className="flex min-h-full flex-col bg-white text-foreground overflow-x-hidden">
+      <body className="flex min-h-full flex-col bg-white text-foreground overflow-x-hidden relative">
         <LocalBusinessSchema />
         <OrganizationSchema />
         <Header />
