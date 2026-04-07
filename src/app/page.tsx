@@ -413,23 +413,25 @@ export default function HomePage() {
                 Our technicians undergo continuous factory training to repair and install any make or model. We don't guess—we diagnose accurately and fix it right the first time.
               </p>
 
-              <div className="mt-6 sm:mt-10 flex flex-wrap gap-x-8 sm:gap-x-12 gap-y-4 sm:gap-y-8">
+              <div className="mt-6 sm:mt-10 flex items-center gap-6 sm:gap-12">
                 {[
                   { stat: "5K+", label: "Systems Fixed" },
                   { stat: "25+", label: "Years Active" },
                 ].map((item, i) => (
-                  <div key={item.stat} className="relative">
-                    {i > 0 && <div className="absolute -left-6 top-1 bottom-1 w-px bg-white/10 hidden sm:block"></div>}
-                    <p className="font-heading text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-sm">{item.stat}</p>
-                    <p className="mt-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">{item.label}</p>
+                  <div key={item.stat} className="flex items-center gap-6 sm:gap-12">
+                    {i > 0 && <div className="h-10 sm:h-12 w-px bg-white/10" />}
+                    <div>
+                      <p className="font-heading text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-sm">{item.stat}</p>
+                      <p className="mt-1 sm:mt-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-500">{item.label}</p>
+                    </div>
                   </div>
                 ))}
               </div>
-              
+
               <div className="mt-8 sm:mt-12 overflow-hidden border-t border-white/5 pt-6 sm:pt-8" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-                <div className="brand-ticker flex w-max gap-8 sm:gap-16 opacity-80">
+                <div className="brand-ticker flex w-max gap-6 sm:gap-16 opacity-80">
                   {[...Array(2)].map((_, setIndex) => (
-                    <div key={setIndex} className="flex shrink-0 items-center gap-8 sm:gap-16" aria-hidden={setIndex > 0}>
+                    <div key={setIndex} className="flex shrink-0 items-center gap-6 sm:gap-16" aria-hidden={setIndex > 0}>
                       {[
                         { src: "/images/brands/goodman.webp", alt: "Goodman" },
                         { src: "/images/brands/york.webp", alt: "York" },
@@ -438,7 +440,7 @@ export default function HomePage() {
                         { src: "/images/brands/lennox.webp", alt: "Lennox" },
                         { src: "/images/brands/trane.webp", alt: "Trane" },
                       ].map((brand) => (
-                        <Image key={`${setIndex}-${brand.alt}`} src={brand.src} alt={brand.alt} width={100} height={40} className="h-6 sm:h-8 w-auto object-contain brightness-200 contrast-125" />
+                        <Image key={`${setIndex}-${brand.alt}`} src={brand.src} alt={brand.alt} width={100} height={40} className="h-5 sm:h-8 w-auto object-contain opacity-80" />
                       ))}
                     </div>
                   ))}
