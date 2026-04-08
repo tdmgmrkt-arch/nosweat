@@ -11,10 +11,12 @@ import {
 import { companyInfo } from "@/data/navigation";
 
 export const metadata: Metadata = {
-  title: "Special Offers | HVAC Deals & Promotions | It's No Sweat Heat & Air",
+  title: "Special Offers — HVAC Deals & Promotions",
   description:
     "Current HVAC specials: FREE Nest thermostat with purchase, $2600 mini split systems, $79 furnace tune-ups, $97/month complete systems, and $179 maintenance plans.",
   openGraph: {
+    title: "Special Offers | It's No Sweat Heat & Air",
+    description: "Exclusive HVAC deals: FREE Nest thermostat, $79 tune-ups, $97/mo systems, and $179 maintenance plans.",
     images: [{ url: "/images/emergency-service.webp", width: 1200, height: 630 }],
   },
 };
@@ -262,7 +264,7 @@ export default function SpecialOfferPage() {
 
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <div className="mx-auto mb-6 sm:mb-8 flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-xl">
-            <Image src="/images/mascot-head.png" alt="" width={48} height={48} className="h-9 sm:h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+            <Image src="/images/mascot-head.png" alt="It's No Sweat Heat & Air mascot" width={48} height={48} className="h-9 sm:h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
           </div>
 
           <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-white lg:text-5xl tracking-tight drop-shadow-xl">

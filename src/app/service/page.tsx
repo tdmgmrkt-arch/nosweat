@@ -3,12 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { servicePages } from "@/data/services";
+import { JsonLd } from "@/components/json-ld";
+import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Our Services | HVAC & Air Conditioning",
+  title: "HVAC Services — AC Repair, Furnace & Maintenance",
   description:
-    "Full-service HVAC solutions: AC repair, furnace installation, maintenance plans, and indoor air quality systems.",
+    "Full-service HVAC solutions for the Inland Empire: AC repair, furnace installation, maintenance plans, and indoor air quality systems. Same-day service available.",
   openGraph: {
+    title: "HVAC Services | It's No Sweat Heat & Air",
+    description: "AC repair, furnace installation, maintenance plans & indoor air quality. Same-day service across the Inland Empire.",
     images: [{ url: "/images/services/hvac-maintenance-v2.webp", width: 1200, height: 630 }],
   },
 };
@@ -16,7 +20,25 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="relative min-h-screen bg-[#090E1A] text-slate-300 selection:bg-brand-red/30 selection:text-white font-sans">
-      
+      <BreadcrumbSchema items={[
+        { name: "Home", href: "/" },
+        { name: "Services", href: "/service/" },
+      ]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "HVAC Services",
+        description: "Complete heating, cooling, and air quality services for homes across the Inland Empire.",
+        url: "https://itsnosweat.net/service/",
+        numberOfItems: servicePages.length,
+        itemListElement: servicePages.map((svc, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: svc.title,
+          url: `https://itsnosweat.net/service/${svc.slug}/`,
+        })),
+      }} />
+
       {/* GLOBAL AMBIENT LIGHTING */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <div className="absolute -top-[20%] -left-[10%] h-[1000px] w-[1000px] rounded-full bg-brand-blue/10 blur-[150px] mix-blend-screen" />

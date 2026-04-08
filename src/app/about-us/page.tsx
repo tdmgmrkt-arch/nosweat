@@ -16,10 +16,12 @@ import { companyInfo } from "@/data/navigation";
 import { ReviewCarousel } from "@/components/review-carousel";
 
 export const metadata: Metadata = {
-  title: "About Us | 25+ Years HVAC Experience",
+  title: "About Us — 25+ Years of HVAC Experience",
   description:
     "Learn about It's No Sweat Heat & Air — over 25 years of HVAC experience serving Moreno Valley and the Inland Empire. Meet our team and read customer reviews.",
   openGraph: {
+    title: "About Us | It's No Sweat Heat & Air",
+    description: "Over 25 years of HVAC experience serving Moreno Valley and the Inland Empire. Meet the team behind the reputation.",
     images: [{ url: "/images/team-engaged.webp", width: 1200, height: 630 }],
   },
 };
@@ -352,7 +354,7 @@ export default function AboutPage() {
 
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <div className="mx-auto mb-6 sm:mb-8 flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),_0_10px_30px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-xl">
-            <Image src="/images/mascot-head.png" alt="" width={48} height={48} className="h-9 sm:h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+            <Image src="/images/mascot-head.png" alt="It's No Sweat Heat & Air mascot" width={48} height={48} className="h-9 sm:h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
           </div>
 
           <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-white lg:text-5xl xl:text-6xl tracking-tight drop-shadow-xl">

@@ -4,12 +4,16 @@ import Image from "next/image";
 import { Phone, Mail, MapPin, Shield } from "lucide-react";
 import { companyInfo } from "@/data/navigation";
 import { ContactForm } from "@/components/contact-form";
+import { JsonLd } from "@/components/json-ld";
+import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Request HVAC Service",
+  title: "Contact Us — Schedule HVAC Service",
   description:
-    "Schedule HVAC service, request a free estimate, or reach our team for emergency repair. Fill out our service request form or call us directly.",
+    "Schedule HVAC service, request a free estimate, or reach our team for emergency repair. Fill out our service request form or call (951) 331-3310.",
   openGraph: {
+    title: "Contact Us | It's No Sweat Heat & Air",
+    description: "Schedule HVAC service, request a free estimate, or call for emergency repair. Same-day response in the Inland Empire.",
     images: [{ url: "/images/contact-hero.webp", width: 1200, height: 630 }],
   },
 };
@@ -17,7 +21,35 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="relative min-h-screen bg-[#090E1A] text-slate-300 selection:bg-brand-red/30 selection:text-white font-sans">
-      
+      <BreadcrumbSchema items={[
+        { name: "Home", href: "/" },
+        { name: "Contact Us", href: "/contact-us/" },
+      ]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: "Contact It's No Sweat Heat & Air",
+        description: "Schedule HVAC service, request a free estimate, or reach our team for emergency repair.",
+        url: "https://itsnosweat.net/contact-us/",
+        mainEntity: {
+          "@type": "HVACBusiness",
+          name: "It's No Sweat Heat & Air",
+          telephone: "(951) 331-3310",
+          email: "itsnosweatca@gmail.com",
+          url: "https://itsnosweat.net",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Moreno Valley",
+            addressRegion: "CA",
+            addressCountry: "US",
+          },
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "18:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday","Sunday"], opens: "08:00", closes: "14:00" },
+          ],
+        },
+      }} />
+
       {/* GLOBAL AMBIENT LIGHTING */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <div className="absolute -top-[20%] -left-[10%] h-[1000px] w-[1000px] rounded-full bg-brand-blue/10 blur-[150px] mix-blend-screen" />

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | It's No Sweat Heat & Air",
   },
   description:
-    "Trusted HVAC experts serving Moreno Valley & the Inland Empire. AC repair, furnace installation, indoor air quality, and maintenance. Same-day service. Call (951) 331-3310.",
+    "Trusted HVAC experts serving Moreno Valley & the Inland Empire. AC repair, furnace installation, maintenance & more. Same-day service. (951) 331-3310.",
   openGraph: {
     siteName: "It's No Sweat Heat & Air",
     locale: "en_US",

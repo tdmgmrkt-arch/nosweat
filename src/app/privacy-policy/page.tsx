@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Star, Shield, Phone, Mail } from "lucide-react";
+import { Shield, Phone, Mail } from "lucide-react";
 import { companyInfo } from "@/data/navigation";
+import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | It's No Sweat Heat & Air",
@@ -17,6 +18,10 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <div className="relative min-h-screen bg-[#090E1A] text-slate-300 selection:bg-brand-red/30 selection:text-white font-sans">
+      <BreadcrumbSchema items={[
+        { name: "Home", href: "/" },
+        { name: "Privacy Policy", href: "/privacy-policy/" },
+      ]} />
 
       {/* GLOBAL AMBIENT LIGHTING */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
