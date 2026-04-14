@@ -79,9 +79,9 @@ export const companyInfo = {
   phoneHref: "tel:+19513313310",
   email: "support@itsnosweat.net",
   emailHref: "mailto:support@itsnosweat.net",
-  address: "Moreno Valley, CA",
+  address: "27950 Kalmia Ave, Moreno Valley, CA 92555",
   license: "Lic#: 1058772",
-  hours: "Mon – Fri: 8AM – 6PM",
+  hours: "Mon – Fri: 7:30AM – 6PM",
   emergencyHours: "24/7 Emergency Service",
 } as const;
 

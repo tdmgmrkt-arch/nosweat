@@ -72,7 +72,7 @@ export function CityServiceAreaSchema({ slug, city }: CityServiceAreaSchemaProps
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
-      reviewCount: "500",
+      reviewCount: "77",
       bestRating: "5",
     },
     hasOfferCatalog: {

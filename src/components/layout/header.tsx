@@ -132,8 +132,9 @@ export function Header() {
                   <div className="mt-6 border-t border-white/5 pt-6">
                     <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Business Hours</p>
                     <div className="space-y-2.5 text-xs text-slate-400">
-                      <div className="flex justify-between items-center"><span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-slate-500" /> Mon – Fri</span><span className="font-bold text-slate-200">8AM – 6PM</span></div>
-                      <div className="flex justify-between items-center"><span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-slate-500" /> Sat – Sun</span><span className="font-bold text-slate-200">8AM – 2PM</span></div>
+                      <div className="flex justify-between items-center"><span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-slate-500" /> Mon – Fri</span><span className="font-bold text-slate-200">7:30AM – 6PM</span></div>
+                      <div className="flex justify-between items-center"><span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-slate-500" /> Saturday</span><span className="font-bold text-slate-200">8AM – 3PM</span></div>
+                      <div className="flex justify-between items-center"><span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5 text-slate-500" /> Sunday</span><span className="font-bold text-slate-500">Closed</span></div>
                       <div className="flex justify-between items-center">
                         <span className="flex items-center gap-2">
                           <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span></span>

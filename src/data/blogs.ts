@@ -134,7 +134,7 @@ export const blogPosts: BlogPost[] = [
       <p>Look for patterns in Google and BBB reviews, not just star counts. Consistent praise for communication, punctuality, and fair pricing matters more than a perfect 5.0 from 12 reviews. Pay attention to how the company responds to negative reviews — that reveals their character.</p>
 
       <h2>Why Inland Empire Homeowners Trust Us</h2>
-      <p>We're fully licensed (CA #1058772), insured, and every technician on our team holds NATE certification. We provide written estimates on every job, honor our quoted price, and back all work with a satisfaction guarantee. Our 4.9-star rating comes from over 500 verified customer reviews across <a href="/service-areas/">30 cities we serve</a>. Ready to experience the difference? <a href="/contact-us/">Request a free estimate</a> today.</p>
+      <p>We're fully licensed (CA #1058772), insured, and every technician on our team holds NATE certification. We provide written estimates on every job, honor our quoted price, and back all work with a satisfaction guarantee. Our 4.9-star rating comes from 77+ verified customer reviews across <a href="/service-areas/">30 cities we serve</a>. Ready to experience the difference? <a href="/contact-us/">Request a free estimate</a> today.</p>
     `,
     featuredImage: "/images/blog/choosing-ac-company.webp",
     author: "It's No Sweat Team",

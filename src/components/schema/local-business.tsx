@@ -13,9 +13,17 @@ export function LocalBusinessSchema() {
     email: companyInfo.email,
     address: {
       "@type": "PostalAddress",
+      streetAddress: "27950 Kalmia Ave",
       addressLocality: "Moreno Valley",
       addressRegion: "CA",
+      postalCode: "92555",
       addressCountry: "US",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "77",
+      bestRating: "5",
     },
     geo: {
       "@type": "GeoCoordinates",
@@ -26,14 +34,14 @@ export function LocalBusinessSchema() {
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "08:00",
+        opens: "07:30",
         closes: "18:00",
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Saturday", "Sunday"],
+        dayOfWeek: "Saturday",
         opens: "08:00",
-        closes: "14:00",
+        closes: "15:00",
       },
     ],
     priceRange: "$$",
