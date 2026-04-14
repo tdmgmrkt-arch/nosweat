@@ -154,6 +154,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   </div>
                 </div>
               )}
+
+              {/* Author Bio */}
+              <div className="mt-10 sm:mt-16 rounded-2xl sm:rounded-[2rem] border border-white/5 bg-[#0F172A]/50 p-6 sm:p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md">
+                <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
+                  <div className="relative shrink-0">
+                    <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-2xl bg-brand-blue/10 ring-1 ring-brand-blue/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_0_25px_rgba(59,130,246,0.25)]">
+                      <User className="h-10 w-10 sm:h-12 sm:w-12 text-brand-blue-light drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue-light drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">About the Author</p>
+                    <h3 className="mt-2 font-heading text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                      {post.author}
+                    </h3>
+                    <p className="mt-1 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-400">
+                      {post.authorTitle}
+                    </p>
+                    <p className="mt-4 text-sm sm:text-base font-light leading-relaxed text-slate-300">
+                      {post.authorBio}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </article>
 
             {/* Sidebar */}

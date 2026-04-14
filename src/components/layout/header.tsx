@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Phone, Clock, MapPin, Star, CheckCircle2, ShieldCheck, Tag, ArrowRight } from "lucide-react";
+import { ChevronDown, Phone, Clock, MapPin, Star, CheckCircle2, ShieldCheck, Tag } from "lucide-react";
 import { MobileMenu } from "./mobile-menu";
 import { mainNav, services, companyInfo } from "@/data/navigation";
 import { serviceAreaCities } from "@/data/cities";

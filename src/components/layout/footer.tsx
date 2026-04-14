@@ -97,9 +97,40 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Google Reviews Strip */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="border-t border-white/5 pt-8 sm:pt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-between sm:gap-6">
+            <a
+              href={companyInfo.gbpUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 rounded-2xl bg-white/[0.03] px-5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/10 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/[0.06] hover:ring-white/20"
+            >
+              <div className="flex items-center gap-1 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span className="text-sm font-extrabold text-white">4.9 stars · 77+ reviews</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Rated on Google</span>
+              </div>
+            </a>
+            <a
+              href={companyInfo.reviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-b from-blue-500 to-brand-blue px-5 py-3 text-sm font-bold text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),_0_8px_20px_-6px_rgba(59,130,246,0.6)] ring-1 ring-brand-blue/50 transition-all hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),_0_12px_25px_-6px_rgba(59,130,246,0.8)] hover:-translate-y-0.5"
+            >
+              <Star className="h-4 w-4 fill-white drop-shadow-sm" />
+              Leave Us a Review
+            </a>
+          </div>
+        </div>
+
         {/* Service Areas (Accordion on mobile) */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 pb-8 sm:pb-12">
-          <div className="border-t border-white/5 pt-8 sm:pt-10">
+          <div className="border-t border-white/5 pt-8 sm:pt-10 mt-8 sm:mt-10">
             <FooterAccordion title="Service Areas">
               <div className="flex flex-wrap items-center gap-x-1.5 sm:gap-x-2 gap-y-1.5 sm:gap-y-2">
                 {serviceAreaCities.map((area, i) => (

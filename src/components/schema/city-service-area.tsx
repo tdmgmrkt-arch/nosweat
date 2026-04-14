@@ -87,6 +87,9 @@ export function CityServiceAreaSchema({ slug, city }: CityServiceAreaSchemaProps
         { "@type": "Offer", itemOffered: { "@type": "Service", name: `Indoor Air Quality in ${city}` } },
       ],
     },
+    sameAs: [
+      "https://www.google.com/maps/place/It's+No+Sweat+Heat+%26+Air/@33.9539147,-117.1799244,17z/data=!3m1!4b1!4m6!3m5!1s0x80dca783bcab7ba5:0x36d6067dbc87d6fd!8m2!3d33.9539148!4d-117.1750481!16s%2Fg%2F11j8w554d5",
+    ],
   };
 
   return <JsonLd data={data} />;

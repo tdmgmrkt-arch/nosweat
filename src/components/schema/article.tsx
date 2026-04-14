@@ -9,10 +9,24 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
     description: post.metaDescription,
     image: `https://itsnosweat.net${post.featuredImage}`,
     datePublished: post.publishedDate,
+    dateModified: post.publishedDate,
     author: {
-      "@type": "Organization",
+      "@type": "Person",
       name: post.author,
-      url: "https://itsnosweat.net",
+      jobTitle: post.authorTitle,
+      description: post.authorBio,
+      worksFor: {
+        "@type": "HVACBusiness",
+        name: "It's No Sweat Heat & Air",
+        url: "https://itsnosweat.net",
+      },
+      knowsAbout: [
+        "HVAC installation",
+        "Air conditioning repair",
+        "Furnace repair",
+        "Indoor air quality",
+        "Energy efficiency",
+      ],
     },
     publisher: {
       "@type": "Organization",

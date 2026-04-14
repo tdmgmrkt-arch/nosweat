@@ -24,7 +24,15 @@ export async function generateMetadata({ params }: ServiceRouteProps): Promise<M
   const { slug } = await params;
   const svc = getServiceBySlug(slug);
   if (!svc) return { title: "Service Not Found" };
-  return { title: svc.metaTitle, description: svc.metaDescription };
+  return {
+    title: svc.metaTitle,
+    description: svc.metaDescription,
+    openGraph: {
+      title: svc.metaTitle,
+      description: svc.metaDescription,
+      images: [{ url: svc.heroImage, width: 1200, height: 630 }],
+    },
+  };
 }
 
 export default async function ServicePage({ params }: ServiceRouteProps) {
@@ -204,14 +212,39 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
               <div className="mt-12 sm:mt-20">
                 <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-white text-center sm:text-left tracking-tight">Areas We Serve</h3>
                 <div className="mx-auto mt-3 sm:mt-4 h-1 w-12 rounded-full bg-gradient-to-r from-brand-blue to-blue-400 sm:mx-0 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
-                <p className="mt-4 sm:mt-6 text-sm sm:text-base leading-relaxed text-slate-400 font-light text-center sm:text-left">
-                  We provide {svc.shortTitle.toLowerCase()} services across 30 cities in Riverside County and the Inland Empire. Click your city to see local service details.
+                <p className="mt-4 sm:mt-6 text-sm sm:text-base leading-relaxed text-slate-300 font-light text-center sm:text-left">
+                  We provide {svc.shortTitle.toLowerCase()} services across 30 cities in Riverside County and the Inland Empire. Our most-requested coverage areas include{" "}
+                  <Link href="/service-areas/moreno-valley/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">
+                    {svc.shortTitle} in Moreno Valley
+                  </Link>
+                  ,{" "}
+                  <Link href="/service-areas/riverside/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">
+                    {svc.shortTitle} in Riverside
+                  </Link>
+                  ,{" "}
+                  <Link href="/service-areas/temecula/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">
+                    {svc.shortTitle} in Temecula
+                  </Link>
+                  ,{" "}
+                  <Link href="/service-areas/murrieta/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">
+                    {svc.shortTitle} in Murrieta
+                  </Link>
+                  ,{" "}
+                  <Link href="/service-areas/redlands/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">
+                    {svc.shortTitle} in Redlands
+                  </Link>
+                  , and{" "}
+                  <Link href="/service-areas/san-bernardino/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">
+                    {svc.shortTitle} in San Bernardino
+                  </Link>
+                  . Click any city below to see local service details.
                 </p>
                 <div className="mt-6 sm:mt-8 flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-3">
                   {serviceAreaCities.map((area) => (
                     <Link
                       key={area.city}
                       href={area.url}
+                      title={`${svc.shortTitle} in ${area.city}, CA`}
                       className="group flex items-center gap-1.5 sm:gap-2 rounded-full bg-white/[0.03] px-3.5 sm:px-5 py-1.5 sm:py-2.5 text-xs sm:text-sm font-semibold text-slate-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/10 transition-all hover:-translate-y-0.5 hover:bg-brand-blue/10 hover:text-white hover:ring-brand-blue/30"
                     >
                       <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-slate-500 transition-colors group-hover:text-brand-blue-light" />
