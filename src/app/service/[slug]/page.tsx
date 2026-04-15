@@ -129,8 +129,7 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
               </div>
 
               {/* Intro Content */}
-              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">{svc.title}</h2>
-              <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-lg leading-relaxed text-slate-400 font-light">
+              <div className="space-y-3 sm:space-y-4 text-sm sm:text-lg leading-relaxed text-slate-400 font-light">
                 <p>{svc.intro}</p>
                 <p>{svc.introExtra}</p>
               </div>

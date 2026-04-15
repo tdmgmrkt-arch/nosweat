@@ -35,7 +35,7 @@ export default function ContactPage() {
           "@type": "HVACBusiness",
           name: "It's No Sweat Heat & Air",
           telephone: "(951) 331-3310",
-          email: "itsnosweatca@gmail.com",
+          email: "support@itsnosweat.net",
           url: "https://www.itsnosweat.net",
           address: {
             "@type": "PostalAddress",

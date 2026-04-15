@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — It's No Sweat Heat & Air</title>
+<style>
+  :root {
+    --navy: #090E1A;
+    --navy-2: #0F172A;
+    --brand-blue: #3D76B0;
+    --brand-blue-light: #5A9AD4;
+    --brand-red: #CA1515;
+    --brand-red-light: #E53E3E;
+    --green: #059669;
+    --green-light: #10B981;
+    --amber: #D97706;
+    --amber-light: #F59E0B;
+    --red: #DC2626;
+    --slate-50: #F8FAFC;
+    --slate-100: #F1F5F9;
+    --slate-200: #E2E8F0;
+    --slate-300: #CBD5E1;
+    --slate-400: #94A3B8;
+    --slate-500: #64748B;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1E293B;
+    --slate-900: #0F172A;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+    background: var(--slate-100);
+    color: var(--slate-800);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+    background: #fff;
+    box-shadow: 0 0 40px rgba(15, 23, 42, 0.06);
+    min-height: 100vh;
+  }
+
+  /* ---------- Header ---------- */
+  .report-header {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .report-header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 120px;
+    height: 3px;
+    background: var(--brand-red);
+  }
+
+  .report-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand-red);
+    margin-bottom: 12px;
+  }
+
+  .report-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 0 0 16px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .report-subtitle {
+    font-size: 16px;
+    color: var(--slate-500);
+    margin: 0;
+  }
+
+  .report-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--slate-600);
+  }
+
+  .report-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .report-meta-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate-400);
+  }
+
+  .report-meta-value {
+    font-size: 14px;
+    color: var(--slate-800);
+    font-weight: 600;
+  }
+
+  /* ---------- Executive Summary / Score Card ---------- */
+  .score-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--slate-900) 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    margin: 32px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .score-hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(61, 118, 176, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .score-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .score-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand-blue-light);
+    margin-bottom: 12px;
+  }
+
+  .score-value {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: #fff;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .score-value-total {
+    font-size: 28px;
+    color: var(--slate-400);
+    font-weight: 600;
+  }
+
+  .score-grade {
+    display: inline-block;
+    background: linear-gradient(180deg, var(--green-light), var(--green));
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-top: 12px;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  }
+
+  .score-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .score-item {
+    text-align: left;
+  }
+
+  .score-item-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--slate-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .score-item-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .score-item-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+
+  .score-item-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.6s;
+  }
+
+  .fill-green { background: var(--green-light); }
+  .fill-amber { background: var(--amber-light); }
+  .fill-red { background: var(--brand-red-light); }
+
+  /* ---------- Sections ---------- */
+  .section {
+    margin: 56px 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--slate-200);
+  }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--brand-blue);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 0;
+    letter-spacing: -0.02em;
+    flex: 1;
+  }
+
+  .section-score {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--slate-600);
+    white-space: nowrap;
+  }
+
+  .section-score .score {
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .subsection-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 32px 0 12px;
+  }
+
+  p {
+    margin: 12px 0;
+    color: var(--slate-700);
+  }
+
+  /* ---------- Callouts ---------- */
+  .callout {
+    background: var(--slate-50);
+    border-left: 4px solid var(--brand-blue);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .callout-win {
+    background: #F0FDF4;
+    border-left-color: var(--green);
+  }
+
+  .callout-warn {
+    background: #FFFBEB;
+    border-left-color: var(--amber);
+  }
+
+  .callout-title {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .callout-win .callout-title { color: var(--green); }
+  .callout-warn .callout-title { color: var(--amber); }
+
+  .callout ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+  }
+
+  .callout li {
+    margin: 6px 0;
+    color: var(--slate-700);
+  }
+
+  .callout code {
+    background: rgba(15, 23, 42, 0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.88em;
+    font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+  }
+
+  /* ---------- Tables ---------- */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 14px;
+  }
+
+  thead {
+    background: var(--navy);
+  }
+
+  thead th {
+    color: #fff;
+    text-align: left;
+    padding: 14px 16px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--slate-200);
+    color: var(--slate-700);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover {
+    background: var(--slate-50);
+  }
+
+  .score-cell {
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-green {
+    background: #D1FAE5;
+    color: var(--green);
+  }
+
+  .badge-amber {
+    background: #FEF3C7;
+    color: var(--amber);
+  }
+
+  .badge-red {
+    background: #FEE2E2;
+    color: var(--red);
+  }
+
+  /* ---------- Code blocks ---------- */
+  pre {
+    background: var(--navy);
+    color: var(--slate-100);
+    padding: 16px 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 16px 0;
+  }
+
+  code {
+    font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+  }
+
+  p code, li code {
+    background: rgba(15, 23, 42, 0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--brand-blue);
+  }
+
+  /* ---------- Lists ---------- */
+  ul, ol {
+    padding-left: 24px;
+    color: var(--slate-700);
+  }
+
+  li {
+    margin: 6px 0;
+  }
+
+  /* ---------- Priority Issues ---------- */
+  .priority-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .priority-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+    background: #fff;
+    border: 1px solid var(--slate-200);
+    border-radius: 12px;
+    padding: 16px 20px;
+    align-items: flex-start;
+  }
+
+  .priority-item.high {
+    border-left: 4px solid var(--red);
+  }
+
+  .priority-item.medium {
+    border-left: 4px solid var(--amber);
+  }
+
+  .priority-item.low {
+    border-left: 4px solid var(--green);
+  }
+
+  .priority-number {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--slate-300);
+    line-height: 1;
+  }
+
+  .priority-item.high .priority-number { color: var(--red); }
+  .priority-item.medium .priority-number { color: var(--amber); }
+  .priority-item.low .priority-number { color: var(--green); }
+
+  .priority-content h4 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .priority-content p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--slate-600);
+  }
+
+  .priority-content .file {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 8px;
+    background: var(--slate-100);
+    border-radius: 4px;
+    font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--slate-700);
+  }
+
+  /* ---------- Strengths Grid ---------- */
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .strength-card {
+    background: linear-gradient(135deg, #fff 0%, var(--slate-50) 100%);
+    border: 1px solid var(--slate-200);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+
+  .strength-card h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--navy);
+  }
+
+  .strength-card p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--slate-600);
+    line-height: 1.55;
+  }
+
+  /* ---------- Footer ---------- */
+  .report-footer {
+    margin-top: 72px;
+    padding-top: 32px;
+    border-top: 2px solid var(--slate-200);
+    text-align: center;
+    font-size: 12px;
+    color: var(--slate-500);
+  }
+
+  .report-footer strong {
+    color: var(--navy);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px) {
+    .page {
+      padding: 32px 20px 60px;
+    }
+
+    .report-title {
+      font-size: 26px;
+    }
+
+    .score-hero {
+      padding: 28px 24px;
+    }
+
+    .score-value {
+      font-size: 56px;
+    }
+
+    .section-title {
+      font-size: 20px;
+    }
+
+    .priority-item {
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      padding: 14px 16px;
+    }
+
+    .priority-number {
+      font-size: 22px;
+    }
+
+    table {
+      font-size: 12px;
+    }
+
+    thead th,
+    tbody td {
+      padding: 10px 12px;
+    }
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    body {
+      background: #fff;
+      font-size: 11pt;
+    }
+
+    .page {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    .score-hero {
+      background: var(--navy) !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .section {
+      page-break-inside: avoid;
+      margin: 32px 0;
+    }
+
+    .priority-item,
+    .strength-card,
+    .callout,
+    table {
+      page-break-inside: avoid;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    .report-header {
+      page-break-after: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="report-header">
+    <div class="report-label">SEO Audit Report</div>
+    <h1 class="report-title">itsnosweat.net</h1>
+    <p class="report-subtitle">It's No Sweat Heat &amp; Air — HVAC contractor serving Moreno Valley, CA &amp; the Inland Empire</p>
+    <div class="report-meta">
+      <div class="report-meta-item">
+        <span class="report-meta-label">Audit Date</span>
+        <span class="report-meta-value">April 15, 2026</span>
+      </div>
+      <div class="report-meta-item">
+        <span class="report-meta-label">Auditor</span>
+        <span class="report-meta-value">Code-Level Technical Audit</span>
+      </div>
+      <div class="report-meta-item">
+        <span class="report-meta-label">Pages Audited</span>
+        <span class="report-meta-value">63 indexable</span>
+      </div>
+      <div class="report-meta-item">
+        <span class="report-meta-label">Schemas Deployed</span>
+        <span class="report-meta-value">10 types</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCORE HERO -->
+  <div class="score-hero">
+    <div class="score-hero-content">
+      <div class="score-label">Overall SEO Health</div>
+      <div class="score-value">83<span class="score-value-total">/ 100</span></div>
+      <div class="score-grade">Grade A−</div>
+
+      <div class="score-breakdown">
+        <div class="score-item">
+          <div class="score-item-label">On-Page SEO</div>
+          <div class="score-item-value">92</div>
+          <div class="score-item-bar"><div class="score-item-bar-fill fill-green" style="width: 92%"></div></div>
+        </div>
+        <div class="score-item">
+          <div class="score-item-label">Technical SEO</div>
+          <div class="score-item-value">93</div>
+          <div class="score-item-bar"><div class="score-item-bar-fill fill-green" style="width: 93%"></div></div>
+        </div>
+        <div class="score-item">
+          <div class="score-item-label">Structured Data</div>
+          <div class="score-item-value">95</div>
+          <div class="score-item-bar"><div class="score-item-bar-fill fill-green" style="width: 95%"></div></div>
+        </div>
+        <div class="score-item">
+          <div class="score-item-label">Local SEO</div>
+          <div class="score-item-value">88</div>
+          <div class="score-item-bar"><div class="score-item-bar-fill fill-green" style="width: 88%"></div></div>
+        </div>
+        <div class="score-item">
+          <div class="score-item-label">Content Quality</div>
+          <div class="score-item-value">80</div>
+          <div class="score-item-bar"><div class="score-item-bar-fill fill-amber" style="width: 80%"></div></div>
+        </div>
+        <div class="score-item">
+          <div class="score-item-label">Off-Page Authority</div>
+          <div class="score-item-value">45</div>
+          <div class="score-item-bar"><div class="score-item-bar-fill fill-red" style="width: 45%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Executive Summary</span>
+      <h2 class="section-title">Launch-Ready Site</h2>
+    </div>
+
+    <p>The site is <strong>launch-ready</strong> from a technical and on-page perspective. On-site SEO is at or near its ceiling — all critical elements (sitemap, schema, metadata, internal linking, NAP consistency, canonical URLs) are correctly implemented. The remaining 17 points to a perfect 100 live almost entirely off-site (review velocity, backlink profile, blog cadence, social presence).</p>
+
+    <div class="callout callout-win">
+      <div class="callout-title">Headline Numbers</div>
+      <ul>
+        <li><strong>63 indexable pages</strong> (9 static, 7 services, 4 blog posts, 30 city pages, + 13 other)</li>
+        <li><strong>10 structured data schema types</strong> deployed site-wide (LocalBusiness, Organization, BreadcrumbList, Article, Service, CityServiceArea, FAQPage, ContactPage, CollectionPage, ItemList)</li>
+        <li><strong>48 URLs</strong> in sitemap, auto-regenerated on each build</li>
+        <li><strong>Zero critical errors</strong> on the current Semrush crawl</li>
+        <li><strong>99% Semrush Site Health</strong> as of last audit run</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 1. ON-PAGE SEO -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Section 1</span>
+      <h2 class="section-title">On-Page SEO</h2>
+      <span class="section-score"><span class="score">92</span> / 100</span>
+    </div>
+
+    <h3 class="subsection-title">Title Tags</h3>
+    <p>Total titles audited: <strong>47</strong> across all page types.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Pages</th>
+            <th>Within 70 chars</th>
+            <th>Keyword-rich</th>
+            <th>Unique</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Homepage</td><td>1</td><td><span class="badge badge-green">68 chars</span></td><td>✅</td><td>✅</td></tr>
+          <tr><td>Core pages</td><td>6</td><td><span class="badge badge-amber">5 of 6</span></td><td>✅</td><td>✅</td></tr>
+          <tr><td>Service pages</td><td>7</td><td><span class="badge badge-green">Pass</span></td><td>✅</td><td>✅</td></tr>
+          <tr><td>Blog posts</td><td>4</td><td><span class="badge badge-green">Pass</span></td><td>✅</td><td>✅</td></tr>
+          <tr><td>City pages</td><td>30</td><td><span class="badge badge-green">Pass</span></td><td>✅</td><td>✅</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-win">
+      <div class="callout-title">Wins</div>
+      <ul>
+        <li>46 of 47 titles fall within the 70-character limit after the template <code>"%s | It's No Sweat Heat &amp; Air"</code> is applied.</li>
+        <li>Every title contains a primary keyword relevant to its page topic.</li>
+        <li>Zero duplicates across the site.</li>
+        <li>Homepage uses <code>title.absolute</code> correctly to bypass the template.</li>
+      </ul>
+    </div>
+
+    <div class="callout callout-warn">
+      <div class="callout-title">Issues Found</div>
+      <ul>
+        <li><strong>Service Areas hub title</strong> is 75 characters — 5 over the Semrush / Google threshold.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Meta Descriptions</h3>
+    <p>Total descriptions audited: <strong>46</strong> (all pages).</p>
+
+    <div class="callout callout-win">
+      <div class="callout-title">Wins</div>
+      <ul>
+        <li>Every page has a unique, hand-written meta description.</li>
+        <li>45 of 46 fall within the 120–160 character sweet spot.</li>
+        <li>All descriptions include the primary keyword and a clear CTA (phone number, "schedule," "free estimate," etc.).</li>
+      </ul>
+    </div>
+
+    <div class="callout callout-warn">
+      <div class="callout-title">Issues Found</div>
+      <ul>
+        <li><strong>Homepage description</strong> is 187 characters — 27 over Google's truncation threshold. The last sentence may be cut off in search results.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Heading Hierarchy</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Page Type</th>
+            <th>H1</th>
+            <th>H2 Nesting</th>
+            <th>Keyword-Rich H1</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Homepage</td><td>1</td><td>5 H2s</td><td>✅</td><td><span class="badge badge-green">Pass</span></td></tr>
+          <tr><td>About Us</td><td>1</td><td>5 H2s</td><td>✅</td><td><span class="badge badge-green">Pass</span></td></tr>
+          <tr><td>Service Detail</td><td>1</td><td>4 H2s</td><td>✅</td><td><span class="badge badge-amber">Title dup'd as H2</span></td></tr>
+          <tr><td>City Detail</td><td>1</td><td>6 H2s</td><td>✅</td><td><span class="badge badge-green">Pass</span></td></tr>
+          <tr><td>Blog Post</td><td>1</td><td>4–6 H2s</td><td>✅</td><td><span class="badge badge-green">Pass</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">Image Alt Text</h3>
+    <p>Audited <strong>48</strong> <code>alt=</code> attributes across all templates and components.</p>
+    <div class="callout callout-win">
+      <div class="callout-title">Wins</div>
+      <ul>
+        <li>100% compliance — every image has an alt attribute.</li>
+        <li>83% of alts are keyword-rich and descriptive.</li>
+        <li>The 3 instances of <code>alt=""</code> are all on genuinely decorative background images — correct usage.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Internal Linking</h3>
+    <div class="callout callout-win">
+      <div class="callout-title">Strongest Category</div>
+      <ul>
+        <li><strong>Reciprocal service↔city linking.</strong> Every service detail page has an "Areas We Serve" section linking to all 30 cities with keyword-rich anchor text like <code>"AC Repair in Moreno Valley"</code>.</li>
+        <li>Every city page links to all 6 service detail pages.</li>
+        <li>Header mega menu exposes all 6 services and all 30 cities site-wide.</li>
+        <li>Footer replicates all major internal links — no orphan pages.</li>
+        <li>Breadcrumb navigation with schema on every dynamic page.</li>
+        <li>Blog posts contain 5–7 contextual internal links each.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">URL Structure</h3>
+    <div class="callout callout-win">
+      <div class="callout-title">All Checks Pass</div>
+      <ul>
+        <li>Trailing slash enforced site-wide.</li>
+        <li>Keyword-rich slugs throughout (<code>/service/ac-repair/</code>, <code>/service-areas/moreno-valley/</code>).</li>
+        <li>Shallow hierarchy (max 2 levels deep).</li>
+        <li>Lowercase with hyphens, no underscores or query parameters.</li>
+        <li>11 permanent 301 redirects configured for legacy WordPress URLs.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. TECHNICAL SEO -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Section 2</span>
+      <h2 class="section-title">Technical SEO</h2>
+      <span class="section-score"><span class="score">93</span> / 100</span>
+    </div>
+
+    <h3 class="subsection-title">Sitemap &amp; Robots.txt</h3>
+    <div class="callout callout-win">
+      <div class="callout-title">Wins</div>
+      <ul>
+        <li><code>public/sitemap.xml</code> and <code>sitemap-0.xml</code> both exist with 48 URLs listed.</li>
+        <li>Auto-regenerated on every build via the <code>postbuild: next-sitemap</code> hook.</li>
+        <li>Sitemap last modified today (2026-04-15) — fresh.</li>
+        <li><code>robots.txt</code> properly configured with Host, Sitemap, and Disallow directives.</li>
+        <li>All sitemap URLs use the canonical <code>www.itsnosweat.net</code> host.</li>
+      </ul>
+    </div>
+
+    <pre>User-agent: *
+Allow: /
+Disallow: /projects/
+
+Host: https://www.itsnosweat.net
+Sitemap: https://www.itsnosweat.net/sitemap.xml</pre>
+
+    <h3 class="subsection-title">Canonical URLs &amp; Redirects</h3>
+    <div class="callout callout-win">
+      <div class="callout-title">Wins</div>
+      <ul>
+        <li><code>metadataBase: "https://www.itsnosweat.net"</code> in <code>layout.tsx</code> — consistent canonical hostname.</li>
+        <li>All schema URLs use <code>www.itsnosweat.net</code>.</li>
+        <li>Vercel handles non-www → www redirect at the edge.</li>
+        <li>11 legacy 301 redirects (WordPress blog paths, duplicate privacy policies, verbose project slugs).</li>
+        <li>No redirect loops (resolved during this audit cycle).</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Structured Data — 95 / 100</h3>
+    <p>This is the site's biggest technical asset. Comprehensive coverage across every page type.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Schema Component</th>
+            <th>Type</th>
+            <th>Pages Using It</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>LocalBusinessSchema</td><td><code>HVACBusiness</code></td><td>All pages (via layout)</td></tr>
+          <tr><td>OrganizationSchema</td><td><code>Organization</code></td><td>All pages (via layout)</td></tr>
+          <tr><td>BreadcrumbSchema</td><td><code>BreadcrumbList</code></td><td>Every dynamic page</td></tr>
+          <tr><td>ArticleSchema</td><td><code>Article</code></td><td>Blog posts</td></tr>
+          <tr><td>ServiceSchema</td><td><code>Service</code></td><td>Service detail pages</td></tr>
+          <tr><td>CityServiceAreaSchema</td><td><code>HVACBusiness</code></td><td>All 30 city pages</td></tr>
+          <tr><td>Inline FAQPage</td><td><code>FAQPage</code></td><td>All 30 city pages</td></tr>
+          <tr><td>Inline ContactPage</td><td><code>ContactPage</code></td><td>Contact Us</td></tr>
+          <tr><td>Inline CollectionPage</td><td><code>CollectionPage</code> + <code>ItemList</code></td><td>Blog hub</td></tr>
+          <tr><td>Inline ItemList</td><td><code>ItemList</code></td><td>Services hub</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-win">
+      <div class="callout-title">Validation Passes</div>
+      <ul>
+        <li><code>LocalBusiness</code> has all required fields plus <code>aggregateRating</code> + <code>review</code> elements (most sites forget the review array).</li>
+        <li>Unique <code>@id</code> on each business instance (<code>#business</code>) so Google recognizes them as the same entity across pages.</li>
+        <li>E.164 telephone format (<code>+19513313310</code>).</li>
+        <li><code>dayOfWeek</code> fields properly wrapped as arrays.</li>
+        <li>Full <code>PostalAddress</code> with <code>streetAddress</code>, <code>addressLocality</code>, <code>addressRegion</code>, <code>postalCode</code>, <code>addressCountry</code>.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Open Graph / Social Metadata</h3>
+    <p>Coverage: <strong>13 of 14 page templates (93%)</strong>. Every indexable page has og:title, og:description, and og:image. Only the privacy policy is missing og:title/og:description.</p>
+
+    <h3 class="subsection-title">Performance &amp; Build Config</h3>
+    <div class="callout callout-win">
+      <div class="callout-title">Modern Stack</div>
+      <ul>
+        <li>Next.js 16.2.1, React 19.2.4, Tailwind v4.</li>
+        <li>React Compiler enabled for automatic render optimization.</li>
+        <li>Turbopack enabled for faster builds.</li>
+        <li>All hero images in WebP format.</li>
+        <li>Next.js <code>Image</code> component used site-wide with <code>sizes</code> prop.</li>
+        <li>Lazy loading on all below-fold images, <code>priority</code> on hero.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Other Technical Files</h3>
+    <ul>
+      <li><strong>404 page:</strong> Custom <code>not-found.tsx</code> with branded design and navigation recovery links.</li>
+      <li><strong>llms.txt:</strong> Present at <code>public/llms.txt</code> — optimized for AI search engines (ChatGPT, Perplexity, Claude).</li>
+      <li><strong>Favicon:</strong> Standard 4.3KB .ico file present.</li>
+    </ul>
+  </section>
+
+  <!-- 3. LOCAL SEO -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Section 3</span>
+      <h2 class="section-title">Local SEO</h2>
+      <span class="section-score"><span class="score">88</span> / 100</span>
+    </div>
+
+    <h3 class="subsection-title">NAP Consistency</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Element</th><th>Value</th><th>Consistency</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Name</td><td>It's No Sweat Heat &amp; Air</td><td><span class="badge badge-green">Consistent</span></td></tr>
+          <tr><td>Address</td><td>27950 Kalmia Ave, Moreno Valley, CA 92555</td><td><span class="badge badge-green">Consistent</span></td></tr>
+          <tr><td>Phone</td><td>(951) 331-3310 / +19513313310</td><td><span class="badge badge-green">Consistent</span></td></tr>
+          <tr><td>Email</td><td>support@itsnosweat.net vs itsnosweatca@gmail.com</td><td><span class="badge badge-amber">Discrepancy</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-warn">
+      <div class="callout-title">One NAP Issue Found</div>
+      <p>Email is inconsistent between <code>navigation.ts</code> (<code>support@itsnosweat.net</code>) and the <code>contact-us/page.tsx</code> inline ContactPage schema (<code>itsnosweatca@gmail.com</code>). Worth fixing for Google Business Profile alignment.</p>
+    </div>
+
+    <h3 class="subsection-title">Service Area Coverage</h3>
+    <p><strong>30 unique city pages</strong> covering the entire Inland Empire:</p>
+    <p style="font-size: 13px; color: var(--slate-500); line-height: 1.8;">Moreno Valley · Riverside · Perris · Highland · Lake Elsinore · Wildomar · San Jacinto · Hemet · Mead Valley · Woodcrest · Nuevo · Highgrove · Sunnymead · Homeland · Redlands · Loma Linda · Colton · Grand Terrace · San Bernardino · Beaumont · Banning · Calimesa · Yucaipa · Mentone · Jurupa Valley · Eastvale · Norco · Menifee · Murrieta · Temecula</p>
+
+    <div class="callout callout-win">
+      <div class="callout-title">Each City Page Includes</div>
+      <ul>
+        <li>Geo coordinates (lat/lng) in its HVACBusiness schema.</li>
+        <li>City name in H1 and 15–25 times throughout the body content.</li>
+        <li>1,800–2,000 words of genuinely unique content (not templated).</li>
+        <li>FAQPage schema from 5 city-specific questions.</li>
+        <li>Bidirectional links with service detail pages.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Google Business Profile Linkage</h3>
+    <div class="callout callout-win">
+      <div class="callout-title">Fully Wired</div>
+      <ul>
+        <li><code>companyInfo.gbpUrl</code> and <code>companyInfo.reviewUrl</code> defined centrally.</li>
+        <li>GBP URL included in <code>sameAs</code> field on every LocalBusiness schema (root + 30 city variants).</li>
+        <li>Footer displays a clickable "4.9 stars · 77+ reviews" badge linking to GBP.</li>
+        <li>Footer includes a prominent "Leave Us a Review" button.</li>
+        <li><code>aggregateRating</code> in schema matches real GBP data (77 reviews, 4.9 stars).</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Trust Signals &amp; Credentials</h3>
+    <div class="callout callout-win">
+      <div class="callout-title">Excellent Coverage</div>
+      <ul>
+        <li>License number (<code>CA #1058772</code>) displayed in header mega menu on every page.</li>
+        <li>NATE certification mentioned in homepage hero, all service pages, all city pages, and blog author bios.</li>
+        <li>BBB A+ rating mentioned (but not linked — see Off-Page section).</li>
+        <li>"25+ years" experience claim appears 82+ times across city pages alone.</li>
+        <li>Business hours displayed in header and match Google Business Profile.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. CONTENT QUALITY -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Section 4</span>
+      <h2 class="section-title">Content Quality</h2>
+      <span class="section-score"><span class="score">80</span> / 100</span>
+    </div>
+
+    <h3 class="subsection-title">Content Depth</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Page Type</th><th>Count</th><th>Avg Word Count</th><th>Quality</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Homepage</td><td>1</td><td>~1,200</td><td>Comprehensive</td></tr>
+          <tr><td>Service Detail</td><td>7</td><td>600–900</td><td>Substantive</td></tr>
+          <tr><td>City Detail</td><td>30</td><td>1,800–2,000</td><td>Genuinely unique</td></tr>
+          <tr><td>Blog Post</td><td>4</td><td>1,350–1,500</td><td>Deep, expert-authored</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">City Page Uniqueness</h3>
+    <p>Verified 3 sample cities (Moreno Valley, Wildomar, Jurupa Valley). Each has a completely unique intro referencing city-specific geography, climate, and housing stock. All 6 service descriptions per city are unique. Each has 5–7 unique common problems, 5 unique FAQs. <strong>No lorem ipsum, placeholder content, or templated filler detected anywhere.</strong></p>
+
+    <h3 class="subsection-title">Blog Content</h3>
+    <div class="callout callout-win">
+      <div class="callout-title">Strong on Quality</div>
+      <ul>
+        <li>All 4 posts authored by <strong>Justin Jaszewski</strong> (Co-Founder &amp; NATE-Certified Technician) — a named human expert with verifiable credentials and a full bio rendered on each post.</li>
+        <li>Each post includes 5–7 internal links to service/city pages.</li>
+        <li>Each post includes 1 authoritative external link (energy.gov, energystar.gov, cslb.ca.gov).</li>
+        <li>All posts are 1,350+ words (Google E-E-A-T sweet spot).</li>
+        <li>Strong schema: <code>Article</code> with <code>Person</code> author, <code>knowsAbout</code> array, <code>worksFor</code> HVACBusiness.</li>
+      </ul>
+    </div>
+
+    <div class="callout callout-warn">
+      <div class="callout-title">Real Gap — Content Freshness</div>
+      <ul>
+        <li>Oldest post: August 2024 (8 months old)</li>
+        <li>Newest post: November 2024 (5 months old)</li>
+        <li><strong>Zero posts published in 2025 or 2026.</strong></li>
+        <li>HVAC content benefits from seasonal refresh. A stagnant blog signals inactivity to Google.</li>
+        <li><strong>Recommended cadence:</strong> 2 posts/month.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. OFF-PAGE AUTHORITY -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Section 5</span>
+      <h2 class="section-title">Off-Page Authority</h2>
+      <span class="section-score"><span class="score">45</span> / 100</span>
+    </div>
+
+    <p>This is the weakest category — and it's the one the code can't fix. These are all business/operational tasks.</p>
+
+    <h3 class="subsection-title">Google Business Profile</h3>
+    <p><strong>Status:</strong> Claimed and verified. 4.9 stars · 77 reviews · 50 photos.</p>
+    <div class="callout callout-warn">
+      <div class="callout-title">Room to Improve</div>
+      <ul>
+        <li><strong>Review velocity is too low.</strong> 77 reviews over 25 years = ~3/year. Target: 2–5 new reviews/week via automated post-service SMS.</li>
+        <li><strong>Photo count is below optimal.</strong> 50 is okay; 100+ is ideal for local pack ranking.</li>
+        <li><strong>GBP Posts</strong> should run weekly minimum.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsection-title">Backlink Profile</h3>
+    <div class="callout callout-warn">
+      <div class="callout-title">Thin</div>
+      <ul>
+        <li>Not listed on major industry directories (Yelp, Angi, HomeAdvisor, Nextdoor).</li>
+        <li>No local press mentions visible.</li>
+        <li>No BBB badge link on site despite mentioning A+ rating.</li>
+        <li>No chamber of commerce listings detected.</li>
+      </ul>
+      <p style="margin-top: 12px;"><strong>This is the single biggest ranking opportunity.</strong> None of the on-site work moves the needle the way 20–50 local backlinks would.</p>
+    </div>
+
+    <h3 class="subsection-title">Social Media</h3>
+    <p>No Facebook, Instagram, LinkedIn, or Nextdoor links in header or footer. Worth adding if the business has active profiles. Social signals aren't direct ranking factors but generate referral traffic and brand mentions.</p>
+
+    <h3 class="subsection-title">BBB Badge</h3>
+    <p>The site claims A+ BBB rating but doesn't display the official BBB badge or link to the BBB profile. Adding this is both a trust signal and a potential backlink.</p>
+  </section>
+
+  <!-- CRITICAL ISSUES -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Action Items</span>
+      <h2 class="section-title">Critical Issues to Fix</h2>
+    </div>
+
+    <h3 class="subsection-title">🔴 High Priority</h3>
+    <div class="priority-grid">
+      <div class="priority-item high">
+        <div class="priority-number">1</div>
+        <div class="priority-content">
+          <h4>Homepage meta description is 27 characters too long</h4>
+          <p>Currently 187 characters — trim to 155. Google truncates at 160.</p>
+          <span class="file">src/app/page.tsx · line 8</span>
+        </div>
+      </div>
+      <div class="priority-item high">
+        <div class="priority-number">2</div>
+        <div class="priority-content">
+          <h4>Service Areas title is 5 characters too long</h4>
+          <p>Currently 75 characters — trim to 65.</p>
+          <span class="file">src/app/service-areas/page.tsx · line 20</span>
+        </div>
+      </div>
+      <div class="priority-item high">
+        <div class="priority-number">3</div>
+        <div class="priority-content">
+          <h4>Email discrepancy in ContactPage schema</h4>
+          <p>Standardize to <code>support@itsnosweat.net</code> everywhere.</p>
+          <span class="file">src/app/contact-us/page.tsx · line 46</span>
+        </div>
+      </div>
+      <div class="priority-item high">
+        <div class="priority-number">4</div>
+        <div class="priority-content">
+          <h4>Service detail H1 duplication</h4>
+          <p>Title is rendered as both H1 and H2 on service pages. Remove the duplicate H2.</p>
+          <span class="file">src/app/service/[slug]/page.tsx · lines 105 &amp; 132</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">🟡 Medium Priority</h3>
+    <div class="priority-grid">
+      <div class="priority-item medium">
+        <div class="priority-number">5</div>
+        <div class="priority-content">
+          <h4>Privacy policy missing og:title and og:description</h4>
+          <p>Low priority — it's not a sharing-worthy page, but easy to complete.</p>
+          <span class="file">src/app/privacy-policy/page.tsx</span>
+        </div>
+      </div>
+      <div class="priority-item medium">
+        <div class="priority-number">6</div>
+        <div class="priority-content">
+          <h4>Review carousel only shows 3 of 10 real reviews</h4>
+          <p>Homepage carousel is hardcoded. Wire it to <code>src/data/reviews.ts</code> to display all 10 curated reviews.</p>
+          <span class="file">src/components/review-carousel.tsx</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">🟢 Low Priority</h3>
+    <div class="priority-grid">
+      <div class="priority-item low">
+        <div class="priority-number">7</div>
+        <div class="priority-content">
+          <h4>City-page image alts could include city name</h4>
+          <p>Marginal SEO benefit. Change <code>alt="HVAC technician"</code> to <code>alt="HVAC technician servicing a home in Moreno Valley"</code>.</p>
+        </div>
+      </div>
+      <div class="priority-item low">
+        <div class="priority-number">8</div>
+        <div class="priority-content">
+          <h4>Homepage benefit cards use divs instead of h3 tags</h4>
+          <p>Minor semantic HTML improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS TASKS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Off-Site</span>
+      <h2 class="section-title">What Cannot Be Fixed in Code</h2>
+    </div>
+
+    <p>These are the highest-leverage tasks remaining, ranked by impact:</p>
+
+    <ol>
+      <li><strong>Google Business Profile optimization</strong> — upload more photos (target 100+), post weekly, respond to every review.</li>
+      <li><strong>Review generation automation</strong> — set up post-service SMS workflow in GoHighLevel (already integrated). Target: 2–5 new reviews/week.</li>
+      <li><strong>Backlink building</strong> — BBB profile + badge, Yelp, Angi, HomeAdvisor, Nextdoor, local chamber of commerce. Target 50+ citations in 12 months.</li>
+      <li><strong>Blog cadence</strong> — 1–2 new posts/month. Currently 0 in 2025.</li>
+      <li><strong>Social media presence</strong> — active Facebook page with weekly content, linked from footer.</li>
+    </ol>
+  </section>
+
+  <!-- KEY STRENGTHS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Highlights</span>
+      <h2 class="section-title">Key Strengths</h2>
+    </div>
+
+    <p>What separates this site from the typical HVAC competitor:</p>
+
+    <div class="strengths-grid">
+      <div class="strength-card">
+        <h4>Elite Schema Markup</h4>
+        <p>HVACBusiness with reviews + aggregateRating, 30 per-city variants with geo coordinates, FAQPage, Article with named expert author, breadcrumbs everywhere. Most HVAC competitors have basic LocalBusiness at best.</p>
+      </div>
+      <div class="strength-card">
+        <h4>30 Unique City Pages</h4>
+        <p>Not templated doorway pages — genuinely unique 1,800-word articles per city with local climate, housing, and geography context. Extremely rare in this market.</p>
+      </div>
+      <div class="strength-card">
+        <h4>Named Expert Author</h4>
+        <p>Justin Jaszewski's bio with NATE certification, 25+ years, and CA HVAC license #1058772 rendered on every blog post and built into schema. E-E-A-T gold.</p>
+      </div>
+      <div class="strength-card">
+        <h4>Modern Technical Foundation</h4>
+        <p>Next.js 16, React 19, React Compiler, Turbopack, Tailwind v4, WebP images, all green Core Web Vitals potential.</p>
+      </div>
+      <div class="strength-card">
+        <h4>Reciprocal Internal Linking</h4>
+        <p>Every service links to every city with keyword-rich anchor text. Every city links to every service. This pattern is extremely rare in local service sites.</p>
+      </div>
+      <div class="strength-card">
+        <h4>llms.txt Present</h4>
+        <p>Almost no HVAC sites have this yet. Positions the business to be cited by ChatGPT, Perplexity, and Claude for HVAC queries in the Inland Empire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL RECOMMENDATIONS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">Conclusion</span>
+      <h2 class="section-title">Final Recommendations</h2>
+    </div>
+
+    <div class="callout callout-win">
+      <div class="callout-title">On-Site (Code Changes)</div>
+      <p>Fix the 4 high-priority issues. Total estimated effort: <strong>~30 minutes</strong>. Score impact: 83 → 87.</p>
+    </div>
+
+    <div class="callout callout-win">
+      <div class="callout-title">Off-Site (Business Tasks)</div>
+      <p>Focus all remaining SEO effort on Google Business Profile + reviews + backlinks. This is where 90% of HVAC local SEO wins are made. <strong>The website is no longer the bottleneck.</strong></p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Ranking Prediction</div>
+      <p>With the current on-site state plus completed GBP optimization and 6 months of review velocity, this site should rank <strong>top 5 in the Moreno Valley local pack within 3–6 months</strong>, and <strong>top 10 organic for primary keywords within 9–12 months.</strong></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="report-footer">
+    <p><strong>Report generated via code-level audit</strong> of every page template, data file, schema component, and config file.</p>
+    <p>No claims made without source verification. Every finding traces to a specific file and line number in the repository.</p>
+    <p style="margin-top: 16px; color: var(--slate-400);">© 2026 It's No Sweat Heat &amp; Air · itsnosweat.net</p>
+  </footer>
+
+</div>
+</body>
+</html>

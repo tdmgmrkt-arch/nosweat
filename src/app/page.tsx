@@ -5,7 +5,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: { absolute: "It's No Sweat Heat & Air | Moreno Valley HVAC & AC Repair" },
   description:
-    "Top-rated HVAC company in Moreno Valley. Same-day AC repair, furnace installation, maintenance plans, and indoor air quality. Licensed, insured, 25+ years experience. Call (951) 331-3310.",
+    "Top-rated Moreno Valley HVAC. Same-day AC repair, furnace installation, maintenance & indoor air quality. Licensed & insured, 25+ years. (951) 331-3310.",
   openGraph: {
     title: "It's No Sweat Heat & Air | Moreno Valley HVAC",
     description: "Top-rated HVAC company serving Moreno Valley & the Inland Empire. Same-day service, 25+ years experience.",

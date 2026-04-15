@@ -17,7 +17,7 @@ import { companyInfo } from "@/data/navigation";
 import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "HVAC Service Areas — Riverside & Inland Empire",
+  title: "HVAC Service Areas — Inland Empire",
   description:
     "We serve 30 cities across Riverside County and the Inland Empire with same-day HVAC service. AC repair, furnace installation & maintenance. Call 951-331-3310.",
   openGraph: {

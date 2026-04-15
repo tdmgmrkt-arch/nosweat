@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     "Privacy policy and SMS terms and conditions for It's No Sweat Heat & Air. Learn how we collect, use, and protect your data.",
   robots: { index: true, follow: true },
   openGraph: {
+    title: "Privacy Policy | It's No Sweat Heat & Air",
+    description: "How we collect, use, and protect your data. SMS terms and conditions for It's No Sweat Heat & Air.",
     images: [{ url: "/images/fullservice.webp", width: 1200, height: 630 }],
   },
 };
