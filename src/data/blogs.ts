@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2024-11-15",
     category: "Solar Energy",
     tags: ["solar panels", "home solar", "energy savings", "California solar"],
-    metaTitle: "How to Buy the Right Solar Panels | It's No Sweat Heat & Air",
+    metaTitle: "How to Buy the Right Solar Panels",
     metaDescription:
       "Learn how to choose the best solar panels for your Inland Empire home. Compare panel types, key specs, and federal tax credits. Free assessment available.",
   },
@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2024-10-22",
     category: "Air Conditioning",
     tags: ["AC repair", "air conditioning", "HVAC maintenance", "energy efficiency"],
-    metaTitle: "5 Signs Your AC Needs Repair | It's No Sweat Heat & Air",
+    metaTitle: "5 Signs Your AC Needs Repair",
     metaDescription:
       "Warm air, strange noises, high bills? These 5 warning signs mean your AC needs professional repair. Inland Empire HVAC experts — call today.",
   },
@@ -122,7 +122,7 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2024-09-10",
     category: "HVAC Maintenance",
     tags: ["HVAC maintenance", "furnace tune-up", "AC maintenance", "seasonal checklist"],
-    metaTitle: "HVAC Maintenance Checklist | It's No Sweat Heat & Air",
+    metaTitle: "HVAC Maintenance Checklist",
     metaDescription:
       "Seasonal HVAC maintenance prevents costly breakdowns and improves efficiency. See our spring and fall checklists. Inland Empire maintenance plans available.",
   },
@@ -157,7 +157,7 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2024-08-05",
     category: "Tips & Guides",
     tags: ["AC repair", "HVAC company", "contractor tips", "home services"],
-    metaTitle: "How to Choose an AC Repair Company | It's No Sweat Heat & Air",
+    metaTitle: "How to Choose an AC Repair Company",
     metaDescription:
       "Learn how to vet HVAC contractors: check licenses, NATE certification, transparent pricing, and reviews. Trusted Inland Empire AC repair since day one.",
   },

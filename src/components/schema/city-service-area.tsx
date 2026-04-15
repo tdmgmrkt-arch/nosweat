@@ -46,16 +46,19 @@ export function CityServiceAreaSchema({ slug, city }: CityServiceAreaSchemaProps
   const data = {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
-    name: companyInfo.name,
+    "@id": `https://itsnosweat.net/service-areas/${slug}/#business`,
+    name: `${companyInfo.name} — ${city}`,
     url: `https://itsnosweat.net/service-areas/${slug}/`,
-    telephone: companyInfo.phone,
-    email: companyInfo.email,
+    telephone: "+19513313310",
+    email: "support@itsnosweat.net",
     image: "https://itsnosweat.net/images/nosweatvan.webp",
     logo: "https://itsnosweat.net/images/logo-main.webp",
     address: {
       "@type": "PostalAddress",
-      addressLocality: city,
+      streetAddress: "27950 Kalmia Ave",
+      addressLocality: "Moreno Valley",
       addressRegion: "CA",
+      postalCode: "92555",
       addressCountry: "US",
     },
     geo: {
@@ -66,15 +69,43 @@ export function CityServiceAreaSchema({ slug, city }: CityServiceAreaSchemaProps
     areaServed: {
       "@type": "City",
       name: city,
-      "@id": `https://en.wikipedia.org/wiki/${city.replace(/ /g, "_")},_California`,
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: "California",
+      },
     },
     priceRange: "$$",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "07:30",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
+        opens: "08:00",
+        closes: "15:00",
+      },
+    ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
       reviewCount: "77",
       bestRating: "5",
+      worstRating: "1",
     },
+    review: [
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Derrick F." },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody:
+          "He was honest and knowledgeable, and his prices were very reasonable. The system does a great job — my family and I feel comfortable and cool.",
+        datePublished: "2024-06-15",
+      },
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: `HVAC Services in ${city}`,

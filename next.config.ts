@@ -10,6 +10,16 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // ── Canonical host: www → non-www (301) ──
+      // Fixes "orphaned sitemap pages" false positive in Semrush
+      // where www.itsnosweat.net and itsnosweat.net are seen as two hosts.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.itsnosweat.net" }],
+        destination: "https://itsnosweat.net/:path*",
+        permanent: true,
+      },
+
       // ── Legacy root-level blog posts → /blog/[slug]/ ──
       {
         source: "/how-to-buy-the-right-solar-panels/",

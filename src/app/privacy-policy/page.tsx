@@ -6,7 +6,7 @@ import { companyInfo } from "@/data/navigation";
 import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | It's No Sweat Heat & Air",
+  title: "Privacy Policy",
   description:
     "Privacy policy and SMS terms and conditions for It's No Sweat Heat & Air. Learn how we collect, use, and protect your data.",
   robots: { index: true, follow: true },
@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
                 <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-white">Who We Are</h2>
               </div>
               <p className="text-sm sm:text-base leading-relaxed text-slate-400">
-                Our website address is: <a href="https://itsnosweat.net/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">https://itsnosweat.net/</a>.
+                Our website address is <a href="https://itsnosweat.net/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">itsnosweat.net</a>.
               </p>
             </div>
 
