@@ -4,7 +4,7 @@ Allow: /
 Disallow: /projects/
 
 # Host
-Host: https://itsnosweat.net
+Host: https://www.itsnosweat.net
 
 # Sitemaps
-Sitemap: https://itsnosweat.net/sitemap.xml
+Sitemap: https://www.itsnosweat.net/sitemap.xml

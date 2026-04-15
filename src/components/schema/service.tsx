@@ -9,14 +9,20 @@ export function ServiceSchema({ service }: { service: ServicePage }) {
     description: service.metaDescription,
     image: `https://www.itsnosweat.net${service.heroImage}`,
     url: `https://www.itsnosweat.net/service/${service.slug}/`,
+    serviceType: service.title,
     provider: {
       "@type": "HVACBusiness",
+      "@id": "https://www.itsnosweat.net/#business",
       name: "It's No Sweat Heat & Air",
-      telephone: "(951) 331-3310",
+      telephone: "+19513313310",
       url: "https://www.itsnosweat.net",
-      areaServed: {
-        "@type": "City",
-        name: "Moreno Valley",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "27950 Kalmia Ave",
+        addressLocality: "Moreno Valley",
+        addressRegion: "CA",
+        postalCode: "92555",
+        addressCountry: "US",
       },
     },
     areaServed: {

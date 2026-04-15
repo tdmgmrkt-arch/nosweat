@@ -154,7 +154,7 @@ export const servicePages: ServicePage[] = [
       "2-year labor warranty on all installations",
       "Rebate assistance for qualifying equipment upgrades",
     ],
-    metaTitle: "Furnace Installation | High-Efficiency Heating Systems",
+    metaTitle: "Furnace Installation | New Heating Systems",
     metaDescription:
       "Professional furnace installation with expert sizing. 95%+ AFUE systems, free estimates, flexible financing. Upgrade your heating system today.",
   },

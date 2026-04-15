@@ -17,8 +17,17 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
       description: post.authorBio,
       worksFor: {
         "@type": "HVACBusiness",
+        "@id": "https://www.itsnosweat.net/#business",
         name: "It's No Sweat Heat & Air",
         url: "https://www.itsnosweat.net",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "27950 Kalmia Ave",
+          addressLocality: "Moreno Valley",
+          addressRegion: "CA",
+          postalCode: "92555",
+          addressCountry: "US",
+        },
       },
       knowsAbout: [
         "HVAC installation",
@@ -30,10 +39,14 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
     },
     publisher: {
       "@type": "Organization",
+      "@id": "https://www.itsnosweat.net/#organization",
       name: "It's No Sweat Heat & Air",
+      url: "https://www.itsnosweat.net",
       logo: {
         "@type": "ImageObject",
         url: "https://www.itsnosweat.net/images/logo-main.webp",
+        width: 600,
+        height: 200,
       },
     },
     mainEntityOfPage: {
