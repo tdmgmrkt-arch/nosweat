@@ -7,7 +7,7 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
-    image: `https://itsnosweat.net${post.featuredImage}`,
+    image: `https://www.itsnosweat.net${post.featuredImage}`,
     datePublished: post.publishedDate,
     dateModified: post.publishedDate,
     author: {
@@ -18,7 +18,7 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
       worksFor: {
         "@type": "HVACBusiness",
         name: "It's No Sweat Heat & Air",
-        url: "https://itsnosweat.net",
+        url: "https://www.itsnosweat.net",
       },
       knowsAbout: [
         "HVAC installation",
@@ -33,12 +33,12 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
       name: "It's No Sweat Heat & Air",
       logo: {
         "@type": "ImageObject",
-        url: "https://itsnosweat.net/images/logo-main.webp",
+        url: "https://www.itsnosweat.net/images/logo-main.webp",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://itsnosweat.net/blog/${post.slug}/`,
+      "@id": `https://www.itsnosweat.net/blog/${post.slug}/`,
     },
   };
 

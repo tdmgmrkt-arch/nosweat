@@ -23,7 +23,7 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://itsnosweat.net"),
+  metadataBase: new URL("https://www.itsnosweat.net"),
   title: {
     default: "It's No Sweat Heat & Air | Moreno Valley HVAC & AC Repair",
     template: "%s | It's No Sweat Heat & Air",

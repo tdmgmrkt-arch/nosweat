@@ -29,7 +29,7 @@ export default function BlogPage() {
         "@type": "CollectionPage",
         name: "HVAC & Solar Blog",
         description: "Expert tips on AC repair, furnace maintenance, and energy savings for Moreno Valley homeowners.",
-        url: "https://itsnosweat.net/blog/",
+        url: "https://www.itsnosweat.net/blog/",
         mainEntity: {
           "@type": "ItemList",
           numberOfItems: blogPosts.length,
@@ -37,7 +37,7 @@ export default function BlogPage() {
             "@type": "ListItem",
             position: i + 1,
             name: post.title,
-            url: `https://itsnosweat.net/blog/${post.slug}/`,
+            url: `https://www.itsnosweat.net/blog/${post.slug}/`,
           })),
         },
       }} />

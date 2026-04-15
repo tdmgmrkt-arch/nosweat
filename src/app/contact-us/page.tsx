@@ -30,13 +30,13 @@ export default function ContactPage() {
         "@type": "ContactPage",
         name: "Contact It's No Sweat Heat & Air",
         description: "Schedule HVAC service, request a free estimate, or reach our team for emergency repair.",
-        url: "https://itsnosweat.net/contact-us/",
+        url: "https://www.itsnosweat.net/contact-us/",
         mainEntity: {
           "@type": "HVACBusiness",
           name: "It's No Sweat Heat & Air",
           telephone: "(951) 331-3310",
           email: "itsnosweatca@gmail.com",
-          url: "https://itsnosweat.net",
+          url: "https://www.itsnosweat.net",
           address: {
             "@type": "PostalAddress",
             addressLocality: "Moreno Valley",

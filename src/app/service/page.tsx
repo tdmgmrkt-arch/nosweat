@@ -29,13 +29,13 @@ export default function ServicesPage() {
         "@type": "ItemList",
         name: "HVAC Services",
         description: "Complete heating, cooling, and air quality services for homes across the Inland Empire.",
-        url: "https://itsnosweat.net/service/",
+        url: "https://www.itsnosweat.net/service/",
         numberOfItems: servicePages.length,
         itemListElement: servicePages.map((svc, i) => ({
           "@type": "ListItem",
           position: i + 1,
           name: svc.title,
-          url: `https://itsnosweat.net/service/${svc.slug}/`,
+          url: `https://www.itsnosweat.net/service/${svc.slug}/`,
         })),
       }} />
 

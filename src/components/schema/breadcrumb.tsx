@@ -13,7 +13,7 @@ export function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] }) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `https://itsnosweat.net${item.href}`,
+      item: `https://www.itsnosweat.net${item.href}`,
     })),
   };
 

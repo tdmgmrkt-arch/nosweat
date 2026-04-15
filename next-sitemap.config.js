@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://itsnosweat.net",
+  siteUrl: "https://www.itsnosweat.net",
   generateRobotsTxt: true,
   trailingSlash: true,
   outDir: "./public",

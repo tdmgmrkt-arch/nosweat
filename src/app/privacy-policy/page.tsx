@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
                 <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-white">Who We Are</h2>
               </div>
               <p className="text-sm sm:text-base leading-relaxed text-slate-400">
-                Our website address is <a href="https://itsnosweat.net/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">itsnosweat.net</a>.
+                Our website address is <a href="https://www.itsnosweat.net/" className="font-semibold text-brand-blue-light hover:text-white transition-colors">itsnosweat.net</a>.
               </p>
             </div>
 

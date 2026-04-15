@@ -7,13 +7,13 @@ export function ServiceSchema({ service }: { service: ServicePage }) {
     "@type": "Service",
     name: service.title,
     description: service.metaDescription,
-    image: `https://itsnosweat.net${service.heroImage}`,
-    url: `https://itsnosweat.net/service/${service.slug}/`,
+    image: `https://www.itsnosweat.net${service.heroImage}`,
+    url: `https://www.itsnosweat.net/service/${service.slug}/`,
     provider: {
       "@type": "HVACBusiness",
       name: "It's No Sweat Heat & Air",
       telephone: "(951) 331-3310",
-      url: "https://itsnosweat.net",
+      url: "https://www.itsnosweat.net",
       areaServed: {
         "@type": "City",
         name: "Moreno Valley",
