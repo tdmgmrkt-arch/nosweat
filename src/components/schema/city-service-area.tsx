@@ -1,5 +1,6 @@
 import { JsonLd } from "@/components/json-ld";
 import { companyInfo } from "@/data/navigation";
+import { getLiveRating } from "@/lib/google-rating";
 
 const cityCoordinates: Record<string, { lat: number; lng: number }> = {
   "moreno-valley": { lat: 33.9425, lng: -117.2297 },
@@ -39,10 +40,11 @@ interface CityServiceAreaSchemaProps {
   city: string;
 }
 
-export function CityServiceAreaSchema({ slug, city }: CityServiceAreaSchemaProps) {
+export async function CityServiceAreaSchema({ slug, city }: CityServiceAreaSchemaProps) {
   const coords = cityCoordinates[slug];
   if (!coords) return null;
 
+  const { rating, reviewCount } = await getLiveRating();
   const data = {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
@@ -91,8 +93,8 @@ export function CityServiceAreaSchema({ slug, city }: CityServiceAreaSchemaProps
     ],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "77",
+      ratingValue: rating.toFixed(1),
+      reviewCount: String(reviewCount),
       bestRating: "5",
       worstRating: "1",
     },

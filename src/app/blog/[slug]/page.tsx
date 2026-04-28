@@ -7,6 +7,7 @@ import { getBlogBySlug, getAllBlogSlugs, blogPosts } from "@/data/blogs";
 import { companyInfo } from "@/data/navigation";
 import { ArticleSchema } from "@/components/schema/article";
 import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
+import { getLiveRating } from "@/lib/google-rating";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -31,6 +32,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = getBlogBySlug(slug);
   if (!post) notFound();
+
+  const { rating, reviewCount } = await getLiveRating();
+  const renderedContent = post.content
+    .replace(/\{\{RATING\}\}/g, rating.toFixed(1))
+    .replace(/\{\{REVIEW_COUNT\}\}/g, String(reviewCount));
 
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
@@ -138,7 +144,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Prose Content */}
               <div
                 className="prose prose-invert max-w-none prose-sm sm:prose-lg prose-headings:font-heading prose-headings:font-extrabold prose-img:rounded-xl sm:prose-img:rounded-2xl [&_h2]:!text-white [&_h3]:!text-white [&_p]:!text-slate-300 [&_p]:leading-relaxed [&_li]:!text-slate-300 [&_strong]:!text-white [&_strong]:font-bold [&_a]:!text-sky-400 [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-sky-400/60 hover:[&_a]:!text-sky-300"
-                dangerouslySetInnerHTML={{ __html: post.content }}
+                dangerouslySetInnerHTML={{ __html: renderedContent }}
               />
 
               {/* Tags */}

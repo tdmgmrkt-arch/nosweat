@@ -1,7 +1,9 @@
 import { JsonLd } from "@/components/json-ld";
 import { companyInfo } from "@/data/navigation";
+import { getLiveRating } from "@/lib/google-rating";
 
-export function LocalBusinessSchema() {
+export async function LocalBusinessSchema() {
+  const { rating, reviewCount } = await getLiveRating();
   const data = {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
@@ -22,8 +24,8 @@ export function LocalBusinessSchema() {
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "77",
+      ratingValue: rating.toFixed(1),
+      reviewCount: String(reviewCount),
       bestRating: "5",
       worstRating: "1",
     },

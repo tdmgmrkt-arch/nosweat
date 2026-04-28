@@ -5,9 +5,11 @@ import { companyInfo, footerLinks } from "@/data/navigation";
 import { serviceAreaCities } from "@/data/cities";
 import { CtaBanner } from "./cta-banner";
 import { FooterAccordion, FooterLinkList } from "./footer-accordion";
+import { getLiveRating } from "@/lib/google-rating";
 
-export function Footer() {
+export async function Footer() {
   const year = new Date().getFullYear();
+  const { rating, reviewCount } = await getLiveRating();
 
   return (
     <>
@@ -112,7 +114,7 @@ export function Footer() {
                 ))}
               </div>
               <div className="flex flex-col leading-tight">
-                <span className="text-sm font-extrabold text-white">4.9 stars · 77+ reviews</span>
+                <span className="text-sm font-extrabold text-white">{rating.toFixed(1)} stars · {reviewCount} reviews</span>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Rated on Google</span>
               </div>
             </a>
