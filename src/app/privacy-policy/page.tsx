@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Privacy policy and SMS terms and conditions for It's No Sweat Heat & Air. Learn how we collect, use, and protect your data.",
+  alternates: { canonical: "/privacy-policy/" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Privacy Policy | It's No Sweat Heat & Air",

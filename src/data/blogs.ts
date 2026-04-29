@@ -4,10 +4,13 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   featuredImage: string;
+  featuredImageWidth: number;
+  featuredImageHeight: number;
   author: string;
   authorTitle: string;
   authorBio: string;
   publishedDate: string;
+  dateModified?: string;
   category: string;
   tags: string[];
   metaTitle: string;
@@ -46,6 +49,8 @@ export const blogPosts: BlogPost[] = [
       <p>Our team evaluates your roof orientation, shading, energy usage, and HVAC efficiency to recommend the exact system size that maximizes your savings. No high-pressure sales — just data-driven recommendations. <a href="/contact-us/">Request a free estimate</a> or call (951) 331-3310 today.</p>
     `,
     featuredImage: "/images/blog/solar-panels-guide.webp",
+    featuredImageWidth: 1920,
+    featuredImageHeight: 1100,
     author: "Justin Jaszewski",
     authorTitle: "Co-Founder & NATE-Certified Technician",
     authorBio: "Justin is the co-founder of It's No Sweat Heat & Air and a NATE-certified HVAC technician with over 25 years of hands-on experience across Moreno Valley and the Inland Empire. He leads the company's technical standards, trains every technician on the team, and personally inspects complex installations. Justin holds California HVAC license #1058772 and specializes in residential system design, load calculations, and energy-efficiency upgrades.",
@@ -84,6 +89,8 @@ export const blogPosts: BlogPost[] = [
       <p>Our NATE-certified technicians perform a comprehensive inspection to pinpoint exactly what's wrong — and what it'll cost to fix — before any work begins. No surprises, no upsells. <a href="/contact-us/">Request same-day service</a> online or call (951) 331-3310.</p>
     `,
     featuredImage: "/images/blog/ac-repair-signs.webp",
+    featuredImageWidth: 640,
+    featuredImageHeight: 1280,
     author: "Justin Jaszewski",
     authorTitle: "Co-Founder & NATE-Certified Technician",
     authorBio: "Justin is the co-founder of It's No Sweat Heat & Air and a NATE-certified HVAC technician with over 25 years of hands-on experience across Moreno Valley and the Inland Empire. He leads the company's technical standards, trains every technician on the team, and personally inspects complex installations. Justin holds California HVAC license #1058772 and specializes in residential system design, load calculations, and energy-efficiency upgrades.",
@@ -116,6 +123,8 @@ export const blogPosts: BlogPost[] = [
       <p>Members receive two annual tune-ups (spring and fall), priority scheduling, 15% off all repairs, and no trip charges. Most members save more than the plan costs within the first year. Check our current <a href="/service/special-offer/">maintenance plan offers</a> or <a href="/contact-us/">schedule your first visit</a> today.</p>
     `,
     featuredImage: "/images/blog/hvac-maintenance-guide.webp",
+    featuredImageWidth: 640,
+    featuredImageHeight: 1280,
     author: "Justin Jaszewski",
     authorTitle: "Co-Founder & NATE-Certified Technician",
     authorBio: "Justin is the co-founder of It's No Sweat Heat & Air and a NATE-certified HVAC technician with over 25 years of hands-on experience across Moreno Valley and the Inland Empire. He leads the company's technical standards, trains every technician on the team, and personally inspects complex installations. Justin holds California HVAC license #1058772 and specializes in residential system design, load calculations, and energy-efficiency upgrades.",
@@ -151,6 +160,8 @@ export const blogPosts: BlogPost[] = [
       <p>We're fully licensed (CA #1058772), insured, and every technician on our team holds NATE certification. We provide written estimates on every job, honor our quoted price, and back all work with a satisfaction guarantee. Our {{RATING}}-star rating comes from {{REVIEW_COUNT}}+ verified customer reviews across <a href="/service-areas/">30 cities we serve</a>. Ready to experience the difference? <a href="/contact-us/">Request a free estimate</a> today.</p>
     `,
     featuredImage: "/images/blog/choosing-ac-company.webp",
+    featuredImageWidth: 1280,
+    featuredImageHeight: 1280,
     author: "Justin Jaszewski",
     authorTitle: "Co-Founder & NATE-Certified Technician",
     authorBio: "Justin is the co-founder of It's No Sweat Heat & Air and a NATE-certified HVAC technician with over 25 years of hands-on experience across Moreno Valley and the Inland Empire. He leads the company's technical standards, trains every technician on the team, and personally inspects complex installations. Justin holds California HVAC license #1058772 and specializes in residential system design, load calculations, and energy-efficiency upgrades.",

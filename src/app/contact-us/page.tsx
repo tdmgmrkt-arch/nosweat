@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Contact Us — Schedule HVAC Service",
   description:
     "Schedule HVAC service, request a free estimate, or reach our team for emergency repair. Fill out our service request form or call (951) 331-3310.",
+  alternates: { canonical: "/contact-us/" },
   openGraph: {
     title: "Contact Us | It's No Sweat Heat & Air",
     description: "Schedule HVAC service, request a free estimate, or call for emergency repair. Same-day response in the Inland Empire.",
@@ -34,13 +35,15 @@ export default function ContactPage() {
         mainEntity: {
           "@type": "HVACBusiness",
           name: "It's No Sweat Heat & Air",
-          telephone: "(951) 331-3310",
+          telephone: "+19513313310",
           email: "support@itsnosweat.net",
           url: "https://www.itsnosweat.net",
           address: {
             "@type": "PostalAddress",
+            streetAddress: "27950 Kalmia Ave",
             addressLocality: "Moreno Valley",
             addressRegion: "CA",
+            postalCode: "92555",
             addressCountry: "US",
           },
           openingHoursSpecification: [
@@ -218,6 +221,20 @@ export default function ContactPage() {
                   <p className="mt-2 sm:mt-3 text-xs sm:text-sm font-light leading-relaxed text-slate-400">
                     Our friendly team is here to give you tailored support, ensuring your home&apos;s comfort and safety.
                   </p>
+                </div>
+              </div>
+
+              {/* 4. Google Maps Embed */}
+              <div className="overflow-hidden rounded-2xl sm:rounded-[2rem] border border-white/5 ring-1 ring-white/10">
+                <div className="aspect-[4/3] w-full">
+                  <iframe
+                    src="https://www.google.com/maps?q=27950+Kalmia+Ave,+Moreno+Valley,+CA+92555&output=embed"
+                    title="It's No Sweat Heat & Air on Google Maps"
+                    loading="lazy"
+                    className="h-full w-full border-0"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
               </div>
 

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: { absolute: "It's No Sweat Heat & Air | Moreno Valley HVAC & AC Repair" },
   description:
     "Top-rated Moreno Valley HVAC. Same-day AC repair, furnace installation, maintenance & indoor air quality. Licensed & insured, 25+ years. (951) 331-3310.",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "It's No Sweat Heat & Air | Moreno Valley HVAC",
     description: "Top-rated HVAC company serving Moreno Valley & the Inland Empire. Same-day service, 25+ years experience.",

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "HVAC Services — AC Repair, Furnace & Maintenance",
   description:
     "Full-service HVAC solutions for the Inland Empire: AC repair, furnace installation, maintenance plans, and indoor air quality systems. Same-day service available.",
+  alternates: { canonical: "/service/" },
   openGraph: {
     title: "HVAC Services | It's No Sweat Heat & Air",
     description: "AC repair, furnace installation, maintenance plans & indoor air quality. Same-day service across the Inland Empire.",

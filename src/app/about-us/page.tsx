@@ -14,11 +14,14 @@ import {
 import { blogPosts } from "@/data/blogs";
 import { companyInfo } from "@/data/navigation";
 import { ReviewCarousel } from "@/components/review-carousel";
+import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
+import { PersonSchema } from "@/components/schema/person";
 
 export const metadata: Metadata = {
   title: "About Us — 25+ Years of HVAC Experience",
   description:
     "Learn about It's No Sweat Heat & Air — over 25 years of HVAC experience serving Moreno Valley and the Inland Empire. Meet our team and read customer reviews.",
+  alternates: { canonical: "/about-us/" },
   openGraph: {
     title: "About Us | It's No Sweat Heat & Air",
     description: "Over 25 years of HVAC experience serving Moreno Valley and the Inland Empire. Meet the team behind the reputation.",
@@ -29,6 +32,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="relative min-h-screen bg-[#090E1A] text-slate-300 selection:bg-brand-red/30 selection:text-white font-sans">
+      <BreadcrumbSchema items={[
+        { name: "Home", href: "/" },
+        { name: "About Us", href: "/about-us/" },
+      ]} />
+      <PersonSchema />
       
       {/* GLOBAL AMBIENT LIGHTING */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
@@ -130,6 +138,25 @@ export default function AboutPage() {
                   className="h-10 sm:h-14 w-auto opacity-70 invert grayscale brightness-200 contrast-125"
                 />
               </div>
+
+              {/* Credentials — visible trust signals for GEO + local SEO */}
+              <dl className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[11px] font-medium text-slate-400">
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-brand-blue-light" aria-hidden="true" />
+                  <dt className="sr-only">License</dt>
+                  <dd>{companyInfo.license}</dd>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-brand-blue-light" aria-hidden="true" />
+                  <dt className="sr-only">Certification</dt>
+                  <dd>NATE-Certified Technician</dd>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Star className="h-3.5 w-3.5 shrink-0 text-amber-400" aria-hidden="true" />
+                  <dt className="sr-only">Accreditation</dt>
+                  <dd>BBB Accredited A+</dd>
+                </div>
+              </dl>
             </div>
           </div>
         </div>

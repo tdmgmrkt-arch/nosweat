@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, Star, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, Star, MapPin, Clock, Shield } from "lucide-react";
 import { companyInfo, footerLinks } from "@/data/navigation";
 import { serviceAreaCities } from "@/data/cities";
 import { CtaBanner } from "./cta-banner";
@@ -57,6 +57,12 @@ export async function Footer() {
                     <Clock className="h-3.5 w-3.5 text-slate-400" />
                   </div>
                   <span>{companyInfo.hours}</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white/[0.03] ring-1 ring-white/10">
+                    <Shield className="h-3.5 w-3.5 text-slate-400" />
+                  </div>
+                  <span>{companyInfo.license}</span>
                 </li>
               </ul>
             </div>

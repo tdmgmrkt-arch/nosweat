@@ -3,7 +3,7 @@ import { companyInfo } from "@/data/navigation";
 import { getLiveRating, getRecentReviews } from "@/lib/google-rating";
 
 export async function LocalBusinessSchema() {
-  const [{ rating, reviewCount }, recentReviews] = await Promise.all([
+  const [, recentReviews] = await Promise.all([
     getLiveRating(),
     getRecentReviews({ limit: 3, minRating: 4 }),
   ]);
@@ -24,13 +24,6 @@ export async function LocalBusinessSchema() {
       addressRegion: "CA",
       postalCode: "92555",
       addressCountry: "US",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: rating.toFixed(1),
-      reviewCount: String(reviewCount),
-      bestRating: "5",
-      worstRating: "1",
     },
     review: recentReviews.map((r) => ({
       "@type": "Review" as const,
@@ -96,6 +89,7 @@ export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://www.itsnosweat.net/#organization",
     name: companyInfo.name,
     url: "https://www.itsnosweat.net",
     logo: "https://www.itsnosweat.net/images/logo-main.webp",

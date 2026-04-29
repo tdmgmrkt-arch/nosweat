@@ -7,9 +7,14 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
-    image: `https://www.itsnosweat.net${post.featuredImage}`,
+    image: {
+      "@type": "ImageObject",
+      url: `https://www.itsnosweat.net${post.featuredImage}`,
+      width: post.featuredImageWidth,
+      height: post.featuredImageHeight,
+    },
     datePublished: post.publishedDate,
-    dateModified: post.publishedDate,
+    dateModified: post.dateModified ?? post.publishedDate,
     author: {
       "@type": "Person",
       name: post.author,

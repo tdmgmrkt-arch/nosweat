@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: ServiceRouteProps): Promise<M
   return {
     title: svc.metaTitle,
     description: svc.metaDescription,
+    alternates: { canonical: `/service/${svc.slug}/` },
     openGraph: {
       title: svc.metaTitle,
       description: svc.metaDescription,

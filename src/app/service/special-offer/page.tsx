@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Special Offers — HVAC Deals & Promotions",
   description:
     "Current HVAC specials: FREE Nest thermostat with purchase, $2600 mini split systems, $79 furnace tune-ups, $97/month complete systems, and $179 maintenance plans.",
+  alternates: { canonical: "/service/special-offer/" },
   openGraph: {
     title: "Special Offers | It's No Sweat Heat & Air",
     description: "Exclusive HVAC deals: FREE Nest thermostat, $79 tune-ups, $97/mo systems, and $179 maintenance plans.",

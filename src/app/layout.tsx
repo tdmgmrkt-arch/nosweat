@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans, Dancing_Script } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { LocalBusinessSchema, OrganizationSchema } from "@/components/schema/local-business";
+import { WebSiteSchema } from "@/components/schema/website";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,6 +60,7 @@ export default function RootLayout({
         <div className="flex min-h-full flex-col overflow-x-clip w-full">
           <LocalBusinessSchema />
           <OrganizationSchema />
+          <WebSiteSchema />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

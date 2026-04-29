@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "HVAC Tips & Guides Blog",
   description:
     "Expert HVAC tips on AC repair, furnace maintenance, and energy savings for Moreno Valley and Inland Empire homeowners. Read our latest articles and guides.",
+  alternates: { canonical: "/blog/" },
   openGraph: {
     title: "HVAC Tips & Guides Blog | It's No Sweat Heat & Air",
     description: "Expert HVAC tips on AC repair, furnace maintenance, and energy savings for Inland Empire homeowners.",
