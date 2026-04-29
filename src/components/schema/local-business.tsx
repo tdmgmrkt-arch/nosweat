@@ -1,9 +1,12 @@
 import { JsonLd } from "@/components/json-ld";
 import { companyInfo } from "@/data/navigation";
-import { getLiveRating } from "@/lib/google-rating";
+import { getLiveRating, getRecentReviews } from "@/lib/google-rating";
 
 export async function LocalBusinessSchema() {
-  const { rating, reviewCount } = await getLiveRating();
+  const [{ rating, reviewCount }, recentReviews] = await Promise.all([
+    getLiveRating(),
+    getRecentReviews({ limit: 3, minRating: 4 }),
+  ]);
   const data = {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
@@ -29,32 +32,18 @@ export async function LocalBusinessSchema() {
       bestRating: "5",
       worstRating: "1",
     },
-    review: [
-      {
-        "@type": "Review",
-        author: { "@type": "Person", name: "Derrick F." },
-        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-        reviewBody:
-          "He was honest and knowledgeable, and his prices were very reasonable. The system does a great job — my family and I feel comfortable and cool.",
-        datePublished: "2024-06-15",
+    review: recentReviews.map((r) => ({
+      "@type": "Review" as const,
+      author: { "@type": "Person" as const, name: r.authorName },
+      reviewRating: {
+        "@type": "Rating" as const,
+        ratingValue: String(r.rating),
+        bestRating: "5",
       },
-      {
-        "@type": "Review",
-        author: { "@type": "Person", name: "Annette S." },
-        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-        reviewBody:
-          "Justin quickly noticed that all that was needed was for a pipe to be unblocked and sealed. It took less than 30 min to fix. We really appreciated the integrity and honesty.",
-        datePublished: "2024-08-22",
-      },
-      {
-        "@type": "Review",
-        author: { "@type": "Person", name: "Mary W." },
-        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-        reviewBody:
-          "He and his crew installed the new system in less than four hours. It works great. His prices are very reasonable, and he guarantees his work. We recommend using No Sweat.",
-        datePublished: "2024-09-10",
-      },
-    ],
+      reviewBody: r.text,
+      // schema.org accepts ISO-8601; we trim to YYYY-MM-DD for cleaner output.
+      datePublished: r.publishedAt.slice(0, 10),
+    })),
     geo: {
       "@type": "GeoCoordinates",
       latitude: 33.9425,

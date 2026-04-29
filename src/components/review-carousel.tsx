@@ -1,16 +1,17 @@
-"use client";
-
 import { Star, CheckCircle2, Quote } from "lucide-react";
-import { reviews } from "@/data/reviews";
+import { getRecentReviews, type LiveReview } from "@/lib/google-rating";
 
-// Parses DD/MM/YYYY format into a human-readable "X months ago" string
-function formatRelativeDate(dateStr: string): string {
-  const [day, month, year] = dateStr.split("/").map((n) => parseInt(n, 10));
-  const reviewDate = new Date(year, month - 1, day);
+/**
+ * Format an ISO-8601 timestamp into a "X weeks ago" style string.
+ * Used as fallback when Google didn't supply a `relativeDate`.
+ */
+function formatRelativeDate(iso: string): string {
+  const reviewDate = new Date(iso);
   const now = new Date();
   const diffMs = now.getTime() - reviewDate.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
+  if (diffDays < 1) return "today";
   if (diffDays < 7) return `${diffDays} day${diffDays === 1 ? "" : "s"} ago`;
   if (diffDays < 30) {
     const weeks = Math.floor(diffDays / 7);
@@ -24,21 +25,25 @@ function formatRelativeDate(dateStr: string): string {
   return `${years} year${years === 1 ? "" : "s"} ago`;
 }
 
-// Trims long reviews to fit cleanly in cards without losing meaning
+/** Trims long reviews so cards stay visually balanced. */
 function truncate(text: string, maxLength = 220): string {
   if (text.length <= maxLength) return text;
   const trimmed = text.slice(0, maxLength);
   const lastSpace = trimmed.lastIndexOf(" ");
-  return trimmed.slice(0, lastSpace) + "…";
+  return trimmed.slice(0, lastSpace > 0 ? lastSpace : maxLength) + "…";
 }
 
-export function ReviewCarousel() {
+export async function ReviewCarousel() {
+  // Server Component — fetched at build time / per-request via 24h ISR cache.
+  // Google caps Places API reviews at 5; we show 3 for a clean single-row grid.
+  const reviews = await getRecentReviews({ limit: 3, minRating: 4 });
+
   return (
     <div className="w-full">
       <div className="grid gap-8 md:grid-cols-3">
-        {reviews.slice(0, 9).map((review, index) => (
+        {reviews.map((review: LiveReview, index: number) => (
           <div
-            key={`${review.name}-${index}`}
+            key={`${review.authorName}-${index}`}
             className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[2rem] border border-white/5 bg-[#0F172A]/50 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_rgba(0,0,0,0.3)] ring-1 ring-white/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-[#151E32]/80 hover:ring-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
           >
             {/* Ambient Background Glow (Reveals smoothly on hover) */}
@@ -48,7 +53,7 @@ export function ReviewCarousel() {
               {/* Header: Stars & Quote Icon */}
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex gap-1 drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]">
-                  {[...Array(review.rating)].map((_, i) => (
+                  {[...Array(Math.round(review.rating))].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
@@ -66,11 +71,11 @@ export function ReviewCarousel() {
               <div className="flex items-center gap-4">
                 {/* Interactive Avatar Box */}
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/[0.03] ring-1 ring-white/10 font-heading text-lg font-extrabold text-brand-blue-light shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] transition-colors duration-300 group-hover:bg-brand-blue/10 group-hover:ring-brand-blue/30">
-                  {review.name.charAt(0).toUpperCase()}
+                  {review.authorName.charAt(0).toUpperCase()}
                 </div>
                 <div>
                   <p className="text-sm font-extrabold text-white tracking-wide transition-colors group-hover:text-brand-blue-light">
-                    {review.name}
+                    {review.authorName}
                   </p>
                   <p className="mt-0.5 text-[10px] uppercase tracking-wider text-slate-500">Google Review</p>
                 </div>
@@ -83,7 +88,7 @@ export function ReviewCarousel() {
                   <span className="text-[10px] font-bold uppercase tracking-wider">Verified</span>
                 </div>
                 <span className="mt-1 text-[10px] uppercase tracking-wider text-slate-500">
-                  {formatRelativeDate(review.date)}
+                  {review.relativeDate ?? formatRelativeDate(review.publishedAt)}
                 </span>
               </div>
             </div>
