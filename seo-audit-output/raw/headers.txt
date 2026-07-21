@@ -1,0 +1,26 @@
+HTTP/1.1 307 Temporary Redirect
+Cache-Control: public, max-age=0, must-revalidate
+Content-Type: text/plain
+Date: Wed, 29 Apr 2026 21:37:39 GMT
+Location: https://www.itsnosweat.net/
+Server: Vercel
+Strict-Transport-Security: max-age=63072000
+X-Vercel-Id: sfo1::lgrqz-1777498659942-4a73b734a2cb
+
+HTTP/1.1 200 OK
+Age: 11528
+Cache-Control: public, max-age=0, must-revalidate
+Content-Length: 257393
+Content-Type: text/html; charset=utf-8
+Date: Wed, 29 Apr 2026 18:25:31 GMT
+Etag: "7xo4ec6kjb5ig7"
+Server: Vercel
+Strict-Transport-Security: max-age=63072000
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+X-Matched-Path: /
+X-Nextjs-Prerender: 1
+X-Nextjs-Stale-Time: 300
+X-Powered-By: Next.js
+X-Vercel-Cache: HIT
+X-Vercel-Id: sfo1::iad1::fjr9w-1777498660061-1b829ff6cf76
+

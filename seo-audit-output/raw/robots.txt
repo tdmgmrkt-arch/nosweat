@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /projects/
+
+# Host
+Host: https://www.itsnosweat.net
+
+# Sitemaps
+Sitemap: https://www.itsnosweat.net/sitemap.xml

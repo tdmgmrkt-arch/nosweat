@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "gbp": {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "c:/Users/Owner/agency/mcp-servers/gbp-mcp/src/index.ts"
+      ],
+      "cwd": "c:/Users/Owner/agency/mcp-servers/gbp-mcp"
+    }
+  }
+}
