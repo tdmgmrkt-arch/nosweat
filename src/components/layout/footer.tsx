@@ -169,6 +169,21 @@ export async function Footer() {
               </p>
             </div>
           </div>
+          <div className="border-t border-white/5">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 py-3 sm:py-4 text-center text-[10px] sm:text-xs text-slate-500">
+              <p className="font-medium">
+                Designed &amp; Developed by{" "}
+                <a
+                  href="https://tdmarketinggroup.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-400 transition-colors hover:text-brand-blue-light"
+                >
+                  TD Marketing Group
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </>
