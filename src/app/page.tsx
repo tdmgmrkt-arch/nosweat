@@ -40,6 +40,9 @@ import {
 } from "lucide-react";
 import { companyInfo } from "@/data/navigation";
 import { ReviewCarousel } from "@/components/review-carousel";
+import { FaqAccordion } from "@/components/faq-accordion";
+import { JsonLd } from "@/components/json-ld";
+import { homepageFaqs } from "@/data/homepage-faqs";
 
 export default function HomePage() {
   return (
@@ -461,7 +464,36 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-         8. FINAL CTA — Ambient Glow Up
+         8. FAQ SECTION
+         ═══════════════════════════════════════════════════ */}
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: homepageFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }} />
+      <section className="relative z-10 py-12 sm:py-16 lg:py-24">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-8 sm:mb-12 text-center">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Got Questions?</p>
+            <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="rounded-2xl sm:rounded-[2rem] border border-white/5 bg-[#0F172A]/50 p-4 sm:p-6 md:p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-md">
+            <FaqAccordion faqs={homepageFaqs} />
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+         9. FINAL CTA — Ambient Glow Up
          ═══════════════════════════════════════════════════ */}
       <section className="relative z-10 overflow-hidden py-20 sm:py-32">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-brand-blue/20 via-transparent to-transparent opacity-80" />

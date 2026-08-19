@@ -603,7 +603,7 @@ export default async function CityPage({ params }: CityPageProps) {
       <section className="relative z-10 overflow-hidden py-16 sm:py-24 lg:py-32">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-brand-blue/20 via-transparent to-transparent opacity-80 pointer-events-none" />
 
-        <div className="relative mx-auto max-w-4xl px-4 sm:px-6 text-center">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <div className="mx-auto mb-6 sm:mb-8 flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),_0_10px_30px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-xl">
             <Image src="/images/mascot-head.png" alt={getAltText("mascot", city)} width={48} height={48} className="h-9 sm:h-12 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
           </div>
@@ -633,7 +633,7 @@ export default async function CityPage({ params }: CityPageProps) {
         {/* Subtle separator */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-8 sm:mb-12 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Got Questions?</p>
             <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">

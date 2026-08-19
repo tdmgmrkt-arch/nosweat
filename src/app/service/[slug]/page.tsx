@@ -9,6 +9,8 @@ import { companyInfo } from "@/data/navigation";
 import { ServiceSidebar } from "@/components/layout/service-sidebar";
 import { ServiceSchema } from "@/components/schema/service";
 import { BreadcrumbSchema } from "@/components/schema/breadcrumb";
+import { FaqAccordion } from "@/components/faq-accordion";
+import { JsonLd } from "@/components/json-ld";
 
 interface ServiceRouteProps {
   params: Promise<{ slug: string }>;
@@ -207,6 +209,32 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
                   ))}
                 </div>
               </div>
+
+              {/* FAQ Accordion */}
+              {svc.faqs && svc.faqs.length > 0 && (
+                <>
+                  <JsonLd data={{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    mainEntity: svc.faqs.map((faq) => ({
+                      "@type": "Question",
+                      name: faq.question,
+                      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+                    })),
+                  }} />
+                  <div className="mt-12 sm:mt-20">
+                    <div className="mb-8 sm:mb-12">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Got Questions?</p>
+                      <h2 className="mt-3 sm:mt-4 font-heading text-2xl sm:text-3xl font-extrabold text-white lg:text-4xl tracking-tight">
+                        Frequently Asked Questions
+                      </h2>
+                    </div>
+                    <div className="rounded-2xl sm:rounded-[2rem] border border-white/5 bg-[#0F172A]/50 p-4 sm:p-6 md:p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-white/5 backdrop-blur-md">
+                      <FaqAccordion faqs={svc.faqs} />
+                    </div>
+                  </div>
+                </>
+              )}
 
               {/* Areas We Serve */}
               <div className="mt-12 sm:mt-20">
