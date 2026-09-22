@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { LocalBusinessSchema, OrganizationSchema } from "@/components/schema/local-business";
 import { WebSiteSchema } from "@/components/schema/website";
+import { AccessibilityWidget } from "@/components/accessibility-widget";
 import "./globals.css";
 
 const inter = Inter({
@@ -65,6 +66,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <AccessibilityWidget />
       </body>
     </html>
   );

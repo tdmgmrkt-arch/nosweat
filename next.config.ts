@@ -4,6 +4,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   trailingSlash: true,
+
+  // Dev-only overlay — move it off the accessibility trigger in the bottom-left.
+  devIndicators: {
+    position: "bottom-right",
+  },
   turbopack: {
     root: path.resolve(__dirname),
   },
