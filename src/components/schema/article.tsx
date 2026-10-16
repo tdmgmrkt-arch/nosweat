@@ -9,7 +9,7 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
     description: post.metaDescription,
     image: {
       "@type": "ImageObject",
-      url: `https://www.itsnosweat.net${post.featuredImage}`,
+      url: `https://itsnosweat.net${post.featuredImage}`,
       width: post.featuredImageWidth,
       height: post.featuredImageHeight,
     },
@@ -22,9 +22,9 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
       description: post.authorBio,
       worksFor: {
         "@type": "HVACBusiness",
-        "@id": "https://www.itsnosweat.net/#business",
+        "@id": "https://itsnosweat.net/#business",
         name: "It's No Sweat Heat & Air",
-        url: "https://www.itsnosweat.net",
+        url: "https://itsnosweat.net",
         address: {
           "@type": "PostalAddress",
           streetAddress: "27950 Kalmia Ave",
@@ -44,19 +44,19 @@ export function ArticleSchema({ post }: { post: BlogPost }) {
     },
     publisher: {
       "@type": "Organization",
-      "@id": "https://www.itsnosweat.net/#organization",
+      "@id": "https://itsnosweat.net/#organization",
       name: "It's No Sweat Heat & Air",
-      url: "https://www.itsnosweat.net",
+      url: "https://itsnosweat.net",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.itsnosweat.net/images/logo-main.webp",
+        url: "https://itsnosweat.net/images/logo-main.webp",
         width: 600,
         height: 200,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.itsnosweat.net/blog/${post.slug}/`,
+      "@id": `https://itsnosweat.net/blog/${post.slug}/`,
     },
   };
 

@@ -31,13 +31,13 @@ export default function ContactPage() {
         "@type": "ContactPage",
         name: "Contact It's No Sweat Heat & Air",
         description: "Schedule HVAC service, request a free estimate, or reach our team for emergency repair.",
-        url: "https://www.itsnosweat.net/contact-us/",
+        url: "https://itsnosweat.net/contact-us/",
         mainEntity: {
           "@type": "HVACBusiness",
           name: "It's No Sweat Heat & Air",
           telephone: "+19513313310",
           email: "support@itsnosweat.net",
-          url: "https://www.itsnosweat.net",
+          url: "https://itsnosweat.net",
           address: {
             "@type": "PostalAddress",
             streetAddress: "27950 Kalmia Ave",

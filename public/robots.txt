@@ -24,7 +24,7 @@ User-agent: OAI-SearchBot
 Allow: /
 
 # Host
-Host: https://www.itsnosweat.net
+Host: https://itsnosweat.net
 
 # Sitemaps
-Sitemap: https://www.itsnosweat.net/sitemap.xml
+Sitemap: https://itsnosweat.net/sitemap.xml

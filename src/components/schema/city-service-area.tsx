@@ -48,13 +48,13 @@ export async function CityServiceAreaSchema({ slug, city }: CityServiceAreaSchem
   const data = {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
-    "@id": `https://www.itsnosweat.net/service-areas/${slug}/#business`,
+    "@id": `https://itsnosweat.net/service-areas/${slug}/#business`,
     name: `${companyInfo.name} — ${city}`,
-    url: `https://www.itsnosweat.net/service-areas/${slug}/`,
+    url: `https://itsnosweat.net/service-areas/${slug}/`,
     telephone: "+19513313310",
     email: "support@itsnosweat.net",
-    image: "https://www.itsnosweat.net/images/nosweatvan.webp",
-    logo: "https://www.itsnosweat.net/images/logo-main.webp",
+    image: "https://itsnosweat.net/images/nosweatvan.webp",
+    logo: "https://itsnosweat.net/images/logo-main.webp",
     address: {
       "@type": "PostalAddress",
       streetAddress: "27950 Kalmia Ave",

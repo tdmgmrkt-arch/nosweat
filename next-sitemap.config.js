@@ -34,7 +34,7 @@ const getGitLastmod = (route) => {
 
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://www.itsnosweat.net",
+  siteUrl: "https://itsnosweat.net",
   generateRobotsTxt: true,
   trailingSlash: true,
   outDir: "./public",

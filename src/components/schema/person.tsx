@@ -4,10 +4,10 @@ export function PersonSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://www.itsnosweat.net/about-us/#justin-jaszewski",
+    "@id": "https://itsnosweat.net/about-us/#justin-jaszewski",
     name: "Justin Jaszewski",
     jobTitle: "Co-Founder",
-    worksFor: { "@id": "https://www.itsnosweat.net/#organization" },
+    worksFor: { "@id": "https://itsnosweat.net/#organization" },
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",

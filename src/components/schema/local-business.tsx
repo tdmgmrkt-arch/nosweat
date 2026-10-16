@@ -10,11 +10,11 @@ export async function LocalBusinessSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
-    "@id": "https://www.itsnosweat.net/#business",
+    "@id": "https://itsnosweat.net/#business",
     name: companyInfo.name,
-    url: "https://www.itsnosweat.net",
-    logo: "https://www.itsnosweat.net/images/logo-main.webp",
-    image: "https://www.itsnosweat.net/images/nosweatvan.webp",
+    url: "https://itsnosweat.net",
+    logo: "https://itsnosweat.net/images/logo-main.webp",
+    image: "https://itsnosweat.net/images/nosweatvan.webp",
     telephone: "+19513313310",
     email: "support@itsnosweat.net",
     address: {
@@ -89,10 +89,10 @@ export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://www.itsnosweat.net/#organization",
+    "@id": "https://itsnosweat.net/#organization",
     name: companyInfo.name,
-    url: "https://www.itsnosweat.net",
-    logo: "https://www.itsnosweat.net/images/logo-main.webp",
+    url: "https://itsnosweat.net",
+    logo: "https://itsnosweat.net/images/logo-main.webp",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: companyInfo.phone,
