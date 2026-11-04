@@ -25,6 +25,286 @@ export const defaultAuthor = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "heater-drying-out-air-inland-empire",
+    title: "Your Heater Is Not Drying Out Your Air. Here Is What Actually Is.",
+    excerpt:
+      "Cracked lips and static shocks start the week you turn the heat on, so the furnace gets the blame. It is not adding or removing moisture at all. Here is the real mechanism, and what is worth fixing.",
+    content: `
+      <h2>The Furnace Is Not Removing Moisture From Your House</h2>
+      <p>A gas furnace does not dry your air. It heats air that was already dry, and heating air lowers its relative humidity without changing the amount of water in it at all. The water content stays the same; the air's capacity to hold water goes up, so the percentage drops.</p>
+      <p>That distinction matters because it tells you where the fix is. You cannot repair a furnace into producing moister air. What you can do is stop pulling dry outside air into the house and, if it is still bad, add moisture deliberately.</p>
+
+      <h2>The Mechanism, Briefly</h2>
+      <p>Relative humidity is a percentage of what the air could hold at its current temperature. Take outside air at 50°F and 50 percent relative humidity, bring it inside, and heat it to 70°F. The water in it has not changed. But warm air holds far more water, so that same moisture now represents roughly 25 percent relative humidity.</p>
+      <p>Heat it from 50°F to 72°F on a dry December morning here and you can land under 20 percent. That is drier than most of the Mojave on an average day, inside your living room, and it is simple physics rather than a defect.</p>
+
+      <h2>Why It Is Worse Here Than Most Places</h2>
+      <p>The Inland Empire starts with less moisture to work with than almost anywhere a national article is written about. Our winter dew points are low, and Santa Ana wind events — which peak from October through December — push extremely dry offshore air across <a href="/service-areas/moreno-valley/">Moreno Valley</a>, <a href="/service-areas/banning/">Banning</a>, and the pass communities for days at a time. Outdoor relative humidity in single digits is not unusual during one.</p>
+      <p>So when a homeowner in <a href="/service-areas/redlands/">Redlands</a> tells us the heater is drying out the house, the heater is a bystander. The air coming into the house is the problem, and the heating cycle is just when you notice it.</p>
+
+      <h2>What Indoor Humidity Should Be</h2>
+      <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>Relative humidity</th><th>What you notice</th><th>What to do</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Below 20%</td><td>Static shocks, cracked lips, nosebleeds, wood gaps opening</td><td>Air sealing first, then consider humidification</td></tr>
+          <tr><td>20-30%</td><td>Dry skin and throat, more dust in the air</td><td>Air sealing and filtration usually enough</td></tr>
+          <tr><td>30-50%</td><td>The comfortable range</td><td>Nothing</td></tr>
+          <tr><td>50-60%</td><td>Feels close; windows may fog</td><td>Improve ventilation</td></tr>
+          <tr><td>Above 60%</td><td>Musty smell, condensation, mold risk</td><td>Dehumidify and find the moisture source</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The EPA's <a href="https://www.epa.gov/indoor-air-quality-iaq/introduction-indoor-air-quality" target="_blank" rel="noopener noreferrer">indoor air quality guidance</a> puts the target band at 30 to 50 percent, and it is worth knowing that overshooting is its own problem — sustained humidity above 60 percent is a <a href="https://www.epa.gov/mold/mold-and-health" target="_blank" rel="noopener noreferrer">mold condition</a>. A $20 hygrometer tells you where you actually are. Guessing from how your skin feels is how people end up solving the wrong problem.</p>
+
+      <h2>What Is Making It Worse in Your House Specifically</h2>
+      <h3>Air leaks pulling in dry outside air</h3>
+      <p>Every cubic foot of outside air that leaks in has to be heated, and it arrives dry. The attic hatch, recessed can lights, and the gaps around ducts and plumbing penetrations are the usual suspects. This is the highest-value thing to fix because it lowers your gas bill at the same time, which humidification does not.</p>
+
+      <h3>Leaky return ducts in a hot, dusty attic</h3>
+      <p>A return duct with open seams does not just lose air, it draws attic air into your system — dry, dusty, and unfiltered by anything. If your dry-air complaint arrives alongside more dust on the furniture, this is the likely cause and it is measurable. Our <a href="/blog/leaky-air-ducts-wasting-cool-air/">duct leakage guide</a> covers the test.</p>
+
+      <h3>An oversized furnace</h3>
+      <p>An oversized unit heats the house in short, hard bursts. You get big temperature swings, more air movement across your skin, and a house that feels drier at the same measured humidity than one heated gently and steadily. Two-stage and modulating equipment exists largely to solve this.</p>
+
+      <h3>A furnace running far more than it should</h3>
+      <p>If the heat is running close to constantly, you have an envelope or airflow problem, and the dry feeling is a symptom of it. That is also a pattern worth diagnosing for its own sake — see the causes in our guide to a <a href="/blog/furnace-blowing-cold-air/">furnace blowing cold air</a>, several of which cause long runtimes.</p>
+
+      <h2>Is a Whole-Home Humidifier Worth It Here?</h2>
+      <p>Sometimes, and more often than in a humid climate, but it is third on the list rather than first.</p>
+      <p>A bypass or steam humidifier installs at the air handler and adds moisture to the supply air whenever the furnace runs. In a dry climate with a real deficit, it works, and the comfort difference below 20 percent is not subtle. We install and maintain them as part of our <a href="/service/indoor-air-quality/">indoor air quality</a> work.</p>
+      <p>The catch: a humidifier only adds moisture while the furnace is running, and our heating season is short. If your house is leaking air badly, you will be humidifying air that promptly leaves. Seal first, measure, then humidify what is left. Doing it in that order usually means a smaller unit, or none.</p>
+      <p>The other catch is maintenance. A humidifier that is not serviced becomes a reservoir for microbial growth feeding directly into your supply air. If you will not maintain it, do not install it.</p>
+
+      <h2>Fix It in This Order</h2>
+      <ol>
+        <li><strong>Measure.</strong> Put a hygrometer in the main living area for a few days. Know your actual number before spending anything.</li>
+        <li><strong>Seal the envelope.</strong> Attic hatch, can lights, penetrations, weatherstripping. Cheapest fix, and it cuts the gas bill.</li>
+        <li><strong>Test and seal the ducts.</strong> Especially returns in the attic, which pull in dry unfiltered air.</li>
+        <li><strong>Handle the filter properly.</strong> Dry air carries more dust in suspension. A MERV 11 to 13 media filter helps the symptom even though it does nothing for humidity — our <a href="/blog/allergy-season-hvac-filter-inland-empire/">filter guide</a> covers choosing one without strangling airflow.</li>
+        <li><strong>Then consider humidification</strong>, sized to the measured deficit.</li>
+      </ol>
+
+      <h2>Common Questions</h2>
+      <h3>Does a furnace remove humidity from the air?</h3>
+      <p>No. A gas furnace does not add or remove water from your air. It raises the temperature, which lowers relative humidity because warm air can hold more moisture than cold air. The amount of water is unchanged.</p>
+
+      <h3>What humidity should my house be in winter?</h3>
+      <p>Between 30 and 50 percent. Below 30 percent you get static, dry skin, and cracking in wood floors and furniture. Above 60 percent sustained, you risk condensation and mold. In the Inland Empire, most homes sit in the teens or twenties during a heating cycle.</p>
+
+      <h3>Will a single room humidifier fix it?</h3>
+      <p>For one bedroom overnight, yes, and that is a reasonable place to start before spending on equipment. A portable unit cannot keep up with a whole house, and it will not touch the static shocks in the hallway.</p>
+
+      <h3>Is dry indoor air actually harmful?</h3>
+      <p>It is mostly a comfort problem, but not entirely. Very dry air irritates airways and dries the mucous membranes that trap airborne particles, which is why dry spells are rough on people with asthma. It also opens gaps in hardwood flooring, cabinetry, and instruments. None of it is an emergency.</p>
+
+      <h3>My nose bleeds every winter. Is that the heater?</h3>
+      <p>It is the dry air, not the equipment. Sustained relative humidity in the teens dries nasal passages enough to cause bleeding in some people. Raising the house into the 30s generally resolves it, and so does a humidifier in the bedroom alone.</p>
+
+      <h3>Can wildfire smoke and dry air be handled together?</h3>
+      <p>Yes, and they often arrive in the same week here, because the wind events that dry the air are the ones that move smoke. Filtration handles particulate and humidification handles moisture, and they are separate pieces of equipment solving separate problems. Our <a href="/blog/wildfire-smoke-indoor-air-quality-inland-empire/">wildfire smoke guide</a> covers the filtration side.</p>
+
+      <h2>Get a Real Measurement Instead of a Guess</h2>
+      <p>If your house is uncomfortable every heating season, the answer is usually a combination of air sealing, duct repair, and filtration rather than one purchase. An indoor air quality assessment measures the actual humidity, finds where outside air is getting in, tests duct leakage, and tells you what the smallest effective fix is — which is sometimes nothing more than sealing an attic hatch. If a humidifier is genuinely warranted, we will size it to your house rather than to a catalog. Our {{RATING}}-star rated team covers <a href="/service/indoor-air-quality/">indoor air quality</a> and <a href="/service/hvac-maintenance/">HVAC maintenance</a> across <a href="/service-areas/riverside/">Riverside</a>, <a href="/service-areas/yucaipa/">Yucaipa</a>, and the full Inland Empire. <a href="/contact-us/">Book an assessment</a> or call (951) 331-3310.</p>
+    `,
+    featuredImage: "/images/services/indoor-air-quality.webp",
+    featuredImageWidth: 1920,
+    featuredImageHeight: 1500,
+    author: defaultAuthor.name,
+    authorTitle: defaultAuthor.title,
+    authorBio: defaultAuthor.bio,
+    publishedDate: "2026-11-04",
+    category: "Indoor Air Quality",
+    tags: ["dry air", "indoor humidity", "whole-home humidifier", "air sealing"],
+    metaTitle: "Why Your House Is So Dry When the Heater Runs",
+    metaDescription:
+      "Your furnace does not dry your air, it heats already-dry air. The real mechanism, the humidity range to target, and whether a whole-home humidifier is worth it here.",
+  },
+  {
+    slug: "new-furnace-cost-riverside-county",
+    title: "What a New Furnace Actually Costs in Riverside County (2026)",
+    excerpt:
+      "Most furnace replacements here land between $5,500 and $8,500 installed. Here is what sits inside that number, what pushes a job past $10,000, and which line items are negotiable.",
+    content: `
+      <h2>The Short Answer: $4,500 to $9,500 Installed</h2>
+      <p>A standard gas furnace replacement in Riverside County runs $4,500 to $9,500 installed in 2026, and most homes land between $5,500 and $8,500. Jobs that cross $10,000 are almost always doing more than swapping a furnace — new ductwork, a venting change, or a move from a closet to an attic.</p>
+      <p>That range is wide because a furnace replacement is a project, not a product. The equipment is often less than half the invoice. What drives the rest is efficiency tier, how hard your install location is to work in, and what code requires once the old unit comes out.</p>
+
+      <h2>What You Get at Each Price Tier</h2>
+      <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Efficiency</th><th>Installed range</th><th>Who it suits</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Single-stage, like-for-like swap</td><td>80% AFUE</td><td>$4,500 - $6,500</td><td>Straightforward replacement, existing venting reusable</td></tr>
+          <tr><td>Single-stage condensing</td><td>95-96% AFUE</td><td>$6,000 - $8,500</td><td>Most homeowners here; lowest gas use per season</td></tr>
+          <tr><td>Two-stage condensing</td><td>96% AFUE</td><td>$7,500 - $10,500</td><td>Two-story homes and uneven heat complaints</td></tr>
+          <tr><td>Modulating, variable-speed</td><td>97%+ AFUE</td><td>$9,500 - $13,500</td><td>Quietest operation, tightest temperature control</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>California's minimum for a new gas furnace installation is 80% AFUE. Going to 95% or better means the furnace condenses its exhaust, which requires a PVC flue and a condensate drain the old unit did not have. That is the most common reason a quote comes in higher than the homeowner expected, and it is also where most of the operating savings come from.</p>
+
+      <h2>The Line Items That Actually Move the Price</h2>
+      <p><strong>Venting changes.</strong> Moving from an 80% to a condensing furnace means abandoning the metal B-vent and running PVC to a sidewall or roof. Budget several hundred to a couple thousand depending on the run. If the old unit shared a flue with a water heater, that water heater now needs its own venting solution, which is a real and frequently missed cost.</p>
+      <p><strong>Condensate drainage.</strong> A condensing furnace produces water. In a garage install, that is usually a short run to a drain. In an attic, it means a properly sloped line, a safety pan, and a float switch.</p>
+      <p><strong>Install location.</strong> An attic install in a <a href="/service-areas/menifee/">Menifee</a> or <a href="/service-areas/murrieta/">Murrieta</a> home with a tight scuttle access costs meaningfully more in labor than a garage unit at standing height. Access is one of the biggest swing factors between two quotes on the same equipment.</p>
+      <p><strong>Ductwork.</strong> If the existing ducts are undersized, crushed, or leaking badly, putting a new furnace on them wastes the upgrade. We measure static pressure before quoting rather than discovering it afterward. Our <a href="/blog/leaky-air-ducts-wasting-cool-air/">duct leakage guide</a> explains what that measurement reveals.</p>
+      <p><strong>Permit and HERS testing.</strong> A mechanical permit is required in California, and changeouts generally trigger third-party HERS verification of duct leakage. Both are legitimate line items, not padding. Unpermitted furnace work causes problems with homeowners insurance and at resale.</p>
+      <p><strong>Electrical and thermostat.</strong> Variable-speed equipment sometimes needs a dedicated circuit, and a modulating furnace needs a communicating thermostat to deliver what you paid for.</p>
+
+      <h2>Why Riverside County Runs Above National Averages</h2>
+      <p>National cost guides will quote you a lower number than you will get here, and the gap is structural rather than contractors taking advantage.</p>
+      <ul>
+        <li><strong>Labor rates.</strong> Southern California trade labor sits well above the national median, and a furnace changeout is a full day for two technicians.</li>
+        <li><strong>Title 24.</strong> California's <a href="https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards" target="_blank" rel="noopener noreferrer">Building Energy Efficiency Standards</a> impose requirements on duct sealing and verification that most states do not. That is real compliance work.</li>
+        <li><strong>Permit and inspection overhead.</strong> Pulling the permit, scheduling HERS, and meeting the inspector costs time on every job.</li>
+        <li><strong>Attic installs are the norm.</strong> Much of the housing stock here puts equipment in the worst possible place to work.</li>
+      </ul>
+
+      <h2>Rebates and Credits: Verify the Current Numbers Yourself</h2>
+      <p>There is money available for high-efficiency equipment, but the amounts and eligibility rules change mid-year and we will not quote figures that may be stale by the time you read this. Two places to check before you sign anything: <a href="https://www.socalgas.com/for-your-home/rebates" target="_blank" rel="noopener noreferrer">SoCalGas residential rebates</a> for condensing furnace incentives, and the <a href="https://www.energy.ca.gov/" target="_blank" rel="noopener noreferrer">California Energy Commission</a> for current state program status.</p>
+      <p>Federal tax credit terms for residential heating equipment have changed recently as well. Confirm what applies to your install year with your tax preparer rather than relying on a contractor's sales sheet, ours included. We help with rebate paperwork on qualifying equipment, but the eligibility determination is not ours to make.</p>
+
+      <h2>Repair, or Replace?</h2>
+      <p>The honest threshold: if the furnace is over 15 years old and the repair quote approaches half the cost of a comparable new system, replacement is the better value. Under 12 years with a cheap repair, fix it and move on.</p>
+      <p>Two things that push the math toward replacement regardless of age. A cracked heat exchanger is a safety condemnation, not a repair decision. And a furnace that has been short-cycling on its limit switch for a season has usually been damaged by the heat, even if it still runs — the symptom pattern is in our guide to a <a href="/blog/furnace-blowing-cold-air/">furnace blowing cold air</a>.</p>
+      <p>If you are replacing the furnace anyway and the AC is of similar vintage, price both together. The labor overlaps and you avoid paying twice for the same access. Our <a href="/blog/new-ac-cost-riverside-county-2026/">AC replacement pricing breakdown</a> covers that side, and our <a href="/blog/heat-pump-vs-furnace-ac-inland-empire/">heat pump comparison</a> is worth reading before you default to a gas furnace, because the economics out here are closer than most people assume.</p>
+
+      <h2>Common Questions</h2>
+      <h3>How much does a new furnace cost in Riverside County?</h3>
+      <p>Between $4,500 and $9,500 installed for most homes, with the majority landing between $5,500 and $8,500. An 80% AFUE like-for-like swap sits at the bottom of that range; a modulating 97% system with venting and duct work can reach $13,500.</p>
+
+      <h3>Is a 96% AFUE furnace worth the extra cost here?</h3>
+      <p>In the Inland Empire the honest answer is: less than in a cold climate. We run a short heating season, so the annual gas savings from 80% to 96% are smaller here than the brochures imply, and the payback is longer. The catch cuts the other way too — if the venting work is needed anyway, the incremental cost of the better equipment is small, and the comfort difference on a two-stage or modulating unit is immediately noticeable. We will show you both numbers.</p>
+
+      <h3>How long does a furnace installation take?</h3>
+      <p>One full day for a standard replacement. Add time if the job involves ductwork modification, a gas line change, or converting from metal venting to PVC for a condensing unit.</p>
+
+      <h3>Do I need a permit to replace a furnace in California?</h3>
+      <p>Yes. A mechanical permit is required and the work is subject to inspection by your local building department. We pull the permit and manage the inspection as part of every installation. A quote that is cheaper because it skips the permit is not actually cheaper.</p>
+
+      <h3>Why are two quotes for the same furnace thousands apart?</h3>
+      <p>Usually because they are not the same job. Check whether each includes the permit and HERS testing, venting changes, a condensate safety pan and float switch, old equipment disposal, and a labor warranty. Also check the AFUE and the staging — "96% furnace" covers single-stage, two-stage, and modulating units at very different prices. Our guide to <a href="/blog/how-to-choose-the-right-ac-repair-company/">evaluating an HVAC contractor</a> lists what to verify before you sign.</p>
+
+      <h3>What size furnace do I need?</h3>
+      <p>Whatever a heating load calculation says, not whatever came out. Oversized furnaces short-cycle, heat unevenly, and wear faster. We run the load calculation on square footage, insulation, ceiling height, window area, and orientation on every install.</p>
+
+      <h2>Get a Real Number for Your House</h2>
+      <p>Every figure above is a range, and ranges do not tell you what your install costs. A free in-home estimate gets you a fixed price: load calculation, static pressure measurement, a look at your venting and access, and a written quote with the permit and testing included rather than discovered later. We will also tell you if the right answer is keeping the furnace you have for another two years. Our {{RATING}}-star rated team handles <a href="/service/furnace-installation/">furnace installation</a> throughout <a href="/service-areas/moreno-valley/">Moreno Valley</a>, <a href="/service-areas/temecula/">Temecula</a>, and the Inland Empire, and current promotions are on our <a href="/service/special-offer/">special offers page</a>. <a href="/contact-us/">Request a free estimate</a> or call (951) 331-3310.</p>
+    `,
+    featuredImage: "/images/services/furnace-install.webp",
+    featuredImageWidth: 1920,
+    featuredImageHeight: 1100,
+    author: defaultAuthor.name,
+    authorTitle: defaultAuthor.title,
+    authorBio: defaultAuthor.bio,
+    publishedDate: "2026-10-30",
+    category: "Furnace Installation",
+    tags: ["furnace cost", "furnace replacement", "Riverside County", "AFUE"],
+    metaTitle: "New Furnace Cost in Riverside County (2026)",
+    metaDescription:
+      "Most Riverside County furnace replacements run $5,500-$8,500 installed. What sits inside that number, what pushes a job past $10,000, and how to compare quotes.",
+  },
+  {
+    slug: "furnace-blowing-cold-air",
+    title: "Furnace Blowing Cold Air? 7 Causes, Ranked by How Likely They Are",
+    excerpt:
+      "A furnace that runs but delivers cold air is usually the thermostat fan setting or a choked filter. Here are all seven causes, which two you can fix yourself, and the pattern that means shut it off.",
+    content: `
+      <h2>Your Furnace Is Running But the Air Is Cold. Here Is Why.</h2>
+      <p>A furnace blowing cold air is almost always doing one of two things: running the blower without firing the burners at all, or firing briefly and then shutting the burners back down on a safety control. The thermostat fan setting and a clogged air filter cause the large majority of these calls, and you can check both in about five minutes without tools.</p>
+      <p>Everything else comes down to the safety chain — flame sensor, high-limit switch, pressure switch — which is the furnace deliberately refusing to make heat because a condition it monitors is out of range. That is the equipment working correctly, not failing. The right response is a diagnostic, not repeated resets.</p>
+
+      <h2>Start With the Two That Cost Nothing</h2>
+      <h3>1. The thermostat fan is set to ON instead of AUTO</h3>
+      <p>This is the single most common cause, and it is not a malfunction at all. With the fan switch on ON, the blower runs continuously whether or not the burners are firing. Between heat cycles you are circulating room-temperature air across a cold heat exchanger, and at the register that feels distinctly cold.</p>
+      <p>Set the fan to AUTO. The blower will then run only when the furnace is actually making heat. If the cold air stops, you are done.</p>
+
+      <h3>2. The air filter is choked</h3>
+      <p>A loaded filter starves the furnace of return air. Heat builds in the heat exchanger faster than the airflow can carry it away, the high-limit switch trips to prevent damage, and the burners shut off while the blower keeps running to purge that heat. The signature is unmistakable: warm air for a few minutes, then cold, then warm again a while later.</p>
+      <p>In <a href="/service-areas/moreno-valley/">Moreno Valley</a> and <a href="/service-areas/perris/">Perris</a>, a one-inch filter does not last a season. Fine dust, decomposed granite yards, and Santa Ana winds load them in 30 to 60 days. If you cannot remember changing it, change it now and run the system for an hour before concluding anything else is wrong.</p>
+
+      <h2>When It Fires, Then Goes Cold: the Safety Chain</h2>
+      <h3>3. A dirty flame sensor</h3>
+      <p>The flame sensor is a thin metal rod that sits in the burner flame and confirms to the control board that gas is actually burning. A film of oxidation on that rod weakens the signal, the board concludes there is no flame, and it closes the gas valve within a few seconds as a safety measure. You hear ignition, you get a few seconds of flame, then the blower runs cold.</p>
+      <p>Three to five short ignition attempts followed by a lockout is the classic pattern. Cleaning the sensor is a routine part of a heating diagnostic and one of the most frequent repairs we make between November and February.</p>
+
+      <h3>4. Overheating from restricted airflow</h3>
+      <p>The filter is the usual culprit, but not the only one. Closed supply registers, furniture over a return grille, a crushed flex duct in the attic, or a failing blower capacitor all reduce airflow enough to trip the limit. A furnace that short-cycles on the limit repeatedly is the condition that cracks heat exchangers, which turns a cheap problem into an expensive one.</p>
+      <p>If your system also struggled to keep up last summer, the root cause is usually duct restriction rather than the furnace. Our <a href="/blog/leaky-air-ducts-wasting-cool-air/">duct leakage guide</a> covers how to tell.</p>
+
+      <h3>5. A clogged condensate drain on a high-efficiency furnace</h3>
+      <p>If your furnace is 90 percent AFUE or higher, it condenses water out of its own exhaust and drains it away. Those drains clog with sediment and algae. When the water backs up, a pressure switch or float opens and the furnace stops firing — by design, because the alternative is water in the burner compartment. High-efficiency units in attic installations are the most frequent offenders here.</p>
+
+      <h3>6. Gas supply or gas valve</h3>
+      <p>No gas means ignition attempts with no flame. Check whether a gas stove burner lights. If it does not, the problem is upstream of your furnace and belongs to the utility. If the stove lights normally and the furnace still will not fire, the gas valve, igniter, or control board is the likely fault, and that is a technician call.</p>
+
+      <h2>7. Your Ducts Run Through a Cold Attic</h2>
+      <p>This one produces air that is warm at the furnace and cool at the register, which reads like a failing furnace but is not. Most Inland Empire homes route supply ducts through an attic that sits in the 40s on a December morning, and leaky joints bleed heat out of the air before it reaches the far bedrooms. The tell is a temperature difference between rooms near the air handler and rooms at the end of a long run. A static pressure reading separates this from an equipment problem in one visit.</p>
+
+      <h2>Match the Pattern to the Cause</h2>
+      <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>What you observe</th><th>Most likely cause</th><th>Who fixes it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cold air constantly, even between cycles</td><td>Thermostat fan set to ON</td><td>You, in one minute</td></tr>
+          <tr><td>Warm for 5-10 minutes, then cold, repeating</td><td>Clogged filter tripping the limit switch</td><td>You, then a pro if it repeats</td></tr>
+          <tr><td>Ignites, runs a few seconds, shuts off, retries</td><td>Dirty flame sensor</td><td>Technician</td></tr>
+          <tr><td>Clicks and tries to light, never ignites</td><td>Igniter, gas valve, or no gas supply</td><td>Technician or utility</td></tr>
+          <tr><td>Stopped firing entirely on a 90%+ furnace</td><td>Clogged condensate drain</td><td>Technician</td></tr>
+          <tr><td>Warm near the furnace, cool in far rooms</td><td>Attic duct heat loss</td><td>Technician</td></tr>
+          <tr><td>Any burning, electrical, or sooty smell</td><td>Shut it off, then call</td><td>Technician, same day</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>What Not to Do</h2>
+      <ul>
+        <li><strong>Do not reset it repeatedly.</strong> A furnace that locks out has decided a condition is unsafe. Clearing the lockout five times does not address the condition, and repeated overheating cycles are what crack heat exchangers.</li>
+        <li><strong>Do not close vents in unused rooms.</strong> It raises duct pressure and makes a limit-trip problem worse, not better.</li>
+        <li><strong>Do not keep running it if you smell anything.</strong> A persistent burning, electrical, or sooty smell means shut it down. Our guide on <a href="/blog/heater-smells-like-burning-first-use/">what furnace smells actually mean</a> separates the harmless dust smell from the four that are not.</li>
+        <li><strong>Do not wait out a complete no-heat failure overnight.</strong> If the furnace is not running at all rather than running cold, work the emergency checklist in our <a href="/blog/christmas-furnace-emergency/">no-heat playbook</a>.</li>
+      </ul>
+
+      <h2>Common Questions</h2>
+      <h3>Why does my furnace blow cold air when it first starts?</h3>
+      <p>Thirty to sixty seconds of cool air at the start of a cycle is normal. The blower starts before the heat exchanger is fully up to temperature, and it is pushing out the cooled air that was sitting in your ducts. If it has not turned warm within about two minutes, something is wrong.</p>
+
+      <h3>Can a dirty filter really make my furnace blow cold air?</h3>
+      <p>Yes, and it is one of the most common causes we find. A restricted filter causes the heat exchanger to overheat, which trips the high-limit switch and shuts off the burners while the blower keeps running. The result is cold air from a furnace that was working fine minutes earlier.</p>
+
+      <h3>Is a furnace blowing cold air dangerous?</h3>
+      <p>Usually not by itself, because most of the causes are a safety control doing its job. It becomes dangerous paired with a smell, sooty residue, or a carbon monoxide alarm, or when repeated overheating has damaged the heat exchanger. A cracked heat exchanger produces no odor at all, which is why we include combustion analysis on every heating diagnostic. Our <a href="/blog/fall-carbon-monoxide-safety-checks/">carbon monoxide checklist</a> covers the alarms every home needs.</p>
+
+      <h3>How much does it cost to fix a furnace blowing cold air?</h3>
+      <p>It depends entirely on which of the seven causes you have. A thermostat setting and a filter cost nothing. A flame sensor cleaning is one of the least expensive repairs on a gas furnace. A control board, gas valve, or heat exchanger sits at the other end, and at that point the age of the system matters. We quote the repair upfront after diagnosis.</p>
+
+      <h3>Should I just replace the furnace instead?</h3>
+      <p>If the unit is over 15 years old and the repair approaches half the cost of a new system, replacement is usually the better value. Below that, repair almost always wins. Our breakdown of <a href="/blog/new-furnace-cost-riverside-county/">what a new furnace actually costs in Riverside County</a> has the numbers if you are weighing it.</p>
+
+      <h2>Still Blowing Cold?</h2>
+      <p>Check the fan setting and the filter first, because those two resolve a large share of these calls at no cost. If the furnace still delivers cold air after an hour of runtime with a clean filter, the problem is in the safety chain and it needs a meter on it. A heating diagnostic covers the ignition sequence, flame signal, static pressure, temperature rise against nameplate, and combustion analysis, so you get the actual cause instead of a parts guess. ENERGY STAR has a useful primer on <a href="https://www.energystar.gov/products/furnaces" target="_blank" rel="noopener noreferrer">furnace efficiency and sizing</a> if you want background first. Our {{RATING}}-star rated team handles <a href="/service/furnace-repair/">furnace repair</a> across <a href="/service-areas/riverside/">Riverside</a>, <a href="/service-areas/hemet/">Hemet</a>, and the full Inland Empire. <a href="/contact-us/">Book a diagnostic</a> or call (951) 331-3310.</p>
+    `,
+    featuredImage: "/images/services/furnace-repair-new.webp",
+    featuredImageWidth: 1408,
+    featuredImageHeight: 768,
+    author: defaultAuthor.name,
+    authorTitle: defaultAuthor.title,
+    authorBio: defaultAuthor.bio,
+    publishedDate: "2026-10-23",
+    category: "Furnace Repair",
+    tags: ["furnace blowing cold air", "furnace troubleshooting", "flame sensor", "limit switch"],
+    metaTitle: "Furnace Blowing Cold Air? 7 Causes and Fixes",
+    metaDescription:
+      "A furnace blowing cold air is usually the fan setting or a clogged filter. All 7 causes, which two you can fix yourself, and the pattern that means shut it off.",
+  },
+  {
     slug: "heater-smells-like-burning-first-use",
     title: "Heater Smells Like Burning the First Time You Turn It On? Here's When to Worry",
     excerpt:
