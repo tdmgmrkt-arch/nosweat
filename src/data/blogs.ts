@@ -109,9 +109,9 @@ export const blogPosts: BlogPost[] = [
       <h2>Get a Real Measurement Instead of a Guess</h2>
       <p>If your house is uncomfortable every heating season, the answer is usually a combination of air sealing, duct repair, and filtration rather than one purchase. An indoor air quality assessment measures the actual humidity, finds where outside air is getting in, tests duct leakage, and tells you what the smallest effective fix is — which is sometimes nothing more than sealing an attic hatch. If a humidifier is genuinely warranted, we will size it to your house rather than to a catalog. Our {{RATING}}-star rated team covers <a href="/service/indoor-air-quality/">indoor air quality</a> and <a href="/service/hvac-maintenance/">HVAC maintenance</a> across <a href="/service-areas/riverside/">Riverside</a>, <a href="/service-areas/yucaipa/">Yucaipa</a>, and the full Inland Empire. <a href="/contact-us/">Book an assessment</a> or call (951) 331-3310.</p>
     `,
-    featuredImage: "/images/services/indoor-air-quality.webp",
-    featuredImageWidth: 1920,
-    featuredImageHeight: 1500,
+    featuredImage: "/images/blog/indoor-hygrometer-living-room.webp",
+    featuredImageWidth: 1376,
+    featuredImageHeight: 768,
     author: defaultAuthor.name,
     authorTitle: defaultAuthor.title,
     authorBio: defaultAuthor.bio,
@@ -196,9 +196,9 @@ export const blogPosts: BlogPost[] = [
       <h2>Get a Real Number for Your House</h2>
       <p>Every figure above is a range, and ranges do not tell you what your install costs. A free in-home estimate gets you a fixed price: load calculation, static pressure measurement, a look at your venting and access, and a written quote with the permit and testing included rather than discovered later. We will also tell you if the right answer is keeping the furnace you have for another two years. Our {{RATING}}-star rated team handles <a href="/service/furnace-installation/">furnace installation</a> throughout <a href="/service-areas/moreno-valley/">Moreno Valley</a>, <a href="/service-areas/temecula/">Temecula</a>, and the Inland Empire, and current promotions are on our <a href="/service/special-offer/">special offers page</a>. <a href="/contact-us/">Request a free estimate</a> or call (951) 331-3310.</p>
     `,
-    featuredImage: "/images/services/furnace-install.webp",
-    featuredImageWidth: 1920,
-    featuredImageHeight: 1100,
+    featuredImage: "/images/blog/gas-furnace-garage-install.webp",
+    featuredImageWidth: 1376,
+    featuredImageHeight: 768,
     author: defaultAuthor.name,
     authorTitle: defaultAuthor.title,
     authorBio: defaultAuthor.bio,
@@ -291,8 +291,8 @@ export const blogPosts: BlogPost[] = [
       <h2>Still Blowing Cold?</h2>
       <p>Check the fan setting and the filter first, because those two resolve a large share of these calls at no cost. If the furnace still delivers cold air after an hour of runtime with a clean filter, the problem is in the safety chain and it needs a meter on it. A heating diagnostic covers the ignition sequence, flame signal, static pressure, temperature rise against nameplate, and combustion analysis, so you get the actual cause instead of a parts guess. ENERGY STAR has a useful primer on <a href="https://www.energystar.gov/products/furnaces" target="_blank" rel="noopener noreferrer">furnace efficiency and sizing</a> if you want background first. Our {{RATING}}-star rated team handles <a href="/service/furnace-repair/">furnace repair</a> across <a href="/service-areas/riverside/">Riverside</a>, <a href="/service-areas/hemet/">Hemet</a>, and the full Inland Empire. <a href="/contact-us/">Book a diagnostic</a> or call (951) 331-3310.</p>
     `,
-    featuredImage: "/images/services/furnace-repair-new.webp",
-    featuredImageWidth: 1408,
+    featuredImage: "/images/blog/hallway-supply-register-wall.webp",
+    featuredImageWidth: 1376,
     featuredImageHeight: 768,
     author: defaultAuthor.name,
     authorTitle: defaultAuthor.title,
