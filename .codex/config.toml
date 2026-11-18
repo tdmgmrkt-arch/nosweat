@@ -1,0 +1,6 @@
+[mcp_servers.gbp]
+command = "npx"
+args = [
+    "tsx",
+    "c:/Users/Owner/agency/mcp-servers/gbp-mcp/src/index.ts",
+]
