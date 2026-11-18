@@ -25,6 +25,176 @@ export const defaultAuthor = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "thermostat-setting-while-away-winter",
+    title: "What Temperature Should You Set Your Thermostat Before You Leave for Thanksgiving?",
+    excerpt:
+      "Turning the furnace off while you're away doesn't save what people think it saves, and it puts your pipes at real risk. The number that actually works, and what changes if you're gone more than a few days.",
+    content: `
+      <h2>The Short Answer: 55 to 60°F, Never Off</h2>
+      <p>Set the thermostat to 55-60°F before you leave for any trip longer than a day during the Inland Empire's heating season, and never switch the furnace off entirely. That range keeps the inside of exterior walls — where most of your supply pipes run — above the temperature where they freeze, while still cutting your gas use meaningfully versus leaving it at a normal daytime setting.</p>
+      <p>The number matters more than people expect. Go lower than 55°F and the margin against a hard freeze gets thin fast, especially overnight in <a href="/service-areas/redlands/">Redlands</a> and <a href="/service-areas/temecula/">Temecula</a>, where Thanksgiving-week lows regularly sit in the high 30s.</p>
+
+      <h2>Why Not Just Turn It Off?</h2>
+      <p>An empty house with the furnace off cools to whatever the outside temperature is, minus whatever insulation buys you — and insulation buys you less than people assume once a cold front settles in for a few days straight. Pipes running through an exterior wall, a garage, or an attic have almost no buffer once the house interior drops into the 40s.</p>
+      <p>A burst pipe while you're away isn't a repair you catch early. It's a repair you come home to, usually with water damage that costs far more than the gas you saved by shutting the furnace off completely.</p>
+
+      <h2>Why Not Just Leave It at 70°F Either</h2>
+      <p>The furnace doesn't need to keep the house at living-room temperature for nobody. Every degree you hold above the 55-60°F floor is gas spent maintaining comfort that no one is there to feel. The setback is the entire point — you're protecting the pipes, not heating the house for a trip you're not taking.</p>
+
+      <h2>Setback by How Long You're Gone</h2>
+      <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>Length of trip</th><th>Recommended setting</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Overnight or a weekend</td><td>62-65°F</td><td>Short enough that deep savings aren't worth the lower margin</td></tr>
+          <tr><td>A week (typical holiday trip)</td><td>58-60°F</td><td>Meaningful savings with a real buffer against a cold snap</td></tr>
+          <tr><td>Two weeks or more</td><td>55-58°F, and have someone check the house</td><td>Longer exposure to any single hard freeze or equipment issue</td></tr>
+          <tr><td>Home with pets left behind</td><td>65°F minimum</td><td>Pets can't layer on a sweater or move to a warmer room</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>The Exterior-Wall Pipe Problem Is Worse in Some Inland Empire Homes Than Others</h2>
+      <p>Newer construction with pipes run entirely through conditioned interior space is fairly forgiving. Older homes in <a href="/service-areas/redlands/">Redlands</a> and parts of <a href="/service-areas/moreno-valley/">Moreno Valley</a> sometimes have a kitchen or laundry line running through an exterior wall or an unconditioned garage, and that's the line that freezes first — often before the rest of the house feels cold at all. If you don't know whether your plumbing runs through an exterior wall, open the cabinet under any sink on an exterior wall and leave the door open while you're gone. It costs nothing and lets room-temperature air reach the pipe.</p>
+
+      <h2>If You Have a Smart Thermostat</h2>
+      <p>This is the one job a smart thermostat does better than you will, every time, without you remembering to do it. Set an away schedule once and it holds the setback automatically, then ramps the house back to comfortable before you walk in the door — geofencing handles that last part on most models without you touching the app. If you haven't decided whether a smart thermostat is worth buying, our breakdown of <a href="/blog/smart-thermostats-worth-it-perris-menifee/">whether smart thermostats are worth it for Perris and Menifee homes</a> covers the real payback, not just the marketing version.</p>
+
+      <h2>If You Don't Have One</h2>
+      <ul>
+        <li>Set the manual thermostat to the number from the table above before you lock the door — not a lower number "just to be safe," which defeats the purpose</li>
+        <li>Open cabinet doors under sinks on exterior walls</li>
+        <li>Ask a neighbor to glance at the house if you're gone more than a week, especially during a forecasted cold snap</li>
+        <li>Leave interior doors open so heat moves freely between rooms instead of pooling near the thermostat alone</li>
+      </ul>
+
+      <h2>What About the Water Heater?</h2>
+      <p>Leave it as is for trips under two weeks — standing loss is minor and not worth the recovery time when you're back. For longer absences, a vacation mode (most tank water heaters have one) trims standby loss without the multi-hour recovery a full shutdown requires.</p>
+
+      <h2>Coming Home to No Heat</h2>
+      <p>If you come back and the furnace won't climb out of that 55-60°F setback — it fires but the house stalls, or it won't fire at all — don't assume the worst and don't keep cycling the thermostat hoping it catches up on its own. Work through our <a href="/blog/christmas-furnace-emergency/">no-heat emergency guide</a> first, and if the furnace does catch up but the house feels unexpectedly dry afterward, that's a different and more common problem covered in <a href="/blog/heater-drying-out-air-inland-empire/">why your heater isn't actually drying out your air</a>.</p>
+
+      <h2>Common Questions</h2>
+      <h3>What temperature should I set my thermostat when traveling in winter?</h3>
+      <p>55 to 60°F for most Inland Empire homes on a trip of a week or less. Never switch the furnace off entirely — the point is protecting the pipes, not just saving gas.</p>
+
+      <h3>Can my pipes really freeze inside a heated house?</h3>
+      <p>Yes, if a supply line runs through an exterior wall, an attic, or a garage and the interior temperature drops far enough. These are the first lines to freeze, often before the rest of the house feels cold.</p>
+
+      <h3>Is it cheaper to leave the heat on low or turn it off completely while away?</h3>
+      <p>Low, every time. A furnace recovering a fully cold house to a comfortable temperature runs far longer and harder than one maintaining a modest setback, and a frozen or burst pipe erases any gas you saved many times over.</p>
+
+      <h3>Does a smart thermostat actually help with this?</h3>
+      <p>Yes — it's one of the clearest cases where the automation earns its cost. An away schedule holds the setback without you remembering, and most models bring the house back to temperature before you arrive.</p>
+
+      <h3>What if I'm only gone for one night?</h3>
+      <p>A deep setback isn't worth it for an overnight trip. 62-65°F is enough to save a little without meaningfully increasing freeze risk for that short a window.</p>
+
+      <h2>Get the House Set Up Right Before You Go</h2>
+      <p>If you're not confident your thermostat schedule, your furnace, or your plumbing can handle a week of cold Inland Empire nights with nobody home, get it looked at before you leave rather than finding out when you get back. Our {{RATING}}-star rated team handles <a href="/service/hvac-maintenance/">HVAC maintenance</a> and <a href="/service/furnace-repair/">furnace repair</a> across <a href="/service-areas/moreno-valley/">Moreno Valley</a> and the Inland Empire — including thermostat setup and programming. For broader winter preparedness beyond HVAC, FEMA's <a href="https://www.ready.gov/winter-weather" target="_blank" rel="noopener noreferrer">Ready.gov winter weather guidance</a> is worth a look too. <a href="/contact-us/">Schedule a pre-holiday check</a> or call (951) 331-3310.</p>
+    `,
+    featuredImage: "/images/blog/home-thermostat-cool-mode.webp",
+    featuredImageWidth: 1280,
+    featuredImageHeight: 853,
+    author: defaultAuthor.name,
+    authorTitle: defaultAuthor.title,
+    authorBio: defaultAuthor.bio,
+    publishedDate: "2026-11-13",
+    category: "Energy Efficiency",
+    tags: ["thermostat settings", "frozen pipes", "winter travel", "smart thermostat"],
+    metaTitle: "What Temperature to Set Your Thermostat When Away",
+    metaDescription:
+      "Set your thermostat to 55-60°F before a winter trip, never off. The number that protects your pipes, and what changes if you're gone more than a week.",
+  },
+  {
+    slug: "space-heater-safety-inland-empire",
+    title: "Space Heater Safety in the Inland Empire: What's Actually Safe to Run Overnight",
+    excerpt:
+      "A space heater used correctly is low-risk. Used the way most people actually use one, it's the most preventable fire hazard in an Inland Empire home every winter. The three-foot rule, the overnight answer, and when the real fix is your furnace.",
+    content: `
+      <h2>Space Heaters Don't Start Fires on Their Own. These Five Habits Do.</h2>
+      <p>A space heater used correctly — on a hard floor, three feet from anything, plugged straight into the wall, and watched — is a low-risk appliance. Almost every space-heater fire traces back to one of five specific, preventable habits, not a defective unit. Know the five and you've eliminated most of the risk already.</p>
+      <p>That matters right now because late November is exactly when portable heaters come out of the garage across the Inland Empire — a bedroom that never quite warms up, a home office in a converted garage, a bonus room the ductwork never reached well. None of those are the problem. How the heater gets used is.</p>
+
+      <h2>The Three-Foot Rule Is Not a Suggestion</h2>
+      <p>Keep a minimum of three feet of clearance between any space heater and anything that can burn — bedding, curtains, furniture, stacked boxes, a stray towel. That distance comes from the National Fire Protection Association, and it's the single most cited factor in space-heater fire investigations.</p>
+      <p>Three more rules travel with it, every one of them non-negotiable:</p>
+      <ul>
+        <li><strong>Hard, level, flat surface only.</strong> Never a rug, a bed, or carpet. Tip-over protection only works if the heater is sitting flat to begin with.</li>
+        <li><strong>Straight into the wall outlet.</strong> Never an extension cord, never a power strip. A space heater draws enough current to overheat a cord rated for lighter loads, and that failure happens inside the wall where you can't see it starting.</li>
+        <li><strong>Off when you leave the room, off when you go to bed.</strong> A space heater is not a furnace. It's not built to run unattended for hours, and most manufacturers say so directly in the manual nobody reads.</li>
+      </ul>
+      <p>The <a href="https://www.cpsc.gov/Newsroom/News-Releases/2026/Keep-Warm-and-Safe-This-Winter-Tips-for-Using-Generators-Furnaces-and-Space-Heaters" target="_blank" rel="noopener noreferrer">Consumer Product Safety Commission's winter heating safety guidance</a> covers generators and furnaces too, if you're running more than a space heater this season.</p>
+
+      <h2>Why You're Reaching for One in the First Place</h2>
+      <p>Here's the part worth sitting with for a second: if you're running a space heater in a specific room every single night, that room is telling you something about your HVAC system, not just about the weather. A bedroom at the end of a long duct run, a converted garage with no supply register at all, or a furnace that's short-cycling and never quite catching up are the three situations we see most.</p>
+      <p>A space heater patches the symptom. It doesn't fix a duct that was never sized for that room, and it doesn't fix a furnace that's limping. If the room has never been warm without a plug-in heater running, that's worth a <a href="/service/furnace-repair/">furnace repair</a> visit rather than a bigger heater. If the furnace itself is acting strange — cycling off before the room catches up, or blowing air that never quite turns warm — the pattern usually matches one of the causes in our guide to a <a href="/blog/furnace-blowing-cold-air/">furnace blowing cold air</a>.</p>
+
+      <h2>Match the Mistake to the Risk</h2>
+      <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>What people actually do</th><th>Why it's dangerous</th><th>What to do instead</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Set it on a rug or at the foot of the bed</td><td>Fabric ignites at a lower temperature than the heater's coil runs at</td><td>Hard floor only, three feet from the bed frame</td></tr>
+          <tr><td>Plug it into a power strip with other devices</td><td>Combined draw exceeds the strip's rating and overheats the connection</td><td>Direct wall outlet, nothing else sharing it</td></tr>
+          <tr><td>Leave it running overnight in an empty room</td><td>Nobody is there to smell smoke or react to a tip-over</td><td>Off when the room is unoccupied, no exceptions</td></tr>
+          <tr><td>Drape a towel over it to dry</td><td>Direct contact with the heating element at close range</td><td>Never use a heater as a drying rack</td></tr>
+          <tr><td>Keep running one with a frayed cord or cracked housing</td><td>Exposed wiring next to a hot internal component</td><td>Replace the unit — don't tape the cord</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>Electric Heaters Don't Carry a Carbon Monoxide Risk. Fuel-Burning Ones Do.</h2>
+      <p>A standard plug-in electric space heater produces no combustion byproducts at all — no CO, because nothing is burning. That's genuinely different from a kerosene or propane heater, which should never run inside a closed house regardless of how the box describes it as "indoor-rated." Those units need real ventilation, and a bedroom with the door shut is not that.</p>
+      <p>If anyone in the house is running anything other than an electric heater this winter — or if you're not sure your carbon monoxide alarms are still good — our <a href="/blog/fall-carbon-monoxide-safety-checks/">fall carbon monoxide safety checklist</a> covers placement and the expiration date most people never check.</p>
+
+      <h2>Is It Safe to Leave a Space Heater on Overnight?</h2>
+      <p>No, not for a standard plug-in unit, even a newer one with tip-over shutoff and overheat protection. Those features reduce risk; they don't make unattended overnight operation safe. The practice that actually works: run it while you're awake and in the room, and switch it off before you sleep or leave.</p>
+      <p>If a bedroom genuinely needs supplemental heat every night of the season, that's the clearest sign this is a system problem, not a product problem — and the better fix is sealing and balancing that room's heating, not a heater running six hours unattended.</p>
+
+      <h2>What a Space Heater Actually Pulls From Your Panel</h2>
+      <p>Most portable electric space heaters are built to the same 1,500-watt ceiling, because that's close to the maximum a standard 15-amp household circuit can carry continuously. Running one in every cold room of the house, every evening, adds up fast on an SCE bill — and it's doing room-by-room what a correctly sized furnace and sealed ducts are supposed to do for the whole house at once.</p>
+
+      <h2>When a Heater Isn't the Real Answer</h2>
+      <p>If you're running a space heater because the furnace can't keep up — not because one room is drafty, but because the whole house runs cold no matter how long the furnace cycles — that's a <a href="/service/furnace-repair/">furnace repair</a> call, not a space-heater upgrade. We see this most in <a href="/service-areas/banning/">Banning</a> and the other pass communities, where overnight lows drop hardest, and in older <a href="/service-areas/yucaipa/">Yucaipa</a> homes where the ductwork was never resized after a room addition. A <a href="/service/hvac-maintenance/">seasonal tune-up</a> before the coldest stretch of the year catches a weak furnace before you're relying on a plug-in heater to get through January.</p>
+
+      <h2>Common Questions</h2>
+      <h3>Is it safe to leave a space heater on overnight?</h3>
+      <p>Not for a standard plug-in unit. Tip-over and overheat protection reduce risk but don't make unattended overnight use safe. Run it while you're awake in the room, and turn it off before bed.</p>
+
+      <h3>Can a space heater raise my carbon monoxide risk?</h3>
+      <p>An electric space heater does not — it doesn't burn anything, so there's nothing to produce CO. A kerosene or propane heater does, and should never run in a closed room or overnight.</p>
+
+      <h3>Is it okay to plug a space heater into a power strip or extension cord?</h3>
+      <p>No. A space heater draws enough current that an extension cord or power strip rated for lighter loads can overheat at the connection point. Plug directly into a wall outlet, with nothing else sharing it.</p>
+
+      <h3>Why does my space heater trip the breaker?</h3>
+      <p>Usually because something else on the same circuit — a hair dryer, a window AC unit, another heater — is drawing power at the same time and the combined load exceeds what the circuit is rated for. Move the heater to a circuit with less on it before assuming the heater itself is faulty.</p>
+
+      <h3>Should I just run a space heater instead of fixing my furnace?</h3>
+      <p>Not as a long-term plan. A space heater treats one room, costs more per degree than a working furnace heating the whole house, and does nothing for the problem causing the furnace to underperform in the first place. If the furnace is the actual issue, a diagnostic finds out why — and usually costs less than a season of running heaters.</p>
+
+      <h2>Get the Furnace Working, Not Just the Room</h2>
+      <p>If a space heater has become a permanent fixture in one room of your house, that room is telling you something about your system. A heating diagnostic checks airflow, duct balance, and furnace output so you find out whether it's a quick fix or a sign the furnace needs attention before the cold settles in for good. Our {{RATING}}-star rated team handles <a href="/service/furnace-repair/">furnace repair</a> and <a href="/service/hvac-maintenance/">HVAC maintenance</a> across <a href="/service-areas/moreno-valley/">Moreno Valley</a> and the Inland Empire. <a href="/contact-us/">Book a diagnostic</a> or call (951) 331-3310.</p>
+    `,
+    featuredImage: "/images/blog/hallway-supply-register-wall.webp",
+    featuredImageWidth: 1376,
+    featuredImageHeight: 768,
+    author: defaultAuthor.name,
+    authorTitle: defaultAuthor.title,
+    authorBio: defaultAuthor.bio,
+    publishedDate: "2026-11-06",
+    category: "Home Safety",
+    tags: ["space heater safety", "winter home safety", "furnace repair", "carbon monoxide"],
+    metaTitle: "Space Heater Safety: What's Actually Safe to Run",
+    metaDescription:
+      "Space heaters cause thousands of house fires each winter. What's actually safe to run overnight, and the sign your furnace — not the heater — is the real problem.",
+  },
+  {
     slug: "heater-drying-out-air-inland-empire",
     title: "Your Heater Is Not Drying Out Your Air. Here Is What Actually Is.",
     excerpt:
